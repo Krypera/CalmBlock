@@ -5,20 +5,33 @@ import { webext } from "../shared/webext";
 
 const globalToggle = document.querySelector<HTMLButtonElement>("#global-toggle");
 const siteToggle = document.querySelector<HTMLButtonElement>("#site-toggle");
+const globalStateEl = document.querySelector<HTMLElement>("#global-state");
+const siteStateEl = document.querySelector<HTMLElement>("#site-state");
 const siteStatus = document.querySelector<HTMLParagraphElement>("#site-status");
 const blockedCountEl = document.querySelector<HTMLElement>("#blocked-count");
 const categorySummary = document.querySelector<HTMLElement>("#category-summary");
+const blockedNoteEl = document.querySelector<HTMLElement>("#blocked-note");
 const reloadHint = document.querySelector<HTMLElement>("#reload-hint");
 
 let lastState: PopupState | null = null;
 let tabId: number | null = null;
 
-function setToggle(button: HTMLButtonElement | null, on: boolean, onText: string, offText: string) {
+function setToggle(
+  button: HTMLButtonElement | null,
+  pill: HTMLElement | null,
+  on: boolean,
+  onText: string,
+  offText: string
+) {
   if (!button) {
     return;
   }
   button.classList.toggle("on", on);
-  button.textContent = on ? onText : offText;
+  button.setAttribute("aria-pressed", String(on));
+  if (pill) {
+    pill.textContent = on ? onText : offText;
+    pill.classList.toggle("off", !on);
+  }
 }
 
 function renderCategories(state: PopupState) {
@@ -26,18 +39,37 @@ function renderCategories(state: PopupState) {
     return;
   }
   categorySummary.innerHTML = "";
+  if (state.blockedCount === null) {
+    const empty = document.createElement("div");
+    empty.className = "qb-summary-empty";
+    empty.textContent = "Live category counts are unavailable in this tab.";
+    categorySummary.append(empty);
+    return;
+  }
+
   for (const key of PROTECTION_GROUPS.slice(0, 3)) {
     const chip = document.createElement("div");
     chip.className = "qb-chip";
-    chip.textContent = `${key}: ${state.blockedByCategory[key]}`;
+    const label = document.createElement("span");
+    label.className = "qb-chip-label";
+    label.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+    const value = document.createElement("strong");
+    value.className = "qb-chip-value";
+    value.textContent = String(state.blockedByCategory[key]);
+    chip.append(label, value);
     categorySummary.append(chip);
   }
 }
 
 function renderState(state: PopupState) {
   lastState = state;
-  setToggle(globalToggle, state.globalEnabled, "On", "Off");
-  setToggle(siteToggle, state.siteEnabled, "Protected", "Paused");
+  setToggle(globalToggle, globalStateEl, state.globalEnabled, "On", "Off");
+  const siteStateLabel = state.siteDisabled
+    ? "Paused"
+    : state.globalEnabled
+      ? "Protected"
+      : "Enabled";
+  setToggle(siteToggle, siteStateEl, state.siteEnabled, siteStateLabel, "Paused");
   if (siteStatus) {
     if (!state.globalEnabled) {
       siteStatus.textContent = state.siteDisabled
@@ -51,6 +83,14 @@ function renderState(state: PopupState) {
   }
   if (blockedCountEl) {
     blockedCountEl.textContent = state.blockedCount === null ? "-" : String(state.blockedCount);
+  }
+  if (blockedNoteEl) {
+    blockedNoteEl.textContent =
+      state.blockedCount === null
+        ? "Live counts are unavailable for this page."
+        : state.blockedCount === 0
+          ? "No blocked requests on this page yet."
+          : "Live counts for the current tab.";
   }
   renderCategories(state);
   if (reloadHint) {

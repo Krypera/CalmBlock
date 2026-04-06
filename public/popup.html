@@ -12,21 +12,54 @@
         <h1>CalmBlock</h1>
         <p>Strong privacy defaults, minimal fuss.</p>
       </header>
-      <section class="qb-card">
+      <section class="qb-card qb-card-control">
         <div class="qb-row">
-          <span>Global protection</span>
-          <button id="global-toggle" class="qb-toggle" type="button"></button>
+          <div class="qb-row-copy">
+            <span class="qb-label">Global protection</span>
+            <span class="qb-meta">Core rules and calm cleanup</span>
+          </div>
+          <div class="qb-row-action">
+            <span id="global-state" class="qb-pill">On</span>
+            <button
+              id="global-toggle"
+              class="qb-toggle"
+              type="button"
+              aria-label="Toggle global protection"
+              aria-pressed="true"
+            >
+              <span class="qb-toggle-knob"></span>
+            </button>
+          </div>
         </div>
         <div class="qb-row">
-          <span>This site</span>
-          <button id="site-toggle" class="qb-toggle" type="button"></button>
+          <div class="qb-row-copy">
+            <span class="qb-label">This site</span>
+            <span class="qb-meta">Fast pause for the current host</span>
+          </div>
+          <div class="qb-row-action">
+            <span id="site-state" class="qb-pill">Protected</span>
+            <button
+              id="site-toggle"
+              class="qb-toggle"
+              type="button"
+              aria-label="Toggle protection for this site"
+              aria-pressed="true"
+            >
+              <span class="qb-toggle-knob"></span>
+            </button>
+          </div>
         </div>
         <p id="site-status" class="qb-status">Loading...</p>
       </section>
-      <section class="qb-card">
+      <section class="qb-card qb-card-stats">
         <div class="qb-stat">
-          <span>Blocked on this page</span>
-          <strong id="blocked-count">-</strong>
+          <div class="qb-stat-copy">
+            <span class="qb-label">Blocked on this page</span>
+            <p id="blocked-note" class="qb-stat-note">Live counts for the current tab.</p>
+          </div>
+          <div class="qb-count-bubble">
+            <strong id="blocked-count">-</strong>
+          </div>
         </div>
         <div id="category-summary" class="qb-summary"></div>
       </section>

@@ -16,31 +16,34 @@
         <article class="opt-card">
           <h2>Protection groups</h2>
           <p class="muted">Simple defaults, clear controls.</p>
-          <label><input type="checkbox" id="group-ads" /> Ads</label>
-          <label><input type="checkbox" id="group-trackers" /> Trackers</label>
-          <label><input type="checkbox" id="group-annoyances" /> Annoyances</label>
-          <label><input type="checkbox" id="group-strict" /> Strict Privacy</label>
+          <div class="opt-stack">
+            <label class="opt-check"><input type="checkbox" id="group-ads" /> <span>Ads</span></label>
+            <label class="opt-check"><input type="checkbox" id="group-trackers" /> <span>Trackers</span></label>
+            <label class="opt-check"><input type="checkbox" id="group-annoyances" /> <span>Annoyances</span></label>
+            <label class="opt-check"><input type="checkbox" id="group-strict" /> <span>Strict Privacy</span></label>
+          </div>
         </article>
         <article class="opt-card">
           <h2>Allowlist</h2>
           <p class="muted">One host per line. Example: <code>example.com</code></p>
           <textarea id="allowlist" rows="8"></textarea>
-          <button id="save-allowlist" type="button">Save allowlist</button>
+          <button id="save-allowlist" class="opt-button opt-button-primary" type="button">Save allowlist</button>
         </article>
         <article class="opt-card">
           <h2>Advanced</h2>
-          <label><input type="checkbox" id="advanced-mode" /> Enable advanced mode</label>
-          <div class="row">
-            <button id="export-settings" type="button">Export settings</button>
-            <button id="import-settings" type="button">Import settings</button>
+          <label class="opt-check"><input type="checkbox" id="advanced-mode" /> <span>Enable advanced mode</span></label>
+          <div class="row opt-actions">
+            <button id="export-settings" class="opt-button" type="button">Export settings</button>
+            <button id="import-settings" class="opt-button" type="button">Import settings</button>
             <input id="import-file" type="file" accept="application/json" class="hidden" />
           </div>
           <a id="debug-link" class="hidden" href="debug.html" target="_blank" rel="noreferrer">Open local debug page</a>
         </article>
         <article class="opt-card">
           <h2>Permissions</h2>
-          <ul>
+          <ul class="opt-list">
             <li><code>declarativeNetRequest</code>: network request blocking via local rules.</li>
+            <li><code>activeTab</code>: current-tab block counts when you open the popup.</li>
             <li><code>storage</code>: keep settings and allowlist on device.</li>
             <li><code>tabs</code>: read current tab host for fast site toggle.</li>
             <li><code>&lt;all_urls&gt;</code>: apply protections where you browse.</li>
@@ -48,7 +51,7 @@
         </article>
         <article class="opt-card">
           <h2>Privacy guarantees</h2>
-          <ul>
+          <ul class="opt-list">
             <li>No telemetry</li>
             <li>No analytics</li>
             <li>No remote logging</li>

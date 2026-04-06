@@ -40,10 +40,12 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - Project narrative shifted from store-readiness framing to sustainability + contributor readiness.
 - Repository support flow shifted from GitHub Sponsors to a quieter crypto-only support page.
 - `SUPPORT.md` rewritten to keep support optional, pressure-free, and crypto-only.
+- Popup and settings surfaces softened with more rounded controls, calmer spacing, and overflow-safe layouts.
 
 ### Fixed
 
 - Type-check command availability via `npm run typecheck`.
+- Current-page block totals now use current-tab DNR access and count only matched blocking rulesets.
 
 ### Notes
 

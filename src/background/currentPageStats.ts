@@ -30,7 +30,8 @@ export async function getCurrentPageStats(tabId: number): Promise<{
         byCategory[category] += 1;
       }
     }
-    return { total: matched.length, byCategory };
+    const total = Object.values(byCategory).reduce((sum, value) => sum + value, 0);
+    return { total, byCategory };
   } catch {
     return { total: null, byCategory };
   }
