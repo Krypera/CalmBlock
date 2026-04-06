@@ -5,11 +5,7 @@ CalmBlock is maintained in open source, with a deliberately low-pressure support
 Support is fully optional.  
 If you choose to support, it helps keep maintenance steady and makes it easier to balance project work with school.
 
-## Support Style
-
-- Crypto-only
-- Quiet and non-intrusive
-- No popups, nags, or guilt-driven copy
+If you enjoy CalmBlock and care about the project, I am genuinely grateful. It means a lot to know the work is useful and that people love what this project is trying to be.
 
 ## Wallet Status
 
@@ -29,4 +25,3 @@ SOL:
 - browser compatibility verification
 - issue review and contributor onboarding
 - long-term project upkeep
-
