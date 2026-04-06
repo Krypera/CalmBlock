@@ -6,6 +6,8 @@
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-4b9de8)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-0ea5e9)
 
+![CalmBlock Popup](./assets/popup-preview.gif)
+
 > Calm, privacy-first blocking for a noisier web.
 
 No telemetry. No analytics. No remote code. No accounts.

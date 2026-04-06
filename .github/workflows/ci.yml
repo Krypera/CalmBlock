@@ -29,6 +29,16 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Lint
+        run: npm run lint
+
       - name: Build
         run: npm run build
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: calmblock-build-${{ github.sha }}
+          path: |
+            dist/chrome/**
+            dist/firefox/**
