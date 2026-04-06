@@ -6,8 +6,8 @@
   "private": false,
   "license": "MIT",
   "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/Krypera"
+    "type": "other",
+    "url": "https://github.com/Krypera/CalmBlock/blob/main/SUPPORT.md"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

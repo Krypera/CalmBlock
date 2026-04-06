@@ -12,7 +12,6 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
   - `CONTRIBUTING.md`
   - `ROADMAP.md`
   - `RELEASE_READINESS.md`
-- GitHub Sponsors funding metadata and `.github/FUNDING.yml`.
 - `typecheck` and `lint` scripts for local quality gates.
 - Expanded MVP DNR rule coverage for:
   - `ads`
@@ -26,6 +25,7 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - Project branding renamed from QuietBlock to CalmBlock across code, UI, docs, and manifests.
 - README restructured for open-source clarity, trust guarantees, and contribution flow.
 - Project narrative shifted from store-readiness framing to sustainability + contributor readiness.
+- Repository support flow shifted from GitHub Sponsors to a quieter crypto-only support page.
 
 ### Fixed
 

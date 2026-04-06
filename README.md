@@ -1,134 +1,125 @@
 # CalmBlock
 
-CalmBlock is a calm, privacy-first content blocker for people who want strong defaults without living inside blocker settings.
+<div align="center">
+  <p><strong>A calm, privacy-first content blocker with strong defaults and a low-noise interface.</strong></p>
+  <p>No telemetry. No analytics. No accounts. No remote code.</p>
+</div>
 
-It is open-source first: readable code, honest scope, and no hidden tracking behavior.
+CalmBlock is built for people who want a quieter web without turning every tab into a configuration project.
 
-No telemetry. No analytics. No accounts. No remote code.
+It sits in the middle on purpose: simpler than maximalist blockers, more transparent than "just trust us" extensions.
 
-## Project purpose
+## At a glance
 
-CalmBlock exists to reduce browsing noise (ads, trackers, and common annoyances) while remaining understandable and maintainable for contributors.
+| Calm by default | Privacy first | Open-source first | Low-noise controls |
+| --- | --- | --- | --- |
+| Strong default groups without a maze of switches | No telemetry, analytics, cloud sync, or remote code | Readable code, explicit tradeoffs, contributor-friendly structure | Fast site toggle, allowlist, and simple group controls |
 
-This repository is optimized for:
+## What CalmBlock is trying to do
 
-- trust and transparency
-- contributor onboarding
-- privacy-preserving defaults
-- predictable architecture over feature sprawl
+- reduce ads, trackers, and common annoyances
+- stay understandable for contributors
+- keep permissions and behavior easy to explain
+- favor trust and maintainability over feature sprawl
 
-## Why this project exists
+## What it is not trying to be
 
-Some blockers are extremely powerful but intimidating. Others are simple but opaque. CalmBlock aims for a middle path:
-
-- strong curated defaults
-- low-friction site controls
-- clear tradeoffs
-- maintainable implementation
+- a full uBlock Origin clone
+- a custom ABP engine from scratch
+- a paywall bypass tool
+- a telemetry-driven product
 
 ## Supported browsers
 
-- Chrome (Manifest V3 primary target)
-- Microsoft Edge (Manifest V3 primary target)
-- Firefox (shared codebase with lightweight compatibility handling)
+- Chrome
+- Microsoft Edge
+- Firefox
 
-Browser-store release is not the primary goal of this repository. Open-source quality is.
+Manifest V3 is the main architecture target. Browser-store release is not the main focus of this repository; open-source quality is.
 
-## Install (developer mode)
-
-1. Install dependencies:
+## Install
 
 ```bash
 npm install
-```
-
-2. Build:
-
-```bash
 npm run build
 ```
 
-3. Load unpacked extension:
-- Chrome/Edge: `dist/chrome`
-- Firefox: `dist/firefox`
+Load the unpacked build from:
 
-## Development commands
+- `dist/chrome` for Chrome and Edge
+- `dist/firefox` for Firefox
 
-- `npm run typecheck` -> TypeScript check (`tsc --noEmit`)
-- `npm test` -> unit/content/integration-style tests
-- `npm run build` -> build all browser targets
-- `npm run build:chrome` -> build Chrome/Edge target
-- `npm run build:firefox` -> build Firefox target
-- `npm run lint` -> strict TypeScript gate
+## Development
 
-## Architecture summary
+```bash
+npm run typecheck
+npm test
+npm run build
+```
+
+Additional commands:
+
+- `npm run build:chrome`
+- `npm run build:firefox`
+- `npm run lint`
+
+## Project shape
 
 - `src/background`: service worker orchestration, ruleset sync, migration, popup APIs
 - `src/content`: cosmetic filtering and annoyance suppression
 - `src/popup`: quick controls and local feedback
-- `src/options`: groups, allowlist, import/export, privacy explanations
-- `src/shared`: typed stores, adapters, message contracts, DNR helpers
-- `public/rules`: packaged DNR rules grouped as `ads`, `trackers`, `annoyances`, `strict`
-- `tests`: unit, content, and integration-style tests
+- `src/options`: group settings, allowlist, import/export, privacy explanations
+- `src/shared`: typed stores, adapters, contracts, DNR helpers
+- `public/rules`: packaged DNR rules for `ads`, `trackers`, `annoyances`, `strict`
+- `tests`: unit, content, and integration-style coverage
 
-## Rulesets and scope
+## Scope and limits
 
-CalmBlock uses packaged DNR rules with four groups:
+CalmBlock uses packaged DNR rules and a deliberately conservative feature set.
 
-1. Ads
-2. Trackers
-3. Annoyances
-4. Strict Privacy
+Current rule coverage is a meaningful MVP baseline, not parity with mature blockers that have had years of filter tuning.
 
-Current rule coverage is a meaningful MVP baseline, not parity with mature blockers that have many years of filter engineering.
+Known limitations:
 
-## Known limitations
+- DNR constraints prevent full ABP/uBO parity
+- anti-adblock handling is intentionally conservative
+- strict mode can break some sites
+- remote rule updates are intentionally not part of the model
 
-- DNR constraints prevent full ABP/uBO feature parity
-- Anti-adblock handling is intentionally conservative
-- Strict mode can break some sites
-- No remote list updates by design (packaged rules only)
+## Privacy model
 
-## Privacy guarantees
+- no telemetry
+- no analytics SDKs
+- no remote logging
+- no accounts or cloud sync
+- no remote code execution
 
-- No telemetry
-- No analytics SDKs
-- No remote logging
-- No accounts or cloud sync
-- No remote code execution
-
-Advanced debug behavior is local-only and opt-in.
+Advanced debug behavior stays local-only and opt-in.
 
 ## Contributing
-
-See:
 
 - [CONTRIBUTING.md](./CONTRIBUTING.md)
 - [ROADMAP.md](./ROADMAP.md)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [RELEASE_READINESS.md](./RELEASE_READINESS.md)
 
-## Support the project
+## Support
 
-CalmBlock is maintained as an open-source volunteer project.
+CalmBlock is maintained slowly and deliberately.
 
-You can support maintenance through GitHub Sponsors:
+If it makes your browsing calmer and you want to help keep the project healthy, support is welcome. The support model is intentionally quiet: crypto-only, clear, and pressure-free.
 
-- [GitHub Sponsors - Krypera](https://github.com/sponsors/Krypera)
+Support also helps keep CalmBlock sustainable while I balance it with school.
 
-Support helps fund:
+Support details live here:
 
-- rule maintenance and breakage triage
-- cross-browser testing and fixes
-- documentation and contributor support
-- long-term upkeep and release hygiene
+- [Support CalmBlock](./SUPPORT.md)
 
 ## Non-goals
 
-- Full uBlock Origin parity
-- Custom ABP parser from scratch
-- Paywall bypass features
-- Telemetry dashboards
-- Cloud account/sync model
-- Remote script update mechanisms
-
+- full uBlock Origin parity
+- custom ABP parser from scratch
+- paywall bypass features
+- telemetry dashboards
+- cloud account/sync model
+- remote script update mechanisms
