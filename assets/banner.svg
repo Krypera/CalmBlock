@@ -25,7 +25,7 @@
   <path d="M337 264.5L360 286L392 244" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
 
   <text x="460" y="254" fill="#16324A" font-size="66" font-family="Segoe UI, Arial, sans-serif" font-weight="700">CalmBlock</text>
-  <text x="462" y="300" fill="#40617D" font-size="30" font-family="Segoe UI, Arial, sans-serif">Quiet protection for a noisier web.</text>
+  <text x="462" y="300" fill="#40617D" font-size="30" font-family="Segoe UI, Arial, sans-serif">Strong privacy defaults, minimal fuss.</text>
 
   <rect x="462" y="340" width="170" height="48" rx="24" fill="#EAF4FF"/>
   <text x="489" y="372" fill="#32618A" font-size="22" font-family="Segoe UI, Arial, sans-serif">Privacy-first</text>
@@ -37,7 +37,6 @@
   <text x="839" y="372" fill="#32618A" font-size="22" font-family="Segoe UI, Arial, sans-serif">Open-source</text>
 
   <text x="640" y="452" text-anchor="middle" fill="#62819E" font-size="22" font-family="Segoe UI, Arial, sans-serif">
-    Manifest V3 · TypeScript · Calm UX
+    Manifest V3 / TypeScript / Local-first
   </text>
 </svg>
-

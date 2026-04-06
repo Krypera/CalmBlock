@@ -19,7 +19,7 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
   - security policy (`.github/SECURITY.md`)
 - Repo visibility files:
   - `assets/banner.svg`
-  - `assets/popup-preview.png`
+  - `assets/interface-showcase.svg`
   - `docs/index.html`
   - `REPO_SETUP.md`
   - `RELEASE_TEMPLATE.md`
@@ -36,6 +36,7 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 
 - Project branding renamed from QuietBlock to CalmBlock across code, UI, docs, and manifests.
 - README restructured as a cleaner GitHub landing page (badges, install steps, visual header).
+- README visual hierarchy tightened around a single banner plus interface overview, replacing the redundant single-frame popup preview.
 - Project narrative shifted from store-readiness framing to sustainability + contributor readiness.
 - Repository support flow shifted from GitHub Sponsors to a quieter crypto-only support page.
 - `SUPPORT.md` rewritten to keep support optional, pressure-free, and crypto-only.

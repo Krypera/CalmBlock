@@ -1,28 +1,26 @@
 # CalmBlock
 
+![CalmBlock Banner](./assets/banner.svg)
+
 ![CI](https://github.com/Krypera/CalmBlock/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/github/license/Krypera/CalmBlock)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Manifest V3](https://img.shields.io/badge/Manifest-V3-4b9de8)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-0ea5e9)
 
-![CalmBlock Popup](./assets/popup-preview.gif)
-
 > Calm, privacy-first blocking for a noisier web.
 
 No telemetry. No analytics. No remote code. No accounts.
-
-![CalmBlock Banner](./assets/banner.svg)
 
 CalmBlock is a browser extension for people who want strong defaults and simple controls without drowning in advanced settings.
 
 It is intentionally scoped: practical protection, low-friction UX, and contributor-friendly architecture.
 
-## Preview
+## Interface
 
-Popup preview from local build:
+A lightweight overview of the popup and settings surfaces:
 
-![CalmBlock Popup Preview](./assets/popup-preview.png)
+![CalmBlock Interface Overview](./assets/interface-showcase.svg)
 
 ## At A Glance
 

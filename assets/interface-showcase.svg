@@ -1,0 +1,96 @@
+<svg width="1280" height="860" viewBox="0 0 1280 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#EDF5FF"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FBFF"/>
+    </linearGradient>
+    <filter id="softShadow" x="0" y="0" width="1280" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#8FAFD0" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <circle cx="1120" cy="110" r="120" fill="#DFEEFF"/>
+  <circle cx="146" cy="726" r="170" fill="#DCEBFF"/>
+  <circle cx="964" cy="742" r="104" fill="#EAF4FF"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="88" y="118" width="388" height="624" rx="34" fill="url(#panel)"/>
+  </g>
+  <text x="126" y="176" fill="#17324A" font-size="20" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Popup</text>
+  <text x="126" y="204" fill="#5A728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Fast controls for the current site</text>
+
+  <rect x="118" y="236" width="328" height="204" rx="24" fill="#FFFFFF"/>
+  <rect x="118" y="236" width="328" height="204" rx="24" stroke="#D9E8F8"/>
+  <text x="144" y="282" fill="#1C2B39" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">CalmBlock</text>
+  <text x="144" y="312" fill="#5E7389" font-size="13" font-family="Segoe UI, Arial, sans-serif">Strong privacy defaults, minimal fuss.</text>
+
+  <text x="144" y="366" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Global protection</text>
+  <rect x="332" y="344" width="84" height="36" rx="18" fill="#76B4FF"/>
+  <circle cx="390" cy="362" r="14" fill="#FFFFFF"/>
+
+  <text x="144" y="420" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">This site</text>
+  <rect x="332" y="398" width="84" height="36" rx="18" fill="#76B4FF"/>
+  <circle cx="390" cy="416" r="14" fill="#FFFFFF"/>
+
+  <text x="144" y="470" fill="#4F6982" font-size="14" font-family="Segoe UI, Arial, sans-serif">This site is currently protected.</text>
+
+  <rect x="118" y="464" width="328" height="146" rx="24" fill="#FFFFFF"/>
+  <rect x="118" y="464" width="328" height="146" rx="24" stroke="#D9E8F8"/>
+  <text x="144" y="514" fill="#1E2D3B" font-size="16" font-family="Segoe UI, Arial, sans-serif">Blocked on this page</text>
+  <text x="394" y="516" text-anchor="end" fill="#19344C" font-size="34" font-family="Segoe UI, Arial, sans-serif" font-weight="700">23</text>
+
+  <rect x="144" y="542" width="70" height="36" rx="18" fill="#EEF5FF"/>
+  <text x="179" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Ads</text>
+  <rect x="226" y="542" width="92" height="36" rx="18" fill="#EEF5FF"/>
+  <text x="272" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Trackers</text>
+  <rect x="330" y="542" width="122" height="36" rx="18" fill="#EEF5FF"/>
+  <text x="391" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Annoyances</text>
+
+  <text x="126" y="666" fill="#4B6984" font-size="13" font-family="Segoe UI, Arial, sans-serif">No telemetry. No analytics. No remote code.</text>
+  <text x="126" y="694" fill="#2F5D87" font-size="13" font-family="Segoe UI, Arial, sans-serif">Open settings</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="524" y="146" width="668" height="564" rx="34" fill="url(#panel)"/>
+  </g>
+  <text x="566" y="208" fill="#17324A" font-size="20" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Settings</text>
+  <text x="566" y="236" fill="#5A728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Simple defaults, clear controls.</text>
+
+  <rect x="556" y="268" width="286" height="188" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
+  <text x="584" y="314" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Protection groups</text>
+  <text x="584" y="340" fill="#5B728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Strong defaults, easy to understand.</text>
+
+  <circle cx="602" cy="374" r="9" fill="#6FB2FF"/>
+  <text x="626" y="380" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Ads</text>
+  <circle cx="602" cy="406" r="9" fill="#6FB2FF"/>
+  <text x="626" y="412" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Trackers</text>
+  <circle cx="602" cy="438" r="9" fill="#6FB2FF"/>
+  <text x="626" y="444" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Annoyances</text>
+  <circle cx="738" cy="374" r="9" fill="#D8E6F5"/>
+  <text x="762" y="380" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Strict Privacy</text>
+
+  <rect x="874" y="268" width="286" height="188" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
+  <text x="902" y="314" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Allowlist</text>
+  <text x="902" y="340" fill="#5B728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">One host per line. Example: example.com</text>
+  <rect x="902" y="362" width="230" height="64" rx="16" fill="#F5F9FF" stroke="#DCE8F6"/>
+  <text x="922" y="390" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">docs.example</text>
+  <text x="922" y="412" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">support.example</text>
+  <rect x="902" y="438" width="126" height="34" rx="17" fill="#76B4FF"/>
+  <text x="965" y="460" text-anchor="middle" fill="#16314A" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Save allowlist</text>
+
+  <rect x="556" y="486" width="286" height="178" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
+  <text x="584" y="532" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Privacy guarantees</text>
+  <text x="584" y="566" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No telemetry</text>
+  <text x="584" y="594" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No analytics</text>
+  <text x="584" y="622" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No accounts or cloud sync</text>
+
+  <rect x="874" y="486" width="286" height="178" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
+  <text x="902" y="532" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Permissions</text>
+  <text x="902" y="566" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">declarativeNetRequest for local blocking</text>
+  <text x="902" y="594" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">storage for local settings and allowlist</text>
+  <text x="902" y="622" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">tabs for the current-site toggle</text>
+</svg>
