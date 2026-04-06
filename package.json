@@ -15,6 +15,9 @@
     "build": "node scripts/build.mjs all",
     "build:chrome": "node scripts/build.mjs chrome",
     "build:firefox": "node scripts/build.mjs firefox",
+    "package:chrome": "npm run build:chrome && node scripts/package.mjs chrome",
+    "package:firefox": "npm run build:firefox && node scripts/package.mjs firefox",
+    "package:all": "npm run build && node scripts/package.mjs all",
     "dev:chrome": "node scripts/build.mjs chrome --watch",
     "dev:firefox": "node scripts/build.mjs firefox --watch",
     "test": "vitest run",
@@ -23,6 +26,7 @@
   },
   "devDependencies": {
     "@types/firefox-webext-browser": "^120.0.4",
+    "archiver": "^7.0.1",
     "esbuild": "^0.25.4",
     "jsdom": "^26.1.0",
     "typescript": "^5.8.3",

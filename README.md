@@ -31,6 +31,27 @@ Popup preview from local build:
 
 ## Install
 
+### Option A: Quick package files (recommended)
+
+Produce ready-to-share zip packages:
+
+```bash
+npm install
+npm run package:all
+```
+
+Generated files:
+
+- `dist/packages/calmblock-chrome-v<version>.zip`
+- `dist/packages/calmblock-firefox-v<version>.zip`
+
+Then:
+
+- Chrome/Edge: unzip `calmblock-chrome-...zip`, then use `Load unpacked` on the extracted folder.
+- Firefox: unzip `calmblock-firefox-...zip`, then load `manifest.json` from `about:debugging#/runtime/this-firefox`.
+
+### Option B: Direct build output
+
 1. Clone and install dependencies:
 
 ```bash
