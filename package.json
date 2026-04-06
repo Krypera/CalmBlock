@@ -21,7 +21,6 @@
     "test:watch": "vitest",
     "clean": "node scripts/clean.mjs"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/firefox-webext-browser": "^120.0.4",
     "esbuild": "^0.25.4",

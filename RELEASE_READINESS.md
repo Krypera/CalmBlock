@@ -25,6 +25,7 @@ Scope here is not browser-store submission. Scope is trust, maintainability, and
 - [x] `ROADMAP.md` is current
 - [x] `CHANGELOG.md` updated for notable changes
 - [x] Permissions and privacy behavior are explained plainly
+- [x] Community templates exist (bug/filter/PR/security)
 
 ## Ruleset gates
 
@@ -38,6 +39,7 @@ Scope here is not browser-store submission. Scope is trust, maintainability, and
 - [x] New code includes focused tests where behavior changed
 - [x] Advanced/debug behavior remains opt-in and local-only
 - [x] Import/export paths validate input safely
+- [x] CI workflow validates typecheck/test/build on pushes and PRs
 
 ## Current status notes
 
@@ -45,3 +47,4 @@ Scope here is not browser-store submission. Scope is trust, maintainability, and
 - Storage keys were renamed to `calmblock.*` with legacy migration logic for prior `quietblock.*` keys.
 - Rules are intentionally curated and conservative.
 - Site-breakage handling and rule coverage depth are ongoing work.
+- README now includes badges, install flow clarity, and repo-facing visual polish.

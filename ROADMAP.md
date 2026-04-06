@@ -2,30 +2,31 @@
 
 This roadmap is intentionally practical. CalmBlock favors trust, stability, and clarity over maximal feature count.
 
-## Near term (next 1-2 releases)
+## Near Term (next 1-2 releases)
 
 - Improve packaged DNR rule quality with curated additions and regression checks.
 - Add more nuisance-pattern regression fixtures for cosmetic/annoyance behavior.
-- Improve popup explanations for why protection is limited on some tabs/pages.
+- Improve popup explanations for limited protection contexts.
 - Add stronger import/export validation edge-case tests.
-- Document compatibility differences across Chrome/Edge/Firefox more explicitly.
+- Document browser compatibility differences more explicitly.
 
-## Mid term
+## Mid Term
 
 - Introduce a reproducible build-time rules packaging pipeline from curated public sources.
-- Add optional advanced element-hide helper with strict guardrails.
+- Add an optional advanced element-hide helper with strict guardrails.
 - Add contributor docs for triaging site-breakage reports.
-- Add automated release checks for typecheck/test/build + artifact sanity.
+- Add automated release checks for typecheck/test/build plus artifact sanity.
 
-## Long term
+## Long Term
 
 - Improve category-level transparency for blocked requests.
 - Expand strict mode controls with safer defaults and clearer risk messaging.
-- Improve developer observability in local-only debug tools without adding telemetry.
+- Improve local-only debug ergonomics without weakening privacy guarantees.
 
-## Explicitly not planned
+## Explicitly Not Planned
 
 - Account systems
-- Telemetry/analytics dashboards
+- Telemetry or analytics dashboards
 - Remote-code update mechanisms
-- “Block everything” marketing claims
+- "Block everything" marketing claims
+

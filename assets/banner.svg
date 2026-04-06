@@ -1,0 +1,43 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6FAFF"/>
+      <stop offset="1" stop-color="#EAF3FF"/>
+    </linearGradient>
+    <linearGradient id="card" x1="240" y1="140" x2="1020" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F7FBFF"/>
+    </linearGradient>
+    <filter id="shadow" x="200" y="110" width="880" height="430" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#9AB8D8" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="1160" cy="96" r="140" fill="#DCEBFF"/>
+  <circle cx="160" cy="560" r="170" fill="#D9EAFF"/>
+
+  <g filter="url(#shadow)">
+    <rect x="240" y="140" width="800" height="360" rx="30" fill="url(#card)"/>
+  </g>
+
+  <rect x="300" y="200" width="126" height="126" rx="28" fill="#7DB7F3"/>
+  <path d="M337 264.5L360 286L392 244" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="460" y="254" fill="#16324A" font-size="66" font-family="Segoe UI, Arial, sans-serif" font-weight="700">CalmBlock</text>
+  <text x="462" y="300" fill="#40617D" font-size="30" font-family="Segoe UI, Arial, sans-serif">Quiet protection for a noisier web.</text>
+
+  <rect x="462" y="340" width="170" height="48" rx="24" fill="#EAF4FF"/>
+  <text x="489" y="372" fill="#32618A" font-size="22" font-family="Segoe UI, Arial, sans-serif">Privacy-first</text>
+
+  <rect x="648" y="340" width="146" height="48" rx="24" fill="#EAF4FF"/>
+  <text x="684" y="372" fill="#32618A" font-size="22" font-family="Segoe UI, Arial, sans-serif">No telemetry</text>
+
+  <rect x="808" y="340" width="154" height="48" rx="24" fill="#EAF4FF"/>
+  <text x="839" y="372" fill="#32618A" font-size="22" font-family="Segoe UI, Arial, sans-serif">Open-source</text>
+
+  <text x="640" y="452" text-anchor="middle" fill="#62819E" font-size="22" font-family="Segoe UI, Arial, sans-serif">
+    Manifest V3 · TypeScript · Calm UX
+  </text>
+</svg>
+

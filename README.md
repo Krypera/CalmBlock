@@ -1,53 +1,58 @@
 # CalmBlock
 
-<div align="center">
-  <p><strong>A calm, privacy-first content blocker with strong defaults and a low-noise interface.</strong></p>
-  <p>No telemetry. No analytics. No accounts. No remote code.</p>
-</div>
+![CI](https://github.com/Krypera/CalmBlock/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/github/license/Krypera/CalmBlock)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+![Manifest V3](https://img.shields.io/badge/Manifest-V3-4b9de8)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-0ea5e9)
 
-CalmBlock is built for people who want a quieter web without turning every tab into a configuration project.
+> Calm, privacy-first blocking for a noisier web.
 
-It sits in the middle on purpose: simpler than maximalist blockers, more transparent than "just trust us" extensions.
+No telemetry. No analytics. No remote code. No accounts.
 
-## At a glance
+![CalmBlock Banner](./assets/banner.svg)
 
-| Calm by default | Privacy first | Open-source first | Low-noise controls |
-| --- | --- | --- | --- |
-| Strong default groups without a maze of switches | No telemetry, analytics, cloud sync, or remote code | Readable code, explicit tradeoffs, contributor-friendly structure | Fast site toggle, allowlist, and simple group controls |
+CalmBlock is a browser extension for people who want strong defaults and simple controls without drowning in advanced settings.
 
-## What CalmBlock is trying to do
+It is intentionally scoped: practical protection, low-friction UX, and contributor-friendly architecture.
 
-- reduce ads, trackers, and common annoyances
-- stay understandable for contributors
-- keep permissions and behavior easy to explain
-- favor trust and maintainability over feature sprawl
+## Preview
 
-## What it is not trying to be
+Popup preview from local build:
 
-- a full uBlock Origin clone
-- a custom ABP engine from scratch
-- a paywall bypass tool
-- a telemetry-driven product
+![CalmBlock Popup Preview](./assets/popup-preview.png)
 
-## Supported browsers
+## At A Glance
 
-- Chrome
-- Microsoft Edge
-- Firefox
-
-Manifest V3 is the main architecture target. Browser-store release is not the main focus of this repository; open-source quality is.
+- Privacy-first model with explicit non-goals
+- Manifest V3 and DNR-first architecture
+- Cross-browser target: Chrome, Edge, Firefox
+- Local-first behavior and conservative defaults
 
 ## Install
 
+1. Clone and install dependencies:
+
 ```bash
 npm install
+```
+
+2. Build extension bundles:
+
+```bash
 npm run build
 ```
 
-Load the unpacked build from:
-
-- `dist/chrome` for Chrome and Edge
-- `dist/firefox` for Firefox
+3. Load unpacked in your browser:
+- Chrome/Edge:
+  - Open extension management page
+  - Enable Developer mode
+  - Click `Load unpacked`
+  - Select `dist/chrome`
+- Firefox:
+  - Open `about:debugging#/runtime/this-firefox`
+  - Click `Load Temporary Add-on...`
+  - Select `dist/firefox/manifest.json`
 
 ## Development
 
@@ -63,38 +68,44 @@ Additional commands:
 - `npm run build:firefox`
 - `npm run lint`
 
-## Project shape
+## Project Shape
 
-- `src/background`: service worker orchestration, ruleset sync, migration, popup APIs
+- `src/background`: startup, migration, ruleset sync, popup APIs
 - `src/content`: cosmetic filtering and annoyance suppression
-- `src/popup`: quick controls and local feedback
-- `src/options`: group settings, allowlist, import/export, privacy explanations
-- `src/shared`: typed stores, adapters, contracts, DNR helpers
-- `public/rules`: packaged DNR rules for `ads`, `trackers`, `annoyances`, `strict`
-- `tests`: unit, content, and integration-style coverage
+- `src/popup`: fast controls for global/site behavior
+- `src/options`: groups, allowlist, import/export, advanced toggle
+- `src/shared`: stores, adapters, contracts, DNR helpers
+- `public/rules`: packaged DNR rules (`ads`, `trackers`, `annoyances`, `strict`)
+- `tests`: unit + content + integration-style tests
 
-## Scope and limits
+## Scope And Limitations
 
-CalmBlock uses packaged DNR rules and a deliberately conservative feature set.
+CalmBlock is a meaningful MVP baseline, not a maximalist parity clone.
 
-Current rule coverage is a meaningful MVP baseline, not parity with mature blockers that have had years of filter tuning.
+Known limits:
 
-Known limitations:
+- DNR constraints vs full ABP/uBO syntax
+- Conservative anti-adblock handling
+- Strict mode can break some sites
+- No remote list update pipeline by design
 
-- DNR constraints prevent full ABP/uBO parity
-- anti-adblock handling is intentionally conservative
-- strict mode can break some sites
-- remote rule updates are intentionally not part of the model
-
-## Privacy model
+## Privacy Model
 
 - no telemetry
 - no analytics SDKs
 - no remote logging
-- no accounts or cloud sync
+- no accounts/cloud sync
 - no remote code execution
 
-Advanced debug behavior stays local-only and opt-in.
+Advanced debug behavior remains local-only and opt-in.
+
+## Support
+
+CalmBlock is maintained as a volunteer open-source project.
+
+If you want to support sustainability, the support path is intentionally quiet and optional.
+
+- [Support CalmBlock](./SUPPORT.md)
 
 ## Contributing
 
@@ -102,24 +113,6 @@ Advanced debug behavior stays local-only and opt-in.
 - [ROADMAP.md](./ROADMAP.md)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [RELEASE_READINESS.md](./RELEASE_READINESS.md)
-
-## Support
-
-CalmBlock is maintained slowly and deliberately.
-
-If it makes your browsing calmer and you want to help keep the project healthy, support is welcome. The support model is intentionally quiet: crypto-only, clear, and pressure-free.
-
-Support also helps keep CalmBlock sustainable while I balance it with school.
-
-Support details live here:
-
-- [Support CalmBlock](./SUPPORT.md)
-
-## Non-goals
-
-- full uBlock Origin parity
-- custom ABP parser from scratch
-- paywall bypass features
-- telemetry dashboards
-- cloud account/sync model
-- remote script update mechanisms
+- [RELEASE_TEMPLATE.md](./RELEASE_TEMPLATE.md)
+- [v0.1.0-alpha draft notes](./releases/v0.1.0-alpha.md)
+- [SECURITY.md](./.github/SECURITY.md)

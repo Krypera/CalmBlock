@@ -1,38 +1,32 @@
 # Support CalmBlock
 
-CalmBlock keeps support quiet on purpose.
+CalmBlock is maintained in open source, with a deliberately low-pressure support model.
 
-If the project makes your browsing calmer and you want to help keep it maintained, crypto support is welcome. The goal is to keep this low-pressure, transparent, and optional.
+Support is fully optional.  
+If you choose to support, it helps keep maintenance steady and makes it easier to balance project work with school.
 
-It also helps me cover some school expenses, which gives me more room to keep building and maintaining CalmBlock.
+## Support Style
 
-## Donation style
+- Crypto-only
+- Quiet and non-intrusive
+- No popups, nags, or guilt-driven copy
 
-- Crypto only
-- No popups, nags, or guilt-driven asks
-- Support goes toward maintenance, testing, and rule quality work
+## Wallet Status
 
-## Wallets
+Wallet addresses are not published yet.
 
-Public wallet addresses will be listed here once the long-term donation setup is finalized.
+When ready, this file will list them in a simple copy-paste format:
 
-When they are added, this page should stay simple:
+```text
+BTC:
+ETH (ERC-20):
+SOL:
+```
 
-- one address per network
-- copy-paste friendly formatting
-- clear labels
-- no marketing language
+## What Support Helps Cover
 
-Suggested networks:
-
-- Bitcoin (BTC)
-- Ethereum (ETH / ERC-20)
-- Solana (SOL)
-
-## What support helps with
-
-- ruleset maintenance and breakage triage
-- browser compatibility testing
+- rule maintenance and breakage triage
+- browser compatibility verification
 - issue review and contributor onboarding
-- steady long-term maintenance
-- making it easier to keep working on the project alongside school
+- long-term project upkeep
+
