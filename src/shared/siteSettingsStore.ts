@@ -37,5 +37,68 @@ export class SiteSettingsStore {
 }
 
 export function normalizeHost(host: string): string {
-  return host.trim().toLowerCase().replace(/^\.+/, "").replace(/\.+$/, "");
+  return sanitizeHostInput(host) ?? "";
+}
+
+export function sanitizeHostInput(input: string): string | null {
+  let value = input.trim().toLowerCase();
+  if (!value) {
+    return null;
+  }
+
+  if (value.includes("://")) {
+    try {
+      value = new URL(value).hostname.toLowerCase();
+    } catch {
+      return null;
+    }
+  }
+
+  value = value
+    .replace(/^\.+/, "")
+    .replace(/\.+$/, "")
+    .split(/[/?#]/, 1)[0]
+    .split(":", 1)[0]
+    .trim();
+
+  if (!value || value.includes("..")) {
+    return null;
+  }
+  if (isIPv4(value)) {
+    return value;
+  }
+  if (value === "localhost") {
+    return value;
+  }
+
+  const labels = value.split(".");
+  if (labels.length < 2) {
+    return null;
+  }
+  for (const label of labels) {
+    if (!label || label.length > 63) {
+      return null;
+    }
+    if (!/^[a-z0-9-]+$/.test(label)) {
+      return null;
+    }
+    if (label.startsWith("-") || label.endsWith("-")) {
+      return null;
+    }
+  }
+  return value;
+}
+
+function isIPv4(value: string): boolean {
+  const segments = value.split(".");
+  if (segments.length !== 4) {
+    return false;
+  }
+  return segments.every((segment) => {
+    if (!/^\d+$/.test(segment)) {
+      return false;
+    }
+    const number = Number(segment);
+    return number >= 0 && number <= 255;
+  });
 }

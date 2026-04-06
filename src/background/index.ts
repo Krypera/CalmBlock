@@ -10,6 +10,7 @@ const settingsStore = new GlobalSettingsStore();
 const siteStore = new SiteSettingsStore();
 const rulesetManager = new RulesetManager();
 const popupStateService = new PopupStateService(settingsStore, siteStore);
+let startupInitPromise: Promise<void> | null = null;
 
 async function syncBlockingState() {
   const [settings, allowlist] = await Promise.all([settingsStore.get(), siteStore.getAllowlist()]);
@@ -38,6 +39,12 @@ async function migrateLegacyStorageKeys(): Promise<void> {
   ]);
 
   const updates: Record<string, unknown> = {};
+  const hasLegacySettings = existing[LEGACY_STORAGE_KEYS.settings] !== undefined;
+  const hasLegacyAllowlist = existing[LEGACY_STORAGE_KEYS.allowlist] !== undefined;
+  const hasAnyLegacyData = hasLegacySettings || hasLegacyAllowlist;
+  const hasAnyNewData =
+    existing[STORAGE_KEYS.settings] !== undefined || existing[STORAGE_KEYS.allowlist] !== undefined;
+
   if (
     existing[STORAGE_KEYS.settings] === undefined &&
     existing[LEGACY_STORAGE_KEYS.settings] !== undefined
@@ -53,23 +60,38 @@ async function migrateLegacyStorageKeys(): Promise<void> {
 
   if (Object.keys(updates).length > 0) {
     await local.set(updates);
+    if (local.remove) {
+      await local.remove([LEGACY_STORAGE_KEYS.settings, LEGACY_STORAGE_KEYS.allowlist]);
+    }
+    return;
   }
 
-  if (local.remove) {
+  if (hasAnyLegacyData && hasAnyNewData && local.remove) {
     await local.remove([LEGACY_STORAGE_KEYS.settings, LEGACY_STORAGE_KEYS.allowlist]);
   }
 }
 
-void migrateLegacyStorageKeys().then(syncBlockingState);
-
-webext?.runtime?.onInstalled?.addListener(async () => {
+async function initializeBlockingState(): Promise<void> {
+  await migrateLegacyStorageKeys();
   const current = await settingsStore.get();
   await settingsStore.set(current);
-  await migrateLegacyStorageKeys();
   await syncBlockingState();
+}
+
+function ensureInitialized(): Promise<void> {
+  startupInitPromise ??= initializeBlockingState();
+  return startupInitPromise;
+}
+
+void ensureInitialized();
+
+webext?.runtime?.onInstalled?.addListener(async () => {
+  startupInitPromise = null;
+  await ensureInitialized();
 });
 
 webext?.storage?.onChanged?.addListener(async (changes: Record<string, unknown>, areaName: string) => {
+  await ensureInitialized();
   if (areaName !== "local") {
     return;
   }
@@ -85,6 +107,7 @@ webext?.storage?.onChanged?.addListener(async (changes: Record<string, unknown>,
 
 webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise<MessageResponse> => {
   try {
+    await ensureInitialized();
     if (message.type === "GET_POPUP_STATE") {
       const state = await popupStateService.getState(message.tabId, message.url);
       return { ok: true, state };
@@ -122,19 +145,20 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
 
 webext?.tabs?.onUpdated?.addListener(
   async (_tabId: number, changeInfo: { status?: string }, tab: { id?: number; url?: string }) => {
-  if (changeInfo.status !== "complete" || !tab.id || !tab.url) {
-    return;
-  }
-  const host = safeHostFromUrl(tab.url);
-  if (!host) {
-    return;
-  }
-  const siteDisabled = await siteStore.isAllowlisted(host);
-  const badgeText = siteDisabled ? "off" : "";
-  await webext?.action?.setBadgeText?.({ tabId: tab.id, text: badgeText });
-  await webext?.action?.setBadgeBackgroundColor?.({
-    tabId: tab.id,
-    color: siteDisabled ? "#8fa6bf" : "#6db1ff"
-  });
+    await ensureInitialized();
+    if (changeInfo.status !== "complete" || !tab.id || !tab.url) {
+      return;
+    }
+    const host = safeHostFromUrl(tab.url);
+    if (!host) {
+      return;
+    }
+    const siteDisabled = await siteStore.isAllowlisted(host);
+    const badgeText = siteDisabled ? "off" : "";
+    await webext?.action?.setBadgeText?.({ tabId: tab.id, text: badgeText });
+    await webext?.action?.setBadgeBackgroundColor?.({
+      tabId: tab.id,
+      color: siteDisabled ? "#8fa6bf" : "#6db1ff"
+    });
   }
 );

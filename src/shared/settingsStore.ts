@@ -38,7 +38,29 @@ export class GlobalSettingsStore {
       return false;
     }
     const data = input as Partial<SettingsExport>;
-    return data.version === 1 && !!data.settings && Array.isArray(data.allowlist);
+    if (data.version !== 1 || !data.settings || !Array.isArray(data.allowlist)) {
+      return false;
+    }
+
+    if (!data.allowlist.every((item) => typeof item === "string")) {
+      return false;
+    }
+
+    const settings = data.settings as Partial<GlobalSettings>;
+    if (typeof settings.enabled !== "boolean" || typeof settings.advancedMode !== "boolean") {
+      return false;
+    }
+    if (!settings.groups || typeof settings.groups !== "object") {
+      return false;
+    }
+
+    const groups = settings.groups as Partial<GlobalSettings["groups"]>;
+    return (
+      typeof groups.ads === "boolean" &&
+      typeof groups.trackers === "boolean" &&
+      typeof groups.annoyances === "boolean" &&
+      typeof groups.strict === "boolean"
+    );
   }
 
   private mergeWithDefaults(value: GlobalSettings): GlobalSettings {

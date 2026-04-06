@@ -1,9 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { SiteSettingsStore, normalizeHost } from "../../src/shared/siteSettingsStore";
+import { sanitizeHostInput, SiteSettingsStore, normalizeHost } from "../../src/shared/siteSettingsStore";
 
 describe("normalizeHost", () => {
   it("normalizes casing and dots", () => {
     expect(normalizeHost(".Example.COM.")).toBe("example.com");
+  });
+
+  it("parses host from URL-like input", () => {
+    expect(normalizeHost("https://Example.com/path?a=1")).toBe("example.com");
+  });
+});
+
+describe("sanitizeHostInput", () => {
+  it("rejects invalid hosts", () => {
+    expect(sanitizeHostInput("bad host")).toBeNull();
+    expect(sanitizeHostInput("https://")).toBeNull();
   });
 });
 
@@ -25,4 +36,3 @@ describe("SiteSettingsStore", () => {
     expect(await store.isAllowlisted("example.com")).toBe(false);
   });
 });
-

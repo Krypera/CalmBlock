@@ -17,6 +17,8 @@ export interface PopupState {
   host: string | null;
   globalEnabled: boolean;
   siteEnabled: boolean;
+  siteDisabled: boolean;
+  effectiveProtectionEnabled: boolean;
   protectedSummary: string;
   blockedCount: number | null;
   blockedByCategory: Record<ProtectionGroup, number>;
@@ -28,4 +30,3 @@ export interface SettingsExport {
   settings: GlobalSettings;
   allowlist: string[];
 }
-

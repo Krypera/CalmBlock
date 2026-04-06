@@ -39,9 +39,15 @@ function renderState(state: PopupState) {
   setToggle(globalToggle, state.globalEnabled, "On", "Off");
   setToggle(siteToggle, state.siteEnabled, "Protected", "Paused");
   if (siteStatus) {
-    siteStatus.textContent = state.siteEnabled
-      ? "This site is currently protected."
-      : "CalmBlock is disabled on this site.";
+    if (!state.globalEnabled) {
+      siteStatus.textContent = state.siteDisabled
+        ? "Global protection is off. This site is also paused."
+        : "Global protection is off. Re-enable global protection to protect this site.";
+    } else {
+      siteStatus.textContent = state.effectiveProtectionEnabled
+        ? "This site is currently protected."
+        : "CalmBlock is disabled on this site.";
+    }
   }
   if (blockedCountEl) {
     blockedCountEl.textContent = state.blockedCount === null ? "-" : String(state.blockedCount);
@@ -82,7 +88,7 @@ siteToggle?.addEventListener("click", async () => {
   if (!lastState?.host || tabId === null) {
     return;
   }
-  const next = !lastState.siteEnabled;
+  const next = !lastState.siteDisabled;
   await webext?.runtime?.sendMessage?.({
     type: "TOGGLE_SITE",
     host: lastState.host,

@@ -14,5 +14,30 @@ describe("derivePopupState", () => {
     expect(state.siteEnabled).toBe(true);
     expect(state.blockedCount).toBe(12);
   });
-});
 
+  it("marks site as not protected when global protection is off", () => {
+    const global = { ...DEFAULT_SETTINGS, enabled: false };
+    const state = derivePopupState({
+      host: "example.com",
+      global,
+      siteDisabled: false,
+      blockedCount: 0
+    });
+    expect(state.globalEnabled).toBe(false);
+    expect(state.siteEnabled).toBe(true);
+    expect(state.siteDisabled).toBe(false);
+    expect(state.effectiveProtectionEnabled).toBe(false);
+  });
+
+  it("keeps site disable preference independent from global state", () => {
+    const state = derivePopupState({
+      host: "example.com",
+      global: DEFAULT_SETTINGS,
+      siteDisabled: true,
+      blockedCount: 0
+    });
+    expect(state.siteEnabled).toBe(false);
+    expect(state.siteDisabled).toBe(true);
+    expect(state.effectiveProtectionEnabled).toBe(false);
+  });
+});

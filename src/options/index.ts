@@ -1,6 +1,6 @@
 import { DEFAULT_SETTINGS, PROTECTION_GROUPS } from "../shared/constants";
 import { GlobalSettingsStore } from "../shared/settingsStore";
-import { SiteSettingsStore } from "../shared/siteSettingsStore";
+import { sanitizeHostInput, SiteSettingsStore } from "../shared/siteSettingsStore";
 import type { GlobalSettings, SettingsExport } from "../shared/types";
 
 const settingsStore = new GlobalSettingsStore();
@@ -14,6 +14,8 @@ const exportBtn = document.querySelector<HTMLButtonElement>("#export-settings");
 const importBtn = document.querySelector<HTMLButtonElement>("#import-settings");
 const importFile = document.querySelector<HTMLInputElement>("#import-file");
 const debugLink = document.querySelector<HTMLAnchorElement>("#debug-link");
+const boundGroupListeners = new Set<string>();
+let advancedModeListenerBound = false;
 
 function setStatus(text: string) {
   if (saveStatus) {
@@ -21,11 +23,22 @@ function setStatus(text: string) {
   }
 }
 
-function parseAllowlistInput(value: string): string[] {
-  return value
+function parseAllowlistInput(value: string): { hosts: string[]; invalidCount: number } {
+  let invalidCount = 0;
+  const hosts = value
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .map((line) => {
+      const host = sanitizeHostInput(line);
+      if (!host) {
+        invalidCount += 1;
+      }
+      return host;
+    })
+    .filter((host): host is string => !!host);
+
+  return { hosts, invalidCount };
 }
 
 function serializeSettings(settings: GlobalSettings, allowlist: string[]): string {
@@ -45,12 +58,15 @@ async function load() {
       continue;
     }
     el.checked = settings.groups[group];
-    el.addEventListener("change", async () => {
-      const next = await settingsStore.get();
-      next.groups[group] = el.checked;
-      await settingsStore.set(next);
-      setStatus(`Saved ${group} group state.`);
-    });
+    if (!boundGroupListeners.has(group)) {
+      boundGroupListeners.add(group);
+      el.addEventListener("change", async () => {
+        const next = await settingsStore.get();
+        next.groups[group] = el.checked;
+        await settingsStore.set(next);
+        setStatus(`Saved ${group} group state.`);
+      });
+    }
   }
 
   if (allowlistEl) {
@@ -59,11 +75,14 @@ async function load() {
   if (advancedModeEl) {
     advancedModeEl.checked = settings.advancedMode;
     debugLink?.classList.toggle("hidden", !settings.advancedMode);
-    advancedModeEl.addEventListener("change", async () => {
-      await settingsStore.update({ advancedMode: advancedModeEl.checked });
-      debugLink?.classList.toggle("hidden", !advancedModeEl.checked);
-      setStatus("Saved advanced mode setting.");
-    });
+    if (!advancedModeListenerBound) {
+      advancedModeListenerBound = true;
+      advancedModeEl.addEventListener("change", async () => {
+        await settingsStore.update({ advancedMode: advancedModeEl.checked });
+        debugLink?.classList.toggle("hidden", !advancedModeEl.checked);
+        setStatus("Saved advanced mode setting.");
+      });
+    }
   }
 }
 
@@ -71,9 +90,13 @@ saveAllowlistBtn?.addEventListener("click", async () => {
   if (!allowlistEl) {
     return;
   }
-  const hosts = parseAllowlistInput(allowlistEl.value);
+  const { hosts, invalidCount } = parseAllowlistInput(allowlistEl.value);
   const saved = await siteStore.setAllowlist(hosts);
   allowlistEl.value = saved.join("\n");
+  if (invalidCount > 0) {
+    setStatus(`Allowlist saved. Ignored ${invalidCount} invalid entr${invalidCount === 1 ? "y" : "ies"}.`);
+    return;
+  }
   setStatus("Allowlist saved.");
 });
 

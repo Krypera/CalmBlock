@@ -40,6 +40,12 @@ describe("GlobalSettingsStore", () => {
       })
     ).toBe(true);
     expect(store.validateImportedSettings({ version: 2 })).toBe(false);
+    expect(
+      store.validateImportedSettings({
+        version: 1,
+        settings: ({ ...DEFAULT_SETTINGS, enabled: "yes" } as unknown),
+        allowlist: ["example.com"]
+      })
+    ).toBe(false);
   });
 });
-
