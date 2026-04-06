@@ -1,0 +1,32 @@
+{
+  "name": "calmblock",
+  "version": "0.1.0",
+  "description": "CalmBlock is a calm, privacy-first browser extension for blocking ads, trackers, and common annoyances.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Krypera"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit --pretty false",
+    "build": "node scripts/build.mjs all",
+    "build:chrome": "node scripts/build.mjs chrome",
+    "build:firefox": "node scripts/build.mjs firefox",
+    "dev:chrome": "node scripts/build.mjs chrome --watch",
+    "dev:firefox": "node scripts/build.mjs firefox --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "node scripts/clean.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^120.0.4",
+    "esbuild": "^0.25.4",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

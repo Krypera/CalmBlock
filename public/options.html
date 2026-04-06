@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CalmBlock Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="opt-shell">
+      <header class="opt-hero">
+        <h1>CalmBlock Settings</h1>
+        <p>Ads, trackers, and browsing annoyances blocked quietly.</p>
+      </header>
+      <section class="opt-grid">
+        <article class="opt-card">
+          <h2>Protection groups</h2>
+          <p class="muted">Simple defaults, clear controls.</p>
+          <label><input type="checkbox" id="group-ads" /> Ads</label>
+          <label><input type="checkbox" id="group-trackers" /> Trackers</label>
+          <label><input type="checkbox" id="group-annoyances" /> Annoyances</label>
+          <label><input type="checkbox" id="group-strict" /> Strict Privacy</label>
+        </article>
+        <article class="opt-card">
+          <h2>Allowlist</h2>
+          <p class="muted">One host per line. Example: <code>example.com</code></p>
+          <textarea id="allowlist" rows="8"></textarea>
+          <button id="save-allowlist" type="button">Save allowlist</button>
+        </article>
+        <article class="opt-card">
+          <h2>Advanced</h2>
+          <label><input type="checkbox" id="advanced-mode" /> Enable advanced mode</label>
+          <div class="row">
+            <button id="export-settings" type="button">Export settings</button>
+            <button id="import-settings" type="button">Import settings</button>
+            <input id="import-file" type="file" accept="application/json" class="hidden" />
+          </div>
+          <a id="debug-link" class="hidden" href="debug.html" target="_blank" rel="noreferrer">Open local debug page</a>
+        </article>
+        <article class="opt-card">
+          <h2>Permissions</h2>
+          <ul>
+            <li><code>declarativeNetRequest</code>: network request blocking via local rules.</li>
+            <li><code>storage</code>: keep settings and allowlist on device.</li>
+            <li><code>tabs</code>: read current tab host for fast site toggle.</li>
+            <li><code>&lt;all_urls&gt;</code>: apply protections where you browse.</li>
+          </ul>
+        </article>
+        <article class="opt-card">
+          <h2>Privacy guarantees</h2>
+          <ul>
+            <li>No telemetry</li>
+            <li>No analytics</li>
+            <li>No remote logging</li>
+            <li>No accounts or cloud sync</li>
+            <li>No remote code execution</li>
+          </ul>
+        </article>
+      </section>
+      <p id="save-status" class="save-status"></p>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

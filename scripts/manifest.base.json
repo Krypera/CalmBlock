@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "CalmBlock",
+  "version": "0.1.0",
+  "description": "Ads, trackers, and browsing annoyances blocked quietly.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "declarativeNetRequest"
+  ],
+  "optional_permissions": ["declarativeNetRequestFeedback"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "CalmBlock",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ads",
+        "enabled": true,
+        "path": "rules/ads.json"
+      },
+      {
+        "id": "trackers",
+        "enabled": true,
+        "path": "rules/trackers.json"
+      },
+      {
+        "id": "annoyances",
+        "enabled": true,
+        "path": "rules/annoyances.json"
+      },
+      {
+        "id": "strict",
+        "enabled": false,
+        "path": "rules/strict.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+:root {
+  --bg: #f3f8ff;
+  --surface: #ffffff;
+  --surface-alt: #edf4ff;
+  --text: #1d2a37;
+  --muted: #627285;
+  --accent: #6db1ff;
+  --border: #d4e3f5;
+  --shadow: 0 8px 28px rgba(70, 100, 140, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "SF Pro Text", "Helvetica Neue", sans-serif;
+  background: radial-gradient(circle at top, #f8fbff, var(--bg));
+  color: var(--text);
+}
+
+.opt-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+.opt-hero h1 {
+  margin: 0;
+}
+
+.opt-hero p {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.opt-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.opt-card {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opt-card h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #112337;
+  font-weight: 600;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.save-status {
+  margin-top: 14px;
+  color: #2e5e88;
+  min-height: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#debug-output {
+  margin: 0;
+  background: var(--surface-alt);
+  border-radius: 10px;
+  padding: 12px;
+  overflow: auto;
+}
+
