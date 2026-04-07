@@ -1,6 +1,7 @@
 import { GlobalSettingsStore } from "../shared/settingsStore";
 import { SiteSettingsStore } from "../shared/siteSettingsStore";
 import { BrowserAdapter } from "../shared/browserAdapter";
+import { buildTriageBundle } from "../shared/triageBundle";
 import { webext } from "../shared/webext";
 
 const output = document.querySelector<HTMLElement>("#debug-output");
@@ -35,6 +36,7 @@ async function render() {
     webext?.tabs?.query?.({ active: true, currentWindow: true }) ?? Promise.resolve([])
   ]);
   const activeTab = tabs[0];
+  const manifestVersion = webext?.runtime?.getManifest?.().version ?? null;
   const activeUrl = activeTab?.url ?? null;
   const activeHost = (() => {
     if (!activeUrl) {
@@ -47,9 +49,23 @@ async function render() {
     }
   })();
 
+  const generatedAt = new Date().toISOString();
+  const target = BrowserAdapter.detectTarget();
+  const triageBundle = buildTriageBundle({
+    generatedAt,
+    browserTarget: target,
+    extensionVersion: manifestVersion,
+    activeHost,
+    globalEnabled: settings.enabled,
+    groups: settings.groups,
+    allowlist,
+    enabledRulesets,
+    dynamicRulesCount: dynamicRules.length
+  });
+
   const payload = {
-    generatedAt: new Date().toISOString(),
-    target: BrowserAdapter.detectTarget(),
+    generatedAt,
+    target,
     activeTab: {
       url: activeUrl,
       host: activeHost
@@ -62,15 +78,7 @@ async function render() {
     allowlist,
     dynamicRulesCount: dynamicRules.length,
     enabledRulesets,
-    triageBundle: {
-      target: BrowserAdapter.detectTarget(),
-      activeHost,
-      globalEnabled: settings.enabled,
-      groups: settings.groups,
-      allowlist,
-      enabledRulesets,
-      dynamicRulesCount: dynamicRules.length
-    }
+    triageBundle
   };
 
   if (output) {

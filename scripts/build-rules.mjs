@@ -155,7 +155,9 @@ export async function generateRulesets(options = {}) {
   const outDir = resolve(options.outDir ?? "public/rules");
   await mkdir(outDir, { recursive: true });
 
-  const generatedAt = typeof options.generatedAt === "string" ? options.generatedAt : new Date().toISOString();
+  const generatedAt = typeof options.generatedAt === "string"
+    ? options.generatedAt
+    : `${manifest.updated}T00:00:00.000Z`;
   const metadata = {
     version: manifest.version,
     updated: manifest.updated,

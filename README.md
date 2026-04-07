@@ -16,6 +16,8 @@ CalmBlock is a browser extension for people who want strong defaults and simple 
 
 It is intentionally scoped: practical protection, low-friction UX, and contributor-friendly architecture.
 
+Current release line: `v0.1.1` (beta-ready open-source baseline).
+
 ## Interface
 
 A lightweight overview of the popup and settings surfaces:

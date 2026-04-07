@@ -45,3 +45,32 @@ jobs:
           path: |
             dist/chrome/**
             dist/firefox/**
+
+  package-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: quality
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build and Package
+        run: npm run package:all
+
+      - name: Validate packaged zips
+        run: node scripts/package.mjs all --validate-only
+
+      - name: Upload zip artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: calmblock-packages-${{ github.sha }}
+          path: dist/packages/*.zip

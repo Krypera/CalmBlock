@@ -34,10 +34,27 @@ assignees: ""
 
 ## Debug Triage Bundle
 
-From CalmBlock debug page (advanced mode), paste `triageBundle`:
+From CalmBlock debug page (advanced mode), paste `triageBundle` exactly as produced.
+Expected schema: `calmblock.triage.v1`.
 
 ```json
-{}
+{
+  "schema": "calmblock.triage.v1",
+  "generatedAt": "2026-04-07T15:47:43.140Z",
+  "browserTarget": "chrome",
+  "extensionVersion": "0.1.1",
+  "activeHost": "example.com",
+  "globalEnabled": true,
+  "groups": {
+    "ads": true,
+    "trackers": true,
+    "annoyances": true,
+    "strict": false
+  },
+  "allowlist": [],
+  "enabledRulesets": ["ads", "trackers", "annoyances"],
+  "dynamicRulesCount": 1
+}
 ```
 
 ## Optional Attachments

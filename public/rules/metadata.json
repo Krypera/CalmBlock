@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-04-07",
-  "generatedAt": "2026-04-07T15:49:55.477Z",
+  "generatedAt": "2026-04-07T00:00:00.000Z",
   "groups": {
     "ads": {
       "description": "Ad network and ad delivery hosts curated for CalmBlock MVP.",

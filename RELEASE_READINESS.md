@@ -40,6 +40,7 @@ Scope here is not browser-store submission. Scope is trust, maintainability, and
 - [x] Advanced/debug behavior remains opt-in and local-only
 - [x] Import/export paths validate input safely
 - [x] CI workflow validates typecheck/test/build on pushes and PRs
+- [x] CI validates package zip generation and package sanity checks
 
 ## Current status notes
 

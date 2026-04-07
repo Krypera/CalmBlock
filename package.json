@@ -1,6 +1,6 @@
 {
   "name": "calmblock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CalmBlock is a calm, privacy-first browser extension for blocking ads, trackers, and common annoyances.",
   "type": "module",
   "private": false,

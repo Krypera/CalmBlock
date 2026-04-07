@@ -6,6 +6,21 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-04-07
+
+### Added
+
+- CI now includes a separate `package-validation` job that builds zip packages and validates packaged outputs.
+- Rules pipeline now records richer metadata (`generatedAt`, `idRange`, `sourceDigest`, `changes`) for release tracking.
+- New regression tests for rules-builder validation and expanded content fixtures for cosmetic/annoyance behavior.
+
+### Changed
+
+- DNR source lists expanded across `ads`, `trackers`, `annoyances`, and `strict` groups for stronger MVP coverage.
+- Package sanity checks were tightened in `scripts/package.mjs` for manifest and rules metadata validation before release distribution.
+- Site-breakage triage format is now versioned (`calmblock.triage.v1`) and aligned between debug output and issue template.
+- Version bumped from `0.1.0` to `0.1.1` to reflect beta-hardening and release-process improvements.
+
 ### Added
 
 - Open-source trust docs:
