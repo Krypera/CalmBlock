@@ -44,4 +44,32 @@ describe("AnnoyanceEngine", () => {
     expect(clickSpy).not.toHaveBeenCalled();
     engine.stop();
   });
+
+  it("clicks aria-labeled dismiss action inside consent container", () => {
+    loadFixture("annoyance-aria-label.html");
+    const candidate = document.querySelector<HTMLElement>("[role='button']");
+    if (!candidate) {
+      throw new Error("Fixture missing aria-label candidate");
+    }
+    const clickSpy = vi.spyOn(candidate, "click");
+
+    const engine = new AnnoyanceEngine();
+    engine.start();
+    expect(clickSpy).toHaveBeenCalled();
+    engine.stop();
+  });
+
+  it("does not click hidden dismiss actions", () => {
+    loadFixture("annoyance-hidden-action.html");
+    const candidate = document.querySelector<HTMLButtonElement>("button");
+    if (!candidate) {
+      throw new Error("Fixture missing hidden candidate");
+    }
+    const clickSpy = vi.spyOn(candidate, "click");
+
+    const engine = new AnnoyanceEngine();
+    engine.start();
+    expect(clickSpy).not.toHaveBeenCalled();
+    engine.stop();
+  });
 });

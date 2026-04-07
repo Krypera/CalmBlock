@@ -6,7 +6,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||onesignal.com^",
+      "urlFilter": "||appconsent.io^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -20,7 +20,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||pushwoosh.com^",
+      "urlFilter": "||cc.cdn.civiccomputing.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -34,7 +34,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||pushnami.com^",
+      "urlFilter": "||cdn.cookielaw.org^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -48,7 +48,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||pushengage.com^",
+      "urlFilter": "||choice.microsoft.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -62,10 +62,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||cleverpush.com^",
+      "urlFilter": "||cmp.quantcast.com^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest"
+        "xmlhttprequest",
+        "sub_frame"
       ]
     }
   },
@@ -76,10 +77,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||pushly.com^",
+      "urlFilter": "||consensu.org^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest"
+        "xmlhttprequest",
+        "sub_frame"
       ]
     }
   },
@@ -90,7 +92,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||cookielaw.org^",
+      "urlFilter": "||cookie-script.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -118,7 +120,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||onetrust.com^",
+      "urlFilter": "||cookielaw.org^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -132,11 +134,10 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||consensu.org^",
+      "urlFilter": "||didomi.io^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest",
-        "sub_frame"
+        "xmlhttprequest"
       ]
     }
   },
@@ -147,7 +148,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||trustarc.com^",
+      "urlFilter": "||fundingchoicesmessages.google.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -161,7 +162,7 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||quantcast.mgr.consensu.org^",
+      "urlFilter": "||geo.dailymotion.com/cookie^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -170,6 +171,34 @@
   },
   {
     "id": 2013,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||gravitec.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2014,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||iubenda.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2015,
     "priority": 1,
     "action": {
       "type": "block"
@@ -184,22 +213,63 @@
     }
   },
   {
-    "id": 2014,
+    "id": 2016,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||sumome.com^",
+      "urlFilter": "||noticecdn.com^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest",
-        "sub_frame"
+        "xmlhttprequest"
       ]
     }
   },
   {
-    "id": 2015,
+    "id": 2017,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||onesignal.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2018,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||onetrust.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2019,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||optanon.blob.core.windows.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2020,
     "priority": 1,
     "action": {
       "type": "block"
@@ -214,7 +284,7 @@
     }
   },
   {
-    "id": 2016,
+    "id": 2021,
     "priority": 1,
     "action": {
       "type": "block"
@@ -228,13 +298,13 @@
     }
   },
   {
-    "id": 2017,
+    "id": 2022,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||complianz.io^",
+      "urlFilter": "||pushengage.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -242,13 +312,13 @@
     }
   },
   {
-    "id": 2018,
+    "id": 2023,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||requestmetrics.com^",
+      "urlFilter": "||pushly.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"
@@ -256,7 +326,21 @@
     }
   },
   {
-    "id": 2019,
+    "id": 2024,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||pushnami.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2025,
     "priority": 1,
     "action": {
       "type": "block"
@@ -270,13 +354,140 @@
     }
   },
   {
-    "id": 2020,
+    "id": 2026,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||gravitec.net^",
+      "urlFilter": "||pushwoosh.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2027,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||quantcast.mgr.consensu.org^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2028,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||requestmetrics.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2029,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||seersco.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2030,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sourcepoint.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2031,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||sumome.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame"
+      ]
+    }
+  },
+  {
+    "id": 2032,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||termly.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2033,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||trustarc.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2034,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||usercentrics.eu^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 2035,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||webpushr.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest"

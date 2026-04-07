@@ -6,12 +6,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||facebook.net^",
+      "urlFilter": "||ads.linkedin.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
-        "image",
-        "sub_frame"
+        "ping"
       ]
     }
   },
@@ -22,12 +21,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||criteo.com^",
+      "urlFilter": "||analytics.tiktok.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
-        "image",
-        "sub_frame"
+        "ping"
       ]
     }
   },
@@ -38,9 +36,8 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||facebook.com/tr^",
+      "urlFilter": "||api.amplitude.com^",
       "resourceTypes": [
-        "image",
         "xmlhttprequest",
         "ping"
       ]
@@ -48,81 +45,6 @@
   },
   {
     "id": 3004,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||connect.facebook.net^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest"
-      ]
-    }
-  },
-  {
-    "id": 3005,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||platform.twitter.com^",
-      "resourceTypes": [
-        "script",
-        "sub_frame",
-        "xmlhttprequest"
-      ]
-    }
-  },
-  {
-    "id": 3006,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||static.ads-twitter.com^",
-      "resourceTypes": [
-        "script",
-        "image",
-        "xmlhttprequest"
-      ]
-    }
-  },
-  {
-    "id": 3007,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||snap.licdn.com^",
-      "resourceTypes": [
-        "script",
-        "image",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 3008,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||px.ads.linkedin.com^",
-      "resourceTypes": [
-        "image",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 3009,
     "priority": 1,
     "action": {
       "type": "block"
@@ -138,18 +60,93 @@
     }
   },
   {
+    "id": 3005,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||bounceexchange.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "sub_frame"
+      ]
+    }
+  },
+  {
+    "id": 3006,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||cdn.branch.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 3007,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||connect.facebook.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 3008,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||criteo.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "sub_frame"
+      ]
+    }
+  },
+  {
+    "id": 3009,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||doubleclick.net^",
+      "resourceTypes": [
+        "script",
+        "image",
+        "xmlhttprequest",
+        "sub_frame"
+      ]
+    }
+  },
+  {
     "id": 3010,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||tiktok.com/i18n/pixel^",
+      "urlFilter": "||everesttech.net^",
       "resourceTypes": [
         "script",
-        "image",
         "xmlhttprequest",
-        "ping"
+        "image",
+        "sub_frame"
       ]
     }
   },
@@ -160,9 +157,9 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||analytics.tiktok.com^",
+      "urlFilter": "||facebook.com/tr^",
       "resourceTypes": [
-        "script",
+        "image",
         "xmlhttprequest",
         "ping"
       ]
@@ -175,11 +172,12 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||redditstatic.com/ads^",
+      "urlFilter": "||facebook.net^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
-        "image"
+        "image",
+        "sub_frame"
       ]
     }
   },
@@ -190,11 +188,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||logx.optimizely.com^",
+      "urlFilter": "||googleadservices.com^",
       "resourceTypes": [
+        "script",
         "xmlhttprequest",
-        "ping",
-        "image"
+        "sub_frame"
       ]
     }
   },
@@ -205,11 +203,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||chartbeat.com^",
+      "urlFilter": "||logx.optimizely.com^",
       "resourceTypes": [
-        "script",
         "xmlhttprequest",
-        "ping"
+        "ping",
+        "image"
       ]
     }
   },
@@ -235,10 +233,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||sentry.io^",
+      "urlFilter": "||platform.twitter.com^",
       "resourceTypes": [
-        "xmlhttprequest",
-        "ping"
+        "script",
+        "sub_frame",
+        "xmlhttprequest"
       ]
     }
   },
@@ -249,9 +248,9 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||raygun.io^",
+      "urlFilter": "||px.ads.linkedin.com^",
       "resourceTypes": [
-        "script",
+        "image",
         "xmlhttprequest",
         "ping"
       ]
@@ -264,10 +263,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||cdn.branch.io^",
+      "urlFilter": "||redditstatic.com/ads^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest"
+        "xmlhttprequest",
+        "image"
       ]
     }
   },
@@ -278,10 +278,11 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||bounceexchange.com^",
+      "urlFilter": "||rtbhouse.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
+        "image",
         "sub_frame"
       ]
     }
@@ -293,12 +294,87 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||everesttech.net^",
+      "urlFilter": "||sentry.io^",
+      "resourceTypes": [
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 3021,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||snap.licdn.com^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest",
         "image",
-        "sub_frame"
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 3022,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||static.ads-twitter.com^",
+      "resourceTypes": [
+        "script",
+        "image",
+        "xmlhttprequest"
+      ]
+    }
+  },
+  {
+    "id": 3023,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||t.co/i/adsct^",
+      "resourceTypes": [
+        "image",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 3024,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||tiktok.com/i18n/pixel^",
+      "resourceTypes": [
+        "script",
+        "image",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 3025,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||twitter.com/i/jot^",
+      "resourceTypes": [
+        "image",
+        "xmlhttprequest",
+        "ping"
       ]
     }
   }

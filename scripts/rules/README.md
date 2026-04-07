@@ -29,6 +29,21 @@ This generates:
 
 ## Notes
 
+- Source files must stay sorted by `filter | resourceTypes` to keep diffs predictable.
 - Duplicate source lines are removed deterministically.
 - Rule IDs are stable per group using fixed `idBase` values from `sources.json`.
+- Builder validation fails fast for:
+  - empty filters
+  - invalid `resourceTypes`
+  - duplicate rule IDs across all groups
+  - unsorted rule sources
 - `scripts/build.mjs` runs generation automatically before extension builds.
+
+## Metadata tracking
+
+`public/rules/metadata.json` includes per-group fields to track changes over time:
+
+- `ruleCount`
+- `idRange`
+- `sourceDigest` (short SHA-256 digest of normalized source entries)
+- `changes` (`added`, `removed`, `delta`) compared with the previously generated output

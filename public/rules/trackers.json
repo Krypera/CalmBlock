@@ -6,11 +6,10 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||google-analytics.com^",
+      "urlFilter": "||adjust.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
-        "image",
         "ping"
       ]
     }
@@ -22,15 +21,183 @@
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||segment.com^",
+      "urlFilter": "||adobedtm.com^",
       "resourceTypes": [
         "script",
-        "xmlhttprequest"
+        "xmlhttprequest",
+        "ping"
       ]
     }
   },
   {
     "id": 1003,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||amplitude.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1004,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||app-measurement.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1005,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||attributionapp.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1006,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||branch.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1007,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||braze.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1008,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||chartbeat.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1009,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||clarity.ms^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1010,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||crazyegg.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1011,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||demdex.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1012,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||fullstory.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1013,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||google-analytics.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1014,
     "priority": 1,
     "action": {
       "type": "block"
@@ -44,7 +211,22 @@
     }
   },
   {
-    "id": 1004,
+    "id": 1015,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||heap.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1016,
     "priority": 1,
     "action": {
       "type": "block"
@@ -60,13 +242,28 @@
     }
   },
   {
-    "id": 1005,
+    "id": 1017,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||fullstory.com^",
+      "urlFilter": "||krxd.net^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image"
+      ]
+    }
+  },
+  {
+    "id": 1018,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||luckyorange.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
@@ -75,7 +272,22 @@
     }
   },
   {
-    "id": 1006,
+    "id": 1019,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||mathtag.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "image"
+      ]
+    }
+  },
+  {
+    "id": 1020,
     "priority": 1,
     "action": {
       "type": "block"
@@ -90,22 +302,7 @@
     }
   },
   {
-    "id": 1007,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||amplitude.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1008,
+    "id": 1021,
     "priority": 1,
     "action": {
       "type": "block"
@@ -120,23 +317,82 @@
     }
   },
   {
-    "id": 1009,
+    "id": 1022,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||scorecardresearch.com^",
+      "urlFilter": "||optimizely.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
-        "image",
         "ping"
       ]
     }
   },
   {
-    "id": 1010,
+    "id": 1023,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||parsely.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1024,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||pendo.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1025,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||piwik.pro^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1026,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||posthog.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1027,
     "priority": 1,
     "action": {
       "type": "block"
@@ -152,151 +408,122 @@
     }
   },
   {
-    "id": 1011,
+    "id": 1028,
     "priority": 1,
     "action": {
       "type": "block"
     },
     "condition": {
-      "urlFilter": "||krxd.net^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "image"
-      ]
-    }
-  },
-  {
-    "id": 1012,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||bluekai.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "image"
-      ]
-    }
-  },
-  {
-    "id": 1013,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||mathtag.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "image"
-      ]
-    }
-  },
-  {
-    "id": 1014,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||branch.io^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1015,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||app-measurement.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1016,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||adjust.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1017,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||braze.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest"
-      ]
-    }
-  },
-  {
-    "id": 1018,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||optimizely.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1019,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||adobedtm.com^",
-      "resourceTypes": [
-        "script",
-        "xmlhttprequest",
-        "ping"
-      ]
-    }
-  },
-  {
-    "id": 1020,
-    "priority": 1,
-    "action": {
-      "type": "block"
-    },
-    "condition": {
-      "urlFilter": "||demdex.net^",
+      "urlFilter": "||scorecardresearch.com^",
       "resourceTypes": [
         "script",
         "xmlhttprequest",
         "image",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1029,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||segment.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1030,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||segment.io^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1031,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||snowplowanalytics.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1032,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||tealiumiq.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1033,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||trackingplan.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1034,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||webtrends.com^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
+        "ping"
+      ]
+    }
+  },
+  {
+    "id": 1035,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||yandex.ru/metrika^",
+      "resourceTypes": [
+        "script",
+        "xmlhttprequest",
         "ping"
       ]
     }

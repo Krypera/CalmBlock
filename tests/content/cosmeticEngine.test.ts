@@ -14,4 +14,25 @@ describe("CosmeticEngine", () => {
     engine.clear();
     expect(document.querySelector("#calmblock-cosmetic-style")).toBeNull();
   });
+
+  it("keeps single style tag across repeated apply calls", () => {
+    loadFixture("cosmetic-rich.html");
+    const engine = new CosmeticEngine();
+    engine.apply();
+    engine.apply();
+    const styles = document.querySelectorAll("#calmblock-cosmetic-style");
+    expect(styles.length).toBe(1);
+    const styleText = styles[0]?.textContent ?? "";
+    expect(styleText).toContain("iframe[src*='doubleclick']");
+    expect(styleText).toContain("[class*='cookie-banner']");
+  });
+
+  it("clear is safe to call repeatedly", () => {
+    loadFixture("cosmetic-rich.html");
+    const engine = new CosmeticEngine();
+    engine.apply();
+    engine.clear();
+    engine.clear();
+    expect(document.querySelector("#calmblock-cosmetic-style")).toBeNull();
+  });
 });

@@ -1,26 +1,67 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-04-07",
+  "generatedAt": "2026-04-07T15:49:55.477Z",
   "groups": {
     "ads": {
       "description": "Ad network and ad delivery hosts curated for CalmBlock MVP.",
       "sourceFile": "scripts/rules/sources/ads.list",
-      "ruleCount": 20
+      "ruleCount": 36,
+      "idRange": {
+        "start": 1,
+        "end": 36
+      },
+      "sourceDigest": "13f71dd58fc3c268",
+      "changes": {
+        "added": 0,
+        "removed": 0,
+        "delta": 0
+      }
     },
     "trackers": {
       "description": "Common analytics and tracking domains with cross-site behavior.",
       "sourceFile": "scripts/rules/sources/trackers.list",
-      "ruleCount": 20
+      "ruleCount": 35,
+      "idRange": {
+        "start": 1001,
+        "end": 1035
+      },
+      "sourceDigest": "bb0b9eede7fa3678",
+      "changes": {
+        "added": 0,
+        "removed": 0,
+        "delta": 0
+      }
     },
     "annoyances": {
       "description": "Known popup, push prompt, and consent management nuisance endpoints.",
       "sourceFile": "scripts/rules/sources/annoyances.list",
-      "ruleCount": 20
+      "ruleCount": 35,
+      "idRange": {
+        "start": 2001,
+        "end": 2035
+      },
+      "sourceDigest": "7d33f998580f80d8",
+      "changes": {
+        "added": 0,
+        "removed": 0,
+        "delta": 0
+      }
     },
     "strict": {
       "description": "Higher-friction strict privacy endpoints that may affect site compatibility.",
       "sourceFile": "scripts/rules/sources/strict.list",
-      "ruleCount": 20
+      "ruleCount": 25,
+      "idRange": {
+        "start": 3001,
+        "end": 3025
+      },
+      "sourceDigest": "4018007d575c7a71",
+      "changes": {
+        "added": 0,
+        "removed": 0,
+        "delta": 0
+      }
     }
   }
 }
