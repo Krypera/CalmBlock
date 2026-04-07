@@ -50,6 +50,22 @@ body {
   color: var(--muted);
 }
 
+.qb-host {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #385a78;
+  background: rgba(225, 238, 255, 0.72);
+  border: 1px solid rgba(140, 174, 214, 0.35);
+  border-radius: 999px;
+  padding: 6px 10px;
+  display: inline-flex;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .qb-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -144,6 +160,16 @@ body {
 .qb-toggle.on {
   background: var(--accent);
   border-color: rgba(108, 161, 221, 0.55);
+}
+
+.qb-toggle.pending {
+  cursor: progress;
+  opacity: 0.88;
+}
+
+.qb-toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
 }
 
 .qb-toggle:focus-visible {

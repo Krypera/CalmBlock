@@ -12,9 +12,25 @@ assignees: ""
 - [ ] False positive (something valid is blocked)
 - [ ] Ruleset quality improvement
 
+## Scope Classification
+
+- [ ] Supported browser issue
+- [ ] Gated / under validation browser issue
+- [ ] Out-of-scope browser issue
+
 ## Affected Site
 
 - URL or host:
+
+## Browser and Environment
+
+- Browser:
+- Browser version:
+- OS:
+- Private/incognito mode: (No / Yes)
+- Built-in blocker enabled?: (No / Yes / Not sure)
+- Firefox family context (if applicable): (Firefox / LibreWolf / Waterfox / Floorp / Zen)
+- Browser channel or base track (if known): (stable / ESR-like / unknown)
 
 ## Category
 

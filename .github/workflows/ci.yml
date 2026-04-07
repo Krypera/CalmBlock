@@ -46,10 +46,36 @@ jobs:
             dist/chrome/**
             dist/firefox/**
 
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: quality
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Real Browser E2E (strict)
+        run: xvfb-run -a npm run e2e:browser:strict
+
   package-validation:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    needs: quality
+    needs: [quality, browser-e2e]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

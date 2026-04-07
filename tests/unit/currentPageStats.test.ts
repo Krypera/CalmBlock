@@ -28,6 +28,7 @@ describe("getCurrentPageStats", () => {
 
     expect(stats.total).toBe(2);
     expect(stats.liveStatsAvailable).toBe(true);
+    expect(stats.status).toBe("live");
     expect(stats.byCategory.ads).toBe(1);
     expect(stats.byCategory.trackers).toBe(1);
     expect(stats.byCategory.annoyances).toBe(0);
@@ -39,7 +40,8 @@ describe("getCurrentPageStats", () => {
     });
     (globalThis as Record<string, unknown>).chrome = {
       permissions: {
-        contains: vi.fn().mockResolvedValue(false)
+        contains: vi.fn().mockResolvedValue(false),
+        request: vi.fn().mockResolvedValue(false)
       },
       declarativeNetRequest: {
         getMatchedRules
@@ -51,6 +53,7 @@ describe("getCurrentPageStats", () => {
 
     expect(stats.total).toBeNull();
     expect(stats.liveStatsAvailable).toBe(false);
+    expect(stats.status).toBe("permission-required");
     expect(getMatchedRules).not.toHaveBeenCalled();
   });
 
@@ -67,6 +70,7 @@ describe("getCurrentPageStats", () => {
 
     expect(stats.total).toBeNull();
     expect(stats.liveStatsAvailable).toBe(false);
+    expect(stats.status).toBe("capability-unavailable");
     expect(stats.byCategory.ads).toBe(0);
   });
 });

@@ -17,13 +17,15 @@ vi.mock("../../src/background/currentPageStats", () => ({
 
 describe("popup protection state regression", () => {
   it("marks protection as ineffective when global is off but site is enabled", async () => {
+    const settingsStore = {
+      get: async () => ({ ...DEFAULT_SETTINGS, enabled: false })
+    };
+    const siteStore = {
+      isAllowlisted: async () => false
+    };
     const service = new PopupStateService(
-      {
-        get: async () => ({ ...DEFAULT_SETTINGS, enabled: false })
-      } as any,
-      {
-        isAllowlisted: async () => false
-      } as any
+      settingsStore as ConstructorParameters<typeof PopupStateService>[0],
+      siteStore as unknown as ConstructorParameters<typeof PopupStateService>[1]
     );
 
     const state = await service.getState(1, "https://example.com");
@@ -34,13 +36,15 @@ describe("popup protection state regression", () => {
   });
 
   it("marks protection as ineffective when global is on but site is paused", async () => {
+    const settingsStore = {
+      get: async () => ({ ...DEFAULT_SETTINGS, enabled: true })
+    };
+    const siteStore = {
+      isAllowlisted: async () => true
+    };
     const service = new PopupStateService(
-      {
-        get: async () => ({ ...DEFAULT_SETTINGS, enabled: true })
-      } as any,
-      {
-        isAllowlisted: async () => true
-      } as any
+      settingsStore as ConstructorParameters<typeof PopupStateService>[0],
+      siteStore as unknown as ConstructorParameters<typeof PopupStateService>[1]
     );
 
     const state = await service.getState(1, "https://example.com");

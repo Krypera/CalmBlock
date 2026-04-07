@@ -1,5 +1,6 @@
-import type { MessageRequest, MessageResponse } from "../shared/messages";
+import type { ApplySummary, MessageRequest, MessageResponse } from "../shared/messages";
 import { LEGACY_STORAGE_KEYS, STORAGE_KEYS } from "../shared/constants";
+import type { AllowlistCapacitySummary } from "../shared/dnrAllowlist";
 import { webext } from "../shared/webext";
 import { GlobalSettingsStore } from "../shared/settingsStore";
 import { SiteSettingsStore } from "../shared/siteSettingsStore";
@@ -48,10 +49,17 @@ async function broadcastProtectionStateToTab(tabId: number, url?: string): Promi
   }
   const state = await getEffectiveSiteState(host);
   await applyBadgeForTab(tabId, host);
-  await webext?.tabs?.sendMessage?.(tabId, {
-    type: "PROTECTION_STATE_CHANGED",
-    effectiveEnabled: state.effectiveEnabled
-  });
+  try {
+    await webext?.tabs?.sendMessage?.(tabId, {
+      type: "PROTECTION_STATE_CHANGED",
+      effectiveEnabled: state.effectiveEnabled
+    });
+  } catch (error) {
+    if (isMissingReceiverError(error)) {
+      return;
+    }
+    throw error;
+  }
 }
 
 async function broadcastProtectionStateToAllTabs(): Promise<void> {
@@ -66,7 +74,9 @@ async function broadcastProtectionStateToAllTabs(): Promise<void> {
   );
 }
 
-async function syncBlockingState() {
+async function syncBlockingState(): Promise<{
+  allowlistSummary: AllowlistCapacitySummary;
+}> {
   const [settings, allowlist] = await Promise.all([settingsStore.get(), siteStore.getAllowlist()]);
   if (!settings.enabled) {
     await webext?.declarativeNetRequest?.updateEnabledRulesets?.({
@@ -76,12 +86,16 @@ async function syncBlockingState() {
   } else {
     await rulesetManager.syncGroupRules(settings.groups);
   }
-  await rulesetManager.syncAllowlistRules(allowlist);
+  const allowlistSummary = await rulesetManager.syncAllowlistRules(allowlist);
+  return { allowlistSummary };
 }
 
-async function applyBlockingAndBroadcast(): Promise<void> {
-  await syncBlockingState();
+async function applyBlockingAndBroadcast(): Promise<{
+  allowlistSummary: AllowlistCapacitySummary;
+}> {
+  const syncResult = await syncBlockingState();
   await broadcastProtectionStateToAllTabs();
+  return syncResult;
 }
 
 async function runAsLocalMutation(task: () => Promise<void>): Promise<void> {
@@ -176,7 +190,7 @@ webext?.storage?.onChanged?.addListener(async (changes: Record<string, unknown>,
   }
 });
 
-webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise<MessageResponse> => {
+async function handleRuntimeMessage(message: MessageRequest): Promise<MessageResponse> {
   try {
     await ensureInitialized();
     if (message.type === "GET_POPUP_STATE") {
@@ -185,19 +199,29 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
     }
 
     if (message.type === "TOGGLE_GLOBAL") {
+      let allowlistSummary: AllowlistCapacitySummary | undefined;
       await runAsLocalMutation(async () => {
         await settingsStore.update({ enabled: message.enabled });
-        await applyBlockingAndBroadcast();
+        ({ allowlistSummary } = await applyBlockingAndBroadcast());
       });
-      return { ok: true, applyMode: "instant" };
+      return {
+        ok: true,
+        applyMode: "instant",
+        applySummary: buildGlobalApplySummary(allowlistSummary)
+      };
     }
 
     if (message.type === "TOGGLE_SITE") {
+      let allowlistSummary: AllowlistCapacitySummary | undefined;
       await runAsLocalMutation(async () => {
         await siteStore.setHostEnabled(message.host, message.enabled);
-        await applyBlockingAndBroadcast();
+        ({ allowlistSummary } = await applyBlockingAndBroadcast());
       });
-      return { ok: true, applyMode: "reload-recommended" };
+      return {
+        ok: true,
+        applyMode: "reload-recommended",
+        applySummary: buildSiteApplySummary(allowlistSummary)
+      };
     }
 
     if (message.type === "IS_SITE_DISABLED") {
@@ -217,7 +241,22 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
       error: error instanceof Error ? error.message : "Unknown error"
     };
   }
-});
+}
+
+webext?.runtime?.onMessage?.addListener(
+  (
+    message: unknown,
+    _sender?: unknown,
+    sendResponse?: (response: MessageResponse) => void
+  ): Promise<MessageResponse> | true => {
+    const typedMessage = message as MessageRequest;
+    if (typeof sendResponse === "function") {
+      void handleRuntimeMessage(typedMessage).then(sendResponse);
+      return true;
+    }
+    return handleRuntimeMessage(typedMessage);
+  }
+);
 
 webext?.tabs?.onUpdated?.addListener(
   async (_tabId: number, changeInfo: { status?: string }, tab: { id?: number; url?: string }) => {
@@ -232,3 +271,49 @@ webext?.tabs?.onUpdated?.addListener(
     await broadcastProtectionStateToTab(tab.id, tab.url);
   }
 );
+
+function buildGlobalApplySummary(allowlistSummary?: AllowlistCapacitySummary): ApplySummary {
+  return {
+    immediate: [
+      "Popup state, badge state, and content cleanup update immediately.",
+      "New requests started after this change use the updated global policy."
+    ],
+    afterReload: [],
+    warning: formatAllowlistOverflowWarning(allowlistSummary)
+  };
+}
+
+function buildSiteApplySummary(allowlistSummary?: AllowlistCapacitySummary): ApplySummary {
+  return {
+    immediate: [
+      "Popup state, badge state, and page cleanup update immediately for this host.",
+      "New requests created after this change use the updated site policy."
+    ],
+    afterReload: [
+      "Requests and resources that were already loaded on this tab keep their previous network decision until reload.",
+      "Per-page counters fully reflect the new site state after reload or a fresh navigation."
+    ],
+    warning: formatAllowlistOverflowWarning(allowlistSummary)
+  };
+}
+
+function formatAllowlistOverflowWarning(
+  allowlistSummary?: AllowlistCapacitySummary
+): string | undefined {
+  if (!allowlistSummary?.overflowed) {
+    return undefined;
+  }
+  const overflowLabel = allowlistSummary.pendingHosts === 1 ? "host is" : "hosts are";
+  return `${allowlistSummary.pendingHosts} allowlist ${overflowLabel} beyond the current ${allowlistSummary.maxHosts}-host limit (${allowlistSummary.source}). Newly paused sites stay prioritized, but older overflow entries will not apply until the list is trimmed.`;
+}
+
+function isMissingReceiverError(error: unknown): boolean {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+  const message = error.message.toLowerCase();
+  return (
+    message.includes("receiving end does not exist") ||
+    message.includes("could not establish connection")
+  );
+}

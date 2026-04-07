@@ -1,25 +1,69 @@
-||ads.linkedin.com^ | script,xmlhttprequest,ping
-||analytics.tiktok.com^ | script,xmlhttprequest,ping
-||api.amplitude.com^ | xmlhttprequest,ping
-||bat.bing.com^ | script,image,xmlhttprequest,ping
-||bounceexchange.com^ | script,xmlhttprequest,sub_frame
-||cdn.branch.io^ | script,xmlhttprequest
-||connect.facebook.net^ | script,xmlhttprequest
-||criteo.com^ | script,xmlhttprequest,image,sub_frame
-||doubleclick.net^ | script,image,xmlhttprequest,sub_frame
-||everesttech.net^ | script,xmlhttprequest,image,sub_frame
-||facebook.com/tr^ | image,xmlhttprequest,ping
-||facebook.net^ | script,xmlhttprequest,image,sub_frame
-||googleadservices.com^ | script,xmlhttprequest,sub_frame
-||logx.optimizely.com^ | xmlhttprequest,ping,image
-||parsely.com^ | script,xmlhttprequest,ping
-||platform.twitter.com^ | script,sub_frame,xmlhttprequest
-||px.ads.linkedin.com^ | image,xmlhttprequest,ping
-||redditstatic.com/ads^ | script,xmlhttprequest,image
-||rtbhouse.com^ | script,xmlhttprequest,image,sub_frame
-||sentry.io^ | xmlhttprequest,ping
-||snap.licdn.com^ | script,image,xmlhttprequest,ping
-||static.ads-twitter.com^ | script,image,xmlhttprequest
-||t.co/i/adsct^ | image,xmlhttprequest,ping
-||tiktok.com/i18n/pixel^ | script,image,xmlhttprequest,ping
-||twitter.com/i/jot^ | image,xmlhttprequest,ping
+||ads-api.tiktok.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||ads-api.twitter.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||ads.linkedin.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||analytics.pointdrive.linkedin.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||analytics.tiktok.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||api.amplitude.com^ | xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||api2.amplitude.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||bam.nr-data.net^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||bat.bing.com^ | script,image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||bounceexchange.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||cdn.branch.io^ | script,xmlhttprequest | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||cdn.heapanalytics.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||cdn.mouseflow.com^ | script,xmlhttprequest,ping | provenance=compat-review; reason=session-replay-sdk-in-strict; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,replay
+||cdn.segment.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=event-routing-sdk-in-strict; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||cdn.usefathom.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||connect.facebook.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||connect.facebook.net^ | script,xmlhttprequest | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||criteo.com^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||doubleclick.net^ | script,image,xmlhttprequest,sub_frame | provenance=manual-curation; reason=high-volume-cross-site-ad-network; tags=strict,ads
+||events.launchdarkly.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||events.statsigapi.net^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||everesttech.net^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||facebook.com/tr^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||facebook.net^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||fp.measure.office.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||g.doubleclick.net^ | script,xmlhttprequest,ping,image,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||gateway.foresee.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||google-analytics.com/g/collect^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=ga4-collect-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||google-analytics.com/mp/collect^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=ga4-measurement-protocol-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||googleads.g.doubleclick.net^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||googleadservices.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||googletagmanager.com/gtm.js^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=high-impact-tag-manager-delivery; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||gtm-pixel.adobe.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||insights.hotjar.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||js-agent.newrelic.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||js.hs-analytics.net^ | script,xmlhttprequest,ping | provenance=compat-review; reason=hubspot-analytics-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||log.pinterest.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||logx.optimizely.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||metrics.icloud.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||parsely.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||pixel.wp.com^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||platform.twitter.com^ | script,sub_frame,xmlhttprequest | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||px.ads.linkedin.com^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||px.everesttech.net^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||redditmedia.com^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=promoted-content-delivery; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,ads
+||redditstatic.com/ads^ | script,xmlhttprequest,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||rtbhouse.com^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||rum.browser-intake-datadoghq.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||sc-static.net^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||sentry.io^ | xmlhttprequest,ping | provenance=compat-review; reason=optional-strict-telemetry-block; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,compat
+||snap.licdn.com^ | script,image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||snapchat.com/tr^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||static.ads-twitter.com^ | script,image,xmlhttprequest | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||static.cloudflareinsights.com^ | script,xmlhttprequest,ping | provenance=compat-review; reason=browser-insights-telemetry-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||static.hotjar.com^ | script,xmlhttprequest,ping,image | provenance=compat-review; reason=session-analytics-static-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,replay
+||static.mouseflow.com^ | script,xmlhttprequest,ping | provenance=compat-review; reason=mouseflow-static-tracker-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,replay
+||t.co/i/adsct^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||telemetry.dropbox.com^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||tiktok.com/i18n/pixel^ | script,image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||tr.outbrain.com^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||tracking-protection.cdn.mozilla.net^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||twitter.com/i/jot^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||www.googleadservices.com/pagead^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||www.redditstatic.com/ads^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||www.youtube.com/api/stats/ads^ | xmlhttprequest,ping,image | provenance=manual-curation; reason=higher-friction-strict-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||yahoo.com/ads^ | script,image,xmlhttprequest,ping | provenance=manual-curation; reason=cross-site-ad-measurement-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,ads
+||yandex.ru/clck^ | image,xmlhttprequest,ping | provenance=manual-curation; reason=click-measurement-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,tracking
+||zedo.com/ads^ | script,image,xmlhttprequest,sub_frame | provenance=manual-curation; reason=legacy-ad-network-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,ads
+||zemanta.com^ | script,xmlhttprequest,image,sub_frame | provenance=compat-review; reason=native-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-strict-breakage.html; tags=strict,native

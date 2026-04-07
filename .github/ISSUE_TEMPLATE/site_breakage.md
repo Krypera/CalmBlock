@@ -10,11 +10,24 @@ assignees: ""
 
 - URL or host:
 
+## Scope Classification
+
+- [ ] Supported browser issue
+- [ ] Gated / under validation browser issue
+- [ ] Out-of-scope browser issue
+
 ## Browser
 
-- Browser: (Chrome / Edge / Firefox)
+- Browser:
 - Browser version:
 - CalmBlock version/commit:
+- OS:
+- Private/incognito mode: (No / Yes)
+- Built-in blocker enabled?: (No / Yes / Not sure)
+- Firefox family context (if applicable): (Firefox / LibreWolf / Waterfox / Floorp / Zen)
+- Browser channel or base track (if known): (stable / ESR-like / unknown)
+- Orion artifact tested (if applicable): (`chrome` / `firefox` / not tested)
+- Orion compatibility mode (if applicable): (enabled / disabled / unknown)
 
 ## Reproduction
 
@@ -31,6 +44,9 @@ assignees: ""
 
 - [ ] Breakage disappears after pausing CalmBlock for this site and reloading.
 - [ ] I tested with global protection on.
+- [ ] I noted whether optional permission prompts behaved differently in this browser.
+- [ ] I noted whether live counters were unavailable and fallback text was clear.
+- [ ] I noted Orion compatibility mode and built-in blocker state if this report is from Orion.
 
 ## Debug Triage Bundle
 

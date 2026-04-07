@@ -31,7 +31,9 @@ export class SiteSettingsStore {
       return this.getAllowlist();
     }
     const allowlist = await this.getAllowlist();
-    const next = enabled ? allowlist.filter((item) => item !== normalized) : [...allowlist, normalized];
+    const next = enabled
+      ? allowlist.filter((item) => item !== normalized)
+      : [normalized, ...allowlist.filter((item) => item !== normalized)];
     return this.setAllowlist(next);
   }
 }

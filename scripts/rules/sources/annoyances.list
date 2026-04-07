@@ -1,35 +1,87 @@
-||appconsent.io^ | script,xmlhttprequest
-||cc.cdn.civiccomputing.com^ | script,xmlhttprequest
-||cdn.cookielaw.org^ | script,xmlhttprequest
-||choice.microsoft.com^ | script,xmlhttprequest
-||cmp.quantcast.com^ | script,xmlhttprequest,sub_frame
-||consensu.org^ | script,xmlhttprequest,sub_frame
-||cookie-script.com^ | script,xmlhttprequest
-||cookiebot.com^ | script,xmlhttprequest
-||cookielaw.org^ | script,xmlhttprequest
-||didomi.io^ | script,xmlhttprequest
-||fundingchoicesmessages.google.com^ | script,xmlhttprequest
-||geo.dailymotion.com/cookie^ | script,xmlhttprequest
-||gravitec.net^ | script,xmlhttprequest
-||iubenda.com^ | script,xmlhttprequest
-||mailmunch.com^ | script,xmlhttprequest,sub_frame
-||noticecdn.com^ | script,xmlhttprequest
-||onesignal.com^ | script,xmlhttprequest
-||onetrust.com^ | script,xmlhttprequest
-||optanon.blob.core.windows.net^ | script,xmlhttprequest
-||optinmonster.com^ | script,xmlhttprequest,sub_frame
-||privacymanager.io^ | script,xmlhttprequest
-||pushengage.com^ | script,xmlhttprequest
-||pushly.com^ | script,xmlhttprequest
-||pushnami.com^ | script,xmlhttprequest
-||pushpad.xyz^ | script,xmlhttprequest
-||pushwoosh.com^ | script,xmlhttprequest
-||quantcast.mgr.consensu.org^ | script,xmlhttprequest
-||requestmetrics.com^ | script,xmlhttprequest
-||seersco.com^ | script,xmlhttprequest
-||sourcepoint.com^ | script,xmlhttprequest
-||sumome.com^ | script,xmlhttprequest,sub_frame
-||termly.io^ | script,xmlhttprequest
-||trustarc.com^ | script,xmlhttprequest
-||usercentrics.eu^ | script,xmlhttprequest
-||webpushr.com^ | script,xmlhttprequest
+||appconsent.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||as-oil.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||beop.io^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cc.cdn.civiccomputing.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cdn.cookielaw.org^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||choice.microsoft.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cmp.quantcast.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consensu.org^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consentcdn.cookiebot.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consentframework.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consentmanager.net^ | script,xmlhttprequest | provenance=manual-curation; reason=cmp-sdk-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||consentmo.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consentprefs.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||consentua.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookie-script.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookie-script.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookiebot.com^ | script,xmlhttprequest | provenance=manual-curation; reason=consent-cmp-endpoint; fixture=tests/content/fixtures/annoyance-consent.html; tags=consent,cmp
+||cookieconsent.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookiefirst.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookiehub.com^ | script,xmlhttprequest | provenance=manual-curation; reason=consent-widget-provider; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||cookieinformation.com^ | script,xmlhttprequest | provenance=manual-curation; reason=consent-banner-provider; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||cookieinformation.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookiekeeper.ai^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookielaw.org^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookielayer.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookiepro.com^ | script,xmlhttprequest | provenance=manual-curation; reason=enterprise-consent-cmp; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||cookiescriptcdn.pro^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||cookieyes.com^ | script,xmlhttprequest | provenance=manual-curation; reason=consent-banner-sdk; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||ctrwow.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||dcassetcdn.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||devowl.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||didomi.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||eucookie.eu^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||fomo.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||fundingchoicesmessages.google.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||geo.dailymotion.com/cookie^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||getdrip.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||getsitecontrol.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=onsite-popup-builder; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,popup
+||getterms.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||gravitec.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||hellobar.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=marketing-popup-widget; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,popup
+||iubenda.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||joinative.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||klaviyo.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=onsite-signup-modal-sdk; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,engagement
+||mailmunch.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||noticecdn.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||onesignal.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||onetrust.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||optanon.blob.core.windows.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||optiads.io^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||optimonk.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||optinmonster.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||poper.ai^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||popupsmart.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||privacymanager.io^ | script,xmlhttprequest | provenance=manual-curation; reason=consent-management-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=consent,cmp
+||pushalert.co^ | script,xmlhttprequest | provenance=manual-curation; reason=web-push-prompt-network; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,push
+||pushassist.com^ | script,xmlhttprequest | provenance=manual-curation; reason=push-notification-sdk; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,push
+||pushcrew.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushengage.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushly.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushnami.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushnews.eu^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushowl.com^ | script,xmlhttprequest | provenance=manual-curation; reason=push-notification-widget; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,push
+||pushpad.xyz^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushpro.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushub.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||pushwoosh.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||quantcast.mgr.consensu.org^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||requestmetrics.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||seersco.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||sendpulse.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||sleeknote.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=lead-capture-popup-widget; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,popup
+||sourcepoint.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||subscribe-forms.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||sumome.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||termly.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||termsfeed.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||termshub.io^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||trustarc.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||trustcommander.net^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||usercentrics.eu^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||webengage.com^ | script,xmlhttprequest | provenance=manual-curation; reason=engagement-popup-sdk; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,engagement
+||webpushr.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||webtoffee.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||wisepops.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=onsite-popup-widget; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,popup
+||wisepush.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent
+||yespo.io^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-consent-or-popup-endpoint; fixture=tests/content/fixtures/annoyance-framework-consent.html; tags=annoyance,consent

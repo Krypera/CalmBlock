@@ -6,6 +6,7 @@ describe("triage bundle schema", () => {
     const bundle = buildTriageBundle({
       generatedAt: "2026-04-07T00:00:00.000Z",
       browserTarget: "chrome",
+      browserVersion: "123.0.0.0",
       extensionVersion: "0.1.1",
       activeHost: "example.com",
       globalEnabled: true,
@@ -23,6 +24,8 @@ describe("triage bundle schema", () => {
     expect(bundle.schema).toBe(TRIAGE_BUNDLE_SCHEMA);
     expect(bundle).toMatchObject({
       browserTarget: "chrome",
+      browserVersion: "123.0.0.0",
+      compatibilityMode: "unknown",
       extensionVersion: "0.1.1",
       activeHost: "example.com",
       globalEnabled: true

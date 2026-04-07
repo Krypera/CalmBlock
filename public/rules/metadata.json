@@ -2,16 +2,65 @@
   "version": 2,
   "updated": "2026-04-07",
   "generatedAt": "2026-04-07T00:00:00.000Z",
+  "program": {
+    "owner": "CalmBlock maintainers",
+    "releaseCadence": "release-bound",
+    "provenancePolicy": "Each ruleset group tracks human review date, fixtures, and provenance references in this manifest so metadata.json can be audited without opening the source lists.",
+    "ruleAuthoring": "filter | types | key=value; key=value",
+    "annotationFields": [
+      "provenance",
+      "reason",
+      "fixture",
+      "tags"
+    ],
+    "groupCount": 4
+  },
+  "summary": {
+    "groupCount": 4,
+    "totalRules": 333,
+    "annotatedRules": 333,
+    "annotationRate": 1
+  },
   "groups": {
     "ads": {
+      "category": "ads",
       "description": "Ad network and ad delivery hosts curated for CalmBlock MVP.",
+      "reviewedAt": "2026-04-07",
       "sourceFile": "scripts/rules/sources/ads.list",
-      "ruleCount": 36,
+      "fixtures": [
+        "tests/content/fixtures/cosmetic-rich.html",
+        "tests/content/fixtures/cosmetic-framework-consent.html"
+      ],
+      "provenance": [
+        {
+          "id": "manual-curation",
+          "label": "CalmBlock manual curation",
+          "kind": "maintainer-review",
+          "url": "https://github.com/Krypera/CalmBlock/tree/main/scripts/rules",
+          "reviewedAt": "2026-04-07",
+          "notes": "Release-bound host list kept intentionally small and DNR-safe."
+        },
+        {
+          "id": "easylist-reference",
+          "label": "EasyList reference review",
+          "kind": "reference-only",
+          "url": "https://easylist.to/",
+          "reviewedAt": "2026-04-07",
+          "notes": "Used as research input only; entries are manually rewritten into CalmBlock format."
+        }
+      ],
+      "ruleCount": 89,
       "idRange": {
         "start": 1,
-        "end": 36
+        "end": 89
       },
-      "sourceDigest": "13f71dd58fc3c268",
+      "sourceDigest": "7ec92893edcf94bb",
+      "annotationCoverage": {
+        "provenance": 89,
+        "reason": 89,
+        "fixture": 88,
+        "tags": 89
+      },
       "changes": {
         "added": 0,
         "removed": 0,
@@ -19,14 +68,43 @@
       }
     },
     "trackers": {
+      "category": "trackers",
       "description": "Common analytics and tracking domains with cross-site behavior.",
+      "reviewedAt": "2026-04-07",
       "sourceFile": "scripts/rules/sources/trackers.list",
-      "ruleCount": 35,
+      "fixtures": [
+        "tests/unit/currentPageStats.test.ts"
+      ],
+      "provenance": [
+        {
+          "id": "manual-curation",
+          "label": "CalmBlock manual curation",
+          "kind": "maintainer-review",
+          "url": "https://github.com/Krypera/CalmBlock/tree/main/scripts/rules",
+          "reviewedAt": "2026-04-07",
+          "notes": "Entries are scoped to high-signal tracker endpoints with low breakage expectations."
+        },
+        {
+          "id": "easyprivacy-reference",
+          "label": "EasyPrivacy reference review",
+          "kind": "reference-only",
+          "url": "https://easylist.to/",
+          "reviewedAt": "2026-04-07",
+          "notes": "Used as a provenance anchor for tracker-domain research, not as an auto-import feed."
+        }
+      ],
+      "ruleCount": 88,
       "idRange": {
         "start": 1001,
-        "end": 1035
+        "end": 1088
       },
-      "sourceDigest": "bb0b9eede7fa3678",
+      "sourceDigest": "43e14315132e4cda",
+      "annotationCoverage": {
+        "provenance": 88,
+        "reason": 88,
+        "fixture": 87,
+        "tags": 88
+      },
       "changes": {
         "added": 0,
         "removed": 0,
@@ -34,14 +112,46 @@
       }
     },
     "annoyances": {
+      "category": "annoyances",
       "description": "Known popup, push prompt, and consent management nuisance endpoints.",
+      "reviewedAt": "2026-04-07",
       "sourceFile": "scripts/rules/sources/annoyances.list",
-      "ruleCount": 35,
+      "fixtures": [
+        "tests/content/fixtures/annoyance-consent.html",
+        "tests/content/fixtures/annoyance-close-consent.html",
+        "tests/content/fixtures/annoyance-framework-consent.html",
+        "tests/content/fixtures/annoyance-positive-only.html"
+      ],
+      "provenance": [
+        {
+          "id": "manual-curation",
+          "label": "CalmBlock manual curation",
+          "kind": "maintainer-review",
+          "url": "https://github.com/Krypera/CalmBlock/tree/main/scripts/rules",
+          "reviewedAt": "2026-04-07",
+          "notes": "Consent and push-notification endpoints are manually reviewed for low-risk blocking."
+        },
+        {
+          "id": "fanboy-annoyance-reference",
+          "label": "Fanboy annoyances reference review",
+          "kind": "reference-only",
+          "url": "https://easylist.to/",
+          "reviewedAt": "2026-04-07",
+          "notes": "Used as research material when validating nuisance endpoint categories."
+        }
+      ],
+      "ruleCount": 87,
       "idRange": {
         "start": 2001,
-        "end": 2035
+        "end": 2087
       },
-      "sourceDigest": "7d33f998580f80d8",
+      "sourceDigest": "43357e3e7bc9c452",
+      "annotationCoverage": {
+        "provenance": 87,
+        "reason": 87,
+        "fixture": 87,
+        "tags": 87
+      },
       "changes": {
         "added": 0,
         "removed": 0,
@@ -49,14 +159,44 @@
       }
     },
     "strict": {
+      "category": "strict",
       "description": "Higher-friction strict privacy endpoints that may affect site compatibility.",
+      "reviewedAt": "2026-04-07",
       "sourceFile": "scripts/rules/sources/strict.list",
-      "ruleCount": 25,
+      "fixtures": [
+        "tests/integration/dnrRulesetFlow.test.ts",
+        "tests/content/fixtures/cosmetic-strict-breakage.html"
+      ],
+      "provenance": [
+        {
+          "id": "manual-curation",
+          "label": "CalmBlock manual curation",
+          "kind": "maintainer-review",
+          "url": "https://github.com/Krypera/CalmBlock/tree/main/scripts/rules",
+          "reviewedAt": "2026-04-07",
+          "notes": "Strict rules are reserved for higher-friction endpoints and reviewed for breakage risk."
+        },
+        {
+          "id": "compat-review",
+          "label": "Compatibility review queue",
+          "kind": "issue-driven",
+          "url": "https://github.com/Krypera/CalmBlock/issues",
+          "reviewedAt": "2026-04-07",
+          "notes": "Strict entries stay tied to reproducible breakage review and fixture follow-up."
+        }
+      ],
+      "ruleCount": 69,
       "idRange": {
         "start": 3001,
-        "end": 3025
+        "end": 3069
       },
-      "sourceDigest": "4018007d575c7a71",
+      "sourceDigest": "1ae2ab3e23815491",
+      "annotationCoverage": {
+        "provenance": 69,
+        "reason": 69,
+        "fixture": 68,
+        "tags": 69
+      },
       "changes": {
         "added": 0,
         "removed": 0,

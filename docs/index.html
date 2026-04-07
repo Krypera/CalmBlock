@@ -72,6 +72,15 @@
         <h2>Start Here</h2>
         <div class="link-grid">
           <a href="https://github.com/Krypera/CalmBlock#install">Install and build</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/browser-support.md">Browser support contract</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/release-browser-program.md">Release browser program</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/release-browser-matrix.md">Release browser worksheet</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/chromium-smoke-checklist.md">Chromium smoke checklist</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/firefox-smoke-checklist.md">Firefox-family smoke checklist</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/orion-smoke-checklist.md">Orion gated smoke checklist</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/safari-support.md">Safari workstream plan</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/safari-smoke-checklist.md">Safari smoke checklist</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/docs/ui-i18n-plan.md">UI i18n plan</a>
           <a href="https://github.com/Krypera/CalmBlock#development">Development commands</a>
           <a href="https://github.com/Krypera/CalmBlock/blob/main/CONTRIBUTING.md">Contributing guide</a>
           <a href="https://github.com/Krypera/CalmBlock/blob/main/ROADMAP.md">Roadmap</a>
@@ -83,10 +92,14 @@
       <section class="card">
         <h2>Browser Notes</h2>
         <ul>
-          <li>Chrome and Edge: full MV3 ruleset flow with optional live counter permission.</li>
-          <li>Firefox: same core protections and shared codebase, with DNR feedback capability varying by version.</li>
+          <li>Support tiers are certification targets until a release matrix is filled and published for a tagged release.</li>
+          <li>Chromium certification uses one packaged <code>chrome</code> build for Chrome, Edge, Brave, Vivaldi, Opera, Arc, and Yandex.</li>
+          <li>Firefox-family certification uses one packaged <code>firefox</code> build, with Firefox as the reference target plus LibreWolf, Waterfox, Floorp, and Zen.</li>
+          <li>Orion is gated and stays non-official until it passes two consecutive release cycles with recorded validation.</li>
+          <li>Safari is a separate workstream with its own Apple packaging and review lane requirements.</li>
           <li>When live counters are unavailable, blocking still works and UI shows fallback state clearly.</li>
         </ul>
+        <p><a href="https://github.com/Krypera/CalmBlock/blob/main/docs/release-browser-program.md">Read the browser program and certification flow</a></p>
       </section>
 
       <section class="card">
