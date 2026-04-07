@@ -5,6 +5,7 @@ import { webext } from "../shared/webext";
 
 const output = document.querySelector<HTMLElement>("#debug-output");
 const lockCard = document.querySelector<HTMLElement>("#debug-lock");
+const lockCopy = document.querySelector<HTMLElement>("#debug-lock-copy");
 const debugPanel = document.querySelector<HTMLElement>("#debug-panel");
 const settingsStore = new GlobalSettingsStore();
 const siteStore = new SiteSettingsStore();
@@ -14,6 +15,10 @@ async function render() {
   if (!settings.advancedMode) {
     lockCard?.classList.remove("hidden");
     debugPanel?.classList.add("hidden");
+    if (lockCopy) {
+      lockCopy.textContent =
+        "Advanced mode is off. Open settings, turn on advanced mode, then reload this debug page.";
+    }
     if (output) {
       output.textContent = "";
     }

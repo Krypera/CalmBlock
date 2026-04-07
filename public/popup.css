@@ -195,6 +195,31 @@ body {
   color: var(--muted);
 }
 
+.qb-inline-action {
+  margin-top: 2px;
+  width: fit-content;
+  border: 1px solid rgba(110, 159, 218, 0.4);
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: linear-gradient(180deg, #f8fbff 0%, #e8f2ff 100%);
+  color: #29567d;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.qb-inline-action:hover {
+  background: linear-gradient(180deg, #fdfefe 0%, #e1efff 100%);
+  border-color: rgba(102, 150, 207, 0.55);
+}
+
+.qb-inline-action:focus-visible {
+  outline: 2px solid rgba(118, 179, 255, 0.55);
+  outline-offset: 2px;
+}
+
 .qb-count-bubble {
   min-width: 74px;
   padding: 10px 14px;

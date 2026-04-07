@@ -134,6 +134,11 @@ CalmBlock requests only permissions needed for local blocking and clear UX:
 
 No permission is used for telemetry, remote logging, account sync, or hidden data collection.
 
+Live counter behavior:
+
+- If optional feedback permission is granted, popup shows live blocked-request totals and category counts.
+- If it is not granted, blocking still works normally and popup shows a clear "counters unavailable" fallback state.
+
 ## What Is Not Blocked
 
 CalmBlock intentionally does not target these classes in this phase:

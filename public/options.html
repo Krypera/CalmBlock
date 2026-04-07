@@ -42,6 +42,9 @@
         </article>
         <article class="opt-card">
           <h2>Permissions</h2>
+          <p class="muted">
+            Live counters are optional. Blocking works fully even if you keep that permission off.
+          </p>
           <ul class="opt-list">
             <li><code>declarativeNetRequest</code>: network request blocking via local rules.</li>
             <li><code>declarativeNetRequestFeedback</code> (optional): enables live block counters in popup.</li>
@@ -50,6 +53,10 @@
             <li><code>tabs</code>: read current tab host for fast site toggle.</li>
             <li><code>&lt;all_urls&gt;</code>: apply protections where you browse.</li>
           </ul>
+          <p class="muted">
+            If granted: popup shows live blocked-request totals and category counters.
+            If not granted: popup keeps showing protection state, and counters stay hidden with a clear hint.
+          </p>
         </article>
         <article class="opt-card">
           <h2>Privacy guarantees</h2>

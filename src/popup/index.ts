@@ -1,5 +1,6 @@
 import type { MessageResponse } from "../shared/messages";
 import { PROTECTION_GROUPS } from "../shared/constants";
+import { PermissionManager } from "../shared/permissionManager";
 import type { PopupState } from "../shared/types";
 import { webext } from "../shared/webext";
 
@@ -11,10 +12,12 @@ const siteStatus = document.querySelector<HTMLParagraphElement>("#site-status");
 const blockedCountEl = document.querySelector<HTMLElement>("#blocked-count");
 const categorySummary = document.querySelector<HTMLElement>("#category-summary");
 const blockedNoteEl = document.querySelector<HTMLElement>("#blocked-note");
+const enableLiveCountersBtn = document.querySelector<HTMLButtonElement>("#enable-live-counters");
 const reloadHint = document.querySelector<HTMLElement>("#reload-hint");
 
 let lastState: PopupState | null = null;
 let tabId: number | null = null;
+const permissionManager = new PermissionManager();
 
 function setToggle(
   button: HTMLButtonElement | null,
@@ -61,7 +64,33 @@ function renderCategories(state: PopupState) {
   }
 }
 
-function renderState(state: PopupState) {
+async function updateLiveCounterPrompt(state: PopupState): Promise<void> {
+  if (!blockedNoteEl || !enableLiveCountersBtn) {
+    return;
+  }
+  if (state.liveStatsAvailable) {
+    enableLiveCountersBtn.classList.add("hidden");
+    return;
+  }
+
+  const permissionState = await permissionManager.hasFeedbackPermission();
+  const canRequestPermission = typeof webext?.permissions?.request === "function";
+
+  if (permissionState === false && canRequestPermission) {
+    blockedNoteEl.textContent =
+      "Live counts are off until you grant the optional browser feedback permission.";
+    enableLiveCountersBtn.classList.remove("hidden");
+    return;
+  }
+
+  enableLiveCountersBtn.classList.add("hidden");
+  blockedNoteEl.textContent =
+    permissionState
+      ? "Live counts are currently unavailable in this browser session."
+      : "Live counts are unavailable in this browser.";
+}
+
+async function renderState(state: PopupState) {
   lastState = state;
   setToggle(globalToggle, globalStateEl, state.globalEnabled, "On", "Off");
   const siteStateLabel = state.siteDisabled
@@ -89,7 +118,7 @@ function renderState(state: PopupState) {
   if (blockedNoteEl) {
     blockedNoteEl.textContent =
       !state.liveStatsAvailable
-        ? "Live counts are available after optional feedback permission is granted."
+        ? "Live counts can be enabled with optional browser permission."
         : state.blockedCount === null
           ? "Live counts are unavailable for this page."
         : state.blockedCount === 0
@@ -97,6 +126,7 @@ function renderState(state: PopupState) {
           : "Live counts for the current tab.";
   }
   renderCategories(state);
+  await updateLiveCounterPrompt(state);
 }
 
 function showReloadHint(text: string): void {
@@ -124,7 +154,7 @@ async function loadPopupState() {
     url: activeTab.url
   })) as MessageResponse | undefined;
   if (response?.ok && response.state) {
-    renderState(response.state);
+    await renderState(response.state);
   }
 }
 
@@ -160,6 +190,21 @@ siteToggle?.addEventListener("click", async () => {
     return;
   }
   hideReloadHint();
+});
+
+enableLiveCountersBtn?.addEventListener("click", async () => {
+  enableLiveCountersBtn.disabled = true;
+  const granted = await permissionManager.requestFeedbackPermission();
+  if (granted) {
+    if (blockedNoteEl) {
+      blockedNoteEl.textContent = "Live counters enabled. Refreshing status...";
+    }
+    await loadPopupState();
+  } else if (blockedNoteEl) {
+    blockedNoteEl.textContent =
+      "Live counters stayed off. You can keep browsing with full blocking protection.";
+  }
+  enableLiveCountersBtn.disabled = false;
 });
 
 void loadPopupState();
