@@ -5,46 +5,51 @@ import { webext } from "../shared/webext";
 
 const cosmeticEngine = new CosmeticEngine();
 const annoyanceEngine = new AnnoyanceEngine();
+let enginesActive = false;
 
 function getHost(): string {
   return window.location.hostname;
 }
 
-async function isSiteEnabled(host: string): Promise<boolean> {
+function applyEffectiveState(enabled: boolean): void {
+  if (enabled && !enginesActive) {
+    cosmeticEngine.apply();
+    annoyanceEngine.start();
+    enginesActive = true;
+    return;
+  }
+  if (!enabled && enginesActive) {
+    cosmeticEngine.clear();
+    annoyanceEngine.stop();
+    enginesActive = false;
+  }
+}
+
+async function isEffectiveProtectionEnabled(host: string): Promise<boolean> {
   const response = (await webext?.runtime?.sendMessage?.({
-    type: "IS_SITE_DISABLED",
+    type: "GET_EFFECTIVE_SITE_STATE",
     host
   })) as MessageResponse | undefined;
   if (!response) {
-    return true;
+    return false;
   }
   if (!response.ok) {
-    return true;
+    return false;
   }
-  return !response.disabled;
+  return !!response.effectiveEnabled;
 }
 
 async function boot() {
   const host = getHost();
-  const enabled = await isSiteEnabled(host);
-  if (!enabled) {
-    return;
-  }
-  cosmeticEngine.apply();
-  annoyanceEngine.start();
+  const enabled = await isEffectiveProtectionEnabled(host);
+  applyEffectiveState(enabled);
 }
 
-webext?.runtime?.onMessage?.addListener((message: { type: string; enabled: boolean }) => {
-  if (message.type !== "SITE_STATE_CHANGED") {
+webext?.runtime?.onMessage?.addListener((message: { type: string; effectiveEnabled?: boolean }) => {
+  if (message.type !== "PROTECTION_STATE_CHANGED") {
     return;
   }
-  if (message.enabled) {
-    cosmeticEngine.apply();
-    annoyanceEngine.start();
-    return;
-  }
-  cosmeticEngine.clear();
-  annoyanceEngine.stop();
+  applyEffectiveState(!!message.effectiveEnabled);
 });
 
 void boot();

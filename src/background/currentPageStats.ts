@@ -1,4 +1,5 @@
 import { defaultCategoryCounters } from "../shared/popupState";
+import { PermissionManager } from "../shared/permissionManager";
 import type { ProtectionGroup } from "../shared/types";
 import { webext } from "../shared/webext";
 
@@ -9,16 +10,24 @@ const RULESET_TO_CATEGORY: Record<string, ProtectionGroup> = {
   strict: "strict"
 };
 
+const permissionManager = new PermissionManager();
+
 export async function getCurrentPageStats(tabId: number): Promise<{
   total: number | null;
+  liveStatsAvailable: boolean;
   byCategory: Record<ProtectionGroup, number>;
 }> {
   const byCategory = defaultCategoryCounters();
 
   try {
+    const feedbackPermission = await permissionManager.hasFeedbackPermission();
+    if (feedbackPermission === false) {
+      return { total: null, liveStatsAvailable: false, byCategory };
+    }
+
     const getMatchedRules = webext?.declarativeNetRequest?.getMatchedRules;
     if (!getMatchedRules) {
-      return { total: null, byCategory };
+      return { total: null, liveStatsAvailable: false, byCategory };
     }
 
     const result = await getMatchedRules({ tabId });
@@ -31,8 +40,8 @@ export async function getCurrentPageStats(tabId: number): Promise<{
       }
     }
     const total = Object.values(byCategory).reduce((sum, value) => sum + value, 0);
-    return { total, byCategory };
+    return { total, liveStatsAvailable: true, byCategory };
   } catch {
-    return { total: null, byCategory };
+    return { total: null, liveStatsAvailable: false, byCategory };
   }
 }

@@ -23,6 +23,7 @@ export class PopupStateService {
       global: settings,
       siteDisabled,
       blockedCount: stats.total,
+      liveStatsAvailable: stats.liveStatsAvailable,
       blockedByCategory: stats.byCategory
     });
   }
@@ -35,4 +36,3 @@ export function safeHostFromUrl(url: string): string | null {
     return null;
   }
 }
-

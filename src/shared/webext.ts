@@ -39,7 +39,7 @@ export interface WebExtLike {
     };
   };
   tabs?: {
-    query?: (queryInfo: { active: boolean; currentWindow: boolean }) => Promise<Array<{ id?: number; url?: string }>>;
+    query?: (queryInfo?: { active?: boolean; currentWindow?: boolean }) => Promise<Array<{ id?: number; url?: string }>>;
     sendMessage?: (tabId: number, message: unknown) => Promise<unknown>;
     onUpdated?: {
       addListener: (

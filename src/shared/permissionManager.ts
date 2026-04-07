@@ -12,10 +12,10 @@ export class PermissionManager {
     }
   }
 
-  async hasFeedbackPermission(): Promise<boolean> {
+  async hasFeedbackPermission(): Promise<boolean | null> {
     try {
       if (!webext?.permissions?.contains) {
-        return false;
+        return null;
       }
       return await webext.permissions.contains({ permissions: ["declarativeNetRequestFeedback"] });
     } catch {

@@ -39,10 +39,10 @@ function renderCategories(state: PopupState) {
     return;
   }
   categorySummary.innerHTML = "";
-  if (state.blockedCount === null) {
+  if (!state.liveStatsAvailable) {
     const empty = document.createElement("div");
     empty.className = "qb-summary-empty";
-    empty.textContent = "Live category counts are unavailable in this tab.";
+    empty.textContent = "Live category counts require optional feedback permission.";
     categorySummary.append(empty);
     return;
   }
@@ -82,12 +82,16 @@ function renderState(state: PopupState) {
     }
   }
   if (blockedCountEl) {
-    blockedCountEl.textContent = state.blockedCount === null ? "-" : String(state.blockedCount);
+    blockedCountEl.textContent = !state.liveStatsAvailable || state.blockedCount === null
+      ? "-"
+      : String(state.blockedCount);
   }
   if (blockedNoteEl) {
     blockedNoteEl.textContent =
-      state.blockedCount === null
-        ? "Live counts are unavailable for this page."
+      !state.liveStatsAvailable
+        ? "Live counts are available after optional feedback permission is granted."
+        : state.blockedCount === null
+          ? "Live counts are unavailable for this page."
         : state.blockedCount === 0
           ? "No blocked requests on this page yet."
           : "Live counts for the current tab.";

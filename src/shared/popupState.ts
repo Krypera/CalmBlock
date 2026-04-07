@@ -30,6 +30,7 @@ export function derivePopupState(input: {
   global: GlobalSettings;
   siteDisabled: boolean;
   blockedCount: number | null;
+  liveStatsAvailable?: boolean;
   blockedByCategory?: Record<ProtectionGroup, number>;
   reloadRequired?: boolean;
 }): PopupState {
@@ -45,6 +46,7 @@ export function derivePopupState(input: {
     effectiveProtectionEnabled,
     protectedSummary: buildProtectionSummary(input.global),
     blockedCount: input.blockedCount,
+    liveStatsAvailable: input.liveStatsAvailable ?? input.blockedCount !== null,
     blockedByCategory: input.blockedByCategory ?? defaultCategoryCounters(),
     reloadRequired: input.reloadRequired ?? false
   };

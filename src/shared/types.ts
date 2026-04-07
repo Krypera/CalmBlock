@@ -21,6 +21,7 @@ export interface PopupState {
   effectiveProtectionEnabled: boolean;
   protectedSummary: string;
   blockedCount: number | null;
+  liveStatsAvailable: boolean;
   blockedByCategory: Record<ProtectionGroup, number>;
   reloadRequired: boolean;
 }

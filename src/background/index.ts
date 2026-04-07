@@ -12,6 +12,46 @@ const rulesetManager = new RulesetManager();
 const popupStateService = new PopupStateService(settingsStore, siteStore);
 let startupInitPromise: Promise<void> | null = null;
 
+async function getEffectiveSiteState(host: string): Promise<{
+  globalEnabled: boolean;
+  siteDisabled: boolean;
+  effectiveEnabled: boolean;
+}> {
+  const [settings, siteDisabled] = await Promise.all([
+    settingsStore.get(),
+    siteStore.isAllowlisted(host)
+  ]);
+  return {
+    globalEnabled: settings.enabled,
+    siteDisabled,
+    effectiveEnabled: settings.enabled && !siteDisabled
+  };
+}
+
+async function broadcastProtectionStateToTab(tabId: number, url?: string): Promise<void> {
+  const host = safeHostFromUrl(url ?? "");
+  if (!host) {
+    return;
+  }
+  const state = await getEffectiveSiteState(host);
+  await webext?.tabs?.sendMessage?.(tabId, {
+    type: "PROTECTION_STATE_CHANGED",
+    effectiveEnabled: state.effectiveEnabled
+  });
+}
+
+async function broadcastProtectionStateToAllTabs(): Promise<void> {
+  const tabs = (await webext?.tabs?.query?.()) ?? [];
+  await Promise.all(
+    tabs.map(async (tab) => {
+      if (!tab.id || !tab.url) {
+        return;
+      }
+      await broadcastProtectionStateToTab(tab.id, tab.url);
+    })
+  );
+}
+
 async function syncBlockingState() {
   const [settings, allowlist] = await Promise.all([settingsStore.get(), siteStore.getAllowlist()]);
   if (!settings.enabled) {
@@ -102,6 +142,7 @@ webext?.storage?.onChanged?.addListener(async (changes: Record<string, unknown>,
     changes[LEGACY_STORAGE_KEYS.allowlist]
   ) {
     await syncBlockingState();
+    await broadcastProtectionStateToAllTabs();
   }
 });
 
@@ -116,22 +157,25 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
     if (message.type === "TOGGLE_GLOBAL") {
       await settingsStore.update({ enabled: message.enabled });
       await syncBlockingState();
+      await broadcastProtectionStateToAllTabs();
       return { ok: true };
     }
 
     if (message.type === "TOGGLE_SITE") {
       await siteStore.setHostEnabled(message.host, message.enabled);
       await syncBlockingState();
-      await webext?.tabs?.sendMessage?.(message.tabId, {
-        type: "SITE_STATE_CHANGED",
-        enabled: message.enabled
-      });
+      await broadcastProtectionStateToAllTabs();
       return { ok: true };
     }
 
     if (message.type === "IS_SITE_DISABLED") {
       const disabled = await siteStore.isAllowlisted(message.host);
       return { ok: true, disabled };
+    }
+
+    if (message.type === "GET_EFFECTIVE_SITE_STATE") {
+      const state = await getEffectiveSiteState(message.host);
+      return { ok: true, effectiveEnabled: state.effectiveEnabled };
     }
 
     return { ok: false, error: "Unknown message type" };
@@ -160,5 +204,6 @@ webext?.tabs?.onUpdated?.addListener(
       tabId: tab.id,
       color: siteDisabled ? "#8fa6bf" : "#6db1ff"
     });
+    await broadcastProtectionStateToTab(tab.id, tab.url);
   }
 );
