@@ -20,6 +20,26 @@
         <a href="options.html" target="_blank" rel="noreferrer">Open settings</a>
       </section>
       <section id="debug-panel" class="opt-card">
+        <h2>Runtime Summary</h2>
+        <div class="opt-actions">
+          <label class="opt-check">
+            <input id="debug-redact" type="checkbox" checked />
+            <span>Share-safe redaction</span>
+          </label>
+          <button id="copy-triage" class="opt-button" type="button">Copy triage bundle</button>
+          <button id="download-diagnostics" class="opt-button" type="button">Download diagnostics</button>
+        </div>
+        <div class="opt-grid">
+          <article class="opt-card">
+            <h3>Capabilities</h3>
+            <ul id="debug-capabilities" class="opt-list"></ul>
+          </article>
+          <article class="opt-card">
+            <h3>Operational Status</h3>
+            <ul id="debug-status" class="opt-list"></ul>
+          </article>
+        </div>
+        <h2>Raw Diagnostics</h2>
         <pre id="debug-output">Loading diagnostics...</pre>
       </section>
     </main>

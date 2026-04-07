@@ -1,35 +1,88 @@
-||adjust.com^ | script,xmlhttprequest,ping
-||adobedtm.com^ | script,xmlhttprequest,ping
-||amplitude.com^ | script,xmlhttprequest,ping
-||app-measurement.com^ | script,xmlhttprequest,ping
-||attributionapp.com^ | script,xmlhttprequest,ping
-||branch.io^ | script,xmlhttprequest,ping
-||braze.com^ | script,xmlhttprequest,ping
-||chartbeat.com^ | script,xmlhttprequest,ping
-||clarity.ms^ | script,xmlhttprequest,ping
-||crazyegg.com^ | script,xmlhttprequest,ping
-||demdex.net^ | script,xmlhttprequest,image,ping
-||fullstory.com^ | script,xmlhttprequest,ping
-||google-analytics.com^ | script,xmlhttprequest,image,ping
-||googletagmanager.com^ | script,xmlhttprequest
-||heap.io^ | script,xmlhttprequest,ping
-||hotjar.com^ | script,xmlhttprequest,ping,image
-||krxd.net^ | script,xmlhttprequest,image
-||luckyorange.com^ | script,xmlhttprequest,ping
-||mathtag.com^ | script,xmlhttprequest,image
-||mixpanel.com^ | script,xmlhttprequest,ping
-||newrelic.com^ | script,xmlhttprequest,ping
-||optimizely.com^ | script,xmlhttprequest,ping
-||parsely.com^ | script,xmlhttprequest,ping
-||pendo.io^ | script,xmlhttprequest,ping
-||piwik.pro^ | script,xmlhttprequest,ping
-||posthog.com^ | script,xmlhttprequest,ping
-||quantserve.com^ | script,xmlhttprequest,image,ping
-||scorecardresearch.com^ | script,xmlhttprequest,image,ping
-||segment.com^ | script,xmlhttprequest,ping
-||segment.io^ | script,xmlhttprequest,ping
-||snowplowanalytics.com^ | script,xmlhttprequest,ping
-||tealiumiq.com^ | script,xmlhttprequest,ping
-||trackingplan.com^ | script,xmlhttprequest,ping
-||webtrends.com^ | script,xmlhttprequest,ping
-||yandex.ru/metrika^ | script,xmlhttprequest,ping
+||6sc.co^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||adjust.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=mobile-attribution-endpoint; tags=tracking,telemetry
+||adobedtm.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||agkn.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||airbridge.io^ | script,xmlhttprequest,ping | provenance=easyprivacy-reference; reason=mobile-attribution-tracker; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,attribution
+||alooma.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||amplitude.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||app-measurement.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||appsflyer.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=attribution-and-event-collector; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,attribution
+||aptrinsic.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||attributionapp.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||branch.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||braze.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||bugsnag.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||cdp.cifnews.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||chartbeat.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||clarity.ms^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||clickagy.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||contentsquare.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=session-analytics-platform; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,analytics
+||conviva.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||countly.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=product-analytics-collector; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,analytics
+||crazyegg.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||d31qbv1cthcecs.cloudfront.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||datadoghq-browser-agent.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=browser-rum-telemetry-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||demandbase.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||demdex.net^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||driftt.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||dynatrace.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=real-user-monitoring-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||engagio.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||etahub.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||evidon.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||fathomanalytics.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=privacy-analytics-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,analytics
+||fullstory.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=session-replay-telemetry; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,replay
+||glassboxdigital.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||gong.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||google-analytics.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=ubiquitous-cross-site-analytics; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,high-impact
+||googletagmanager.com^ | script,xmlhttprequest | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||gtm-msr.appspot.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||heap.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||heatmap.it^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||hotjar.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||insightcdn.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||ip-api.com/json^ | xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||kissmetrics.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||krxd.net^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||loggly.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||lpsnmedia.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||luckyorange.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||mathtag.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||metomic.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||mixpanel.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||mouseflow.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=session-replay-tracker; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,replay
+||mparticle.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||newrelic.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||omniconvert.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||optimizely.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||parsely.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||pendo.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||pingdom.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||piwik.pro^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||plausible.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=hosted-analytics-collector; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,analytics
+||posthog.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||prism.app-us1.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||qualaroo.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||quantserve.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||raygun.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||rudderlabs.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||rudderstack.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=event-routing-tracker; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||sailthru.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||satismeter.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||scorecardresearch.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||segment.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||segment.io^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||smartlook.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||snowplowanalytics.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||statcounter.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||stats.wp.com^ | script,xmlhttprequest,ping,image | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||statsigapi.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=feature-analytics-telemetry; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||tealiumiq.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||trackingplan.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||usabilitytools.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||walkme.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||webtrends.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||woopra.com^ | script,xmlhttprequest,ping | provenance=easyprivacy-reference; reason=customer-journey-tracking; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,analytics
+||wt-eu02.net^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||xiti.com^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||yandex.ru/metrika^ | script,xmlhttprequest,ping | provenance=manual-curation; reason=curated-tracker-endpoint; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,telemetry
+||zeotap.com^ | script,xmlhttprequest,ping | provenance=easyprivacy-reference; reason=identity-resolution-tracker; fixture=tests/unit/currentPageStats.test.ts; tags=tracking,profiling

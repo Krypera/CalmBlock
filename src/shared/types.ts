@@ -1,4 +1,9 @@
 export type ProtectionGroup = "ads" | "trackers" | "annoyances" | "strict";
+export type LiveStatsStatus =
+  | "live"
+  | "permission-required"
+  | "capability-unavailable"
+  | "session-unavailable";
 
 export interface GroupSettings {
   ads: boolean;
@@ -22,6 +27,9 @@ export interface PopupState {
   protectedSummary: string;
   blockedCount: number | null;
   liveStatsAvailable: boolean;
+  liveStatsStatus: LiveStatsStatus;
+  liveStatsMessage: string;
+  activeProtectionGroups: ProtectionGroup[];
   blockedByCategory: Record<ProtectionGroup, number>;
 }
 

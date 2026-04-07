@@ -93,4 +93,43 @@ describe("parseSettingsExport", () => {
     expect(parsed?.version).toBe(1);
     expect(parsed?.allowlist).toEqual(["example.com"]);
   });
+
+  it("rejects malformed mixed-type payloads and trailing-comma JSON", () => {
+    const malformedJson = `{
+      "version": 1,
+      "settings": {
+        "enabled": true,
+        "advancedMode": false,
+        "groups": { "ads": true, "trackers": true, "annoyances": true, "strict": false, }
+      },
+      "allowlist": ["example.com"]
+    }`;
+    expect(parseSettingsExport(malformedJson)).toBeNull();
+
+    const wrongTypes = JSON.stringify({
+      version: 1,
+      settings: {
+        enabled: true,
+        advancedMode: false,
+        groups: { ads: true, trackers: "yes", annoyances: true, strict: false }
+      },
+      allowlist: ["example.com", null]
+    });
+    expect(parseSettingsExport(wrongTypes)).toBeNull();
+  });
+
+  it("accepts large exports and preserves duplicates for downstream normalization", () => {
+    const largeAllowlist = Array.from({ length: 5000 }, (_, index) =>
+      index % 2 === 0 ? "example.com" : `host-${index}.example`
+    );
+    const raw = JSON.stringify({
+      version: 1,
+      settings: DEFAULT_SETTINGS,
+      allowlist: largeAllowlist
+    });
+    const parsed = parseSettingsExport(raw);
+    expect(parsed).not.toBeNull();
+    expect(parsed?.allowlist.length).toBe(5000);
+    expect(parsed?.allowlist[0]).toBe("example.com");
+  });
 });

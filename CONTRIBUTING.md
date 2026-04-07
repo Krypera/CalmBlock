@@ -68,6 +68,24 @@ When reporting "this site broke", use this repeatable flow:
 
 This keeps breakage reports actionable and avoids guesswork.
 
+## Browser support operations
+
+Browser support is operational, not just descriptive:
+
+- Contract: `docs/browser-support.md`
+- Operational source of truth: `docs/release-browser-program.md`
+- Release certification worksheet: `docs/release-browser-matrix.md`
+- Family smoke checklists:
+  - `docs/chromium-smoke-checklist.md`
+  - `docs/firefox-smoke-checklist.md`
+  - `docs/orion-smoke-checklist.md`
+
+When triaging issues, always classify one scope:
+
+- supported browser issue
+- gated / under validation browser issue
+- out-of-scope browser issue
+
 ## Documentation expectations
 
 If behavior or scope changes, update:

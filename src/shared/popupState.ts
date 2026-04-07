@@ -1,4 +1,9 @@
-import type { GlobalSettings, PopupState, ProtectionGroup } from "./types";
+import type {
+  GlobalSettings,
+  LiveStatsStatus,
+  PopupState,
+  ProtectionGroup
+} from "./types";
 import { GROUP_LABELS, PROTECTION_GROUPS } from "./constants";
 
 export function buildProtectionSummary(settings: GlobalSettings): string {
@@ -25,17 +30,27 @@ export function defaultCategoryCounters(): Record<ProtectionGroup, number> {
   };
 }
 
+export function getActiveProtectionGroups(settings: GlobalSettings): ProtectionGroup[] {
+  return PROTECTION_GROUPS.filter((group) => settings.groups[group]);
+}
+
 export function derivePopupState(input: {
   host: string | null;
   global: GlobalSettings;
   siteDisabled: boolean;
   blockedCount: number | null;
   liveStatsAvailable?: boolean;
+  liveStatsStatus?: LiveStatsStatus;
   blockedByCategory?: Record<ProtectionGroup, number>;
 }): PopupState {
   const siteDisabled = input.siteDisabled;
   const siteEnabled = !siteDisabled;
   const effectiveProtectionEnabled = input.global.enabled && siteEnabled;
+  const activeProtectionGroups = getActiveProtectionGroups(input.global);
+  const liveStatsStatus =
+    input.liveStatsStatus ??
+    (input.blockedCount !== null ? "live" : "capability-unavailable");
+  const liveStatsAvailable = input.liveStatsAvailable ?? liveStatsStatus === "live";
 
   return {
     host: input.host,
@@ -45,7 +60,51 @@ export function derivePopupState(input: {
     effectiveProtectionEnabled,
     protectedSummary: buildProtectionSummary(input.global),
     blockedCount: input.blockedCount,
-    liveStatsAvailable: input.liveStatsAvailable ?? input.blockedCount !== null,
+    liveStatsAvailable,
+    liveStatsStatus,
+    liveStatsMessage: buildLiveStatsMessage(
+      liveStatsStatus,
+      input.blockedCount,
+      activeProtectionGroups
+    ),
+    activeProtectionGroups,
     blockedByCategory: input.blockedByCategory ?? defaultCategoryCounters()
   };
+}
+
+function buildLiveStatsMessage(
+  status: LiveStatsStatus,
+  blockedCount: number | null,
+  activeProtectionGroups: ProtectionGroup[]
+): string {
+  const coverageSummary = buildCoverageSummary(activeProtectionGroups);
+
+  if (status === "live") {
+    if (blockedCount === null) {
+      return "Live counts are active for this tab.";
+    }
+    if (blockedCount === 0) {
+      return "No blocked requests on this page yet.";
+    }
+    return "Live counts for the current tab.";
+  }
+
+  if (status === "permission-required") {
+    return `${coverageSummary} Grant the optional feedback permission to show live counts.`;
+  }
+
+  if (status === "capability-unavailable") {
+    return `${coverageSummary} This browser does not expose matched-rule telemetry.`;
+  }
+
+  return `${coverageSummary} Live telemetry is temporarily unavailable in this tab.`;
+}
+
+function buildCoverageSummary(activeProtectionGroups: ProtectionGroup[]): string {
+  if (!activeProtectionGroups.length) {
+    return "No protection groups are currently enabled.";
+  }
+
+  const labels = activeProtectionGroups.map((group) => GROUP_LABELS[group]);
+  return `Active protections: ${labels.join(", ")}.`;
 }

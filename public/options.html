@@ -11,6 +11,7 @@
       <header class="opt-hero">
         <h1>CalmBlock Settings</h1>
         <p>Ads, trackers, and browsing annoyances blocked quietly.</p>
+        <p id="storage-warning" class="opt-warning hidden"></p>
       </header>
       <section class="opt-grid">
         <article class="opt-card">
@@ -26,7 +27,26 @@
         <article class="opt-card">
           <h2>Allowlist</h2>
           <p class="muted">One host per line. Example: <code>example.com</code></p>
+          <div class="opt-allowlist-tools">
+            <input
+              id="allowlist-search"
+              class="opt-input"
+              type="search"
+              placeholder="Search saved hosts..."
+            />
+            <select id="allowlist-sort" class="opt-select">
+              <option value="newest">Sort: newest first</option>
+              <option value="az">Sort: A to Z</option>
+              <option value="za">Sort: Z to A</option>
+            </select>
+          </div>
+          <div class="opt-capacity-track" aria-hidden="true">
+            <div id="allowlist-capacity-fill" class="opt-capacity-fill"></div>
+          </div>
           <textarea id="allowlist" rows="8"></textarea>
+          <p id="allowlist-meta" class="muted"></p>
+          <p id="allowlist-warning" class="opt-warning hidden"></p>
+          <div id="allowlist-items" class="opt-allowlist-items"></div>
           <button id="save-allowlist" class="opt-button opt-button-primary" type="button">Save allowlist</button>
         </article>
         <article class="opt-card">

@@ -18,12 +18,17 @@ export interface DynamicRule {
 
 export interface WebExtLike {
   runtime?: {
-    sendMessage?: (message: unknown) => Promise<any>;
+    sendMessage?: (message: unknown) => Promise<unknown>;
     getManifest?: () => { version?: string };
+    getURL?: (path: string) => string;
     onInstalled?: { addListener: (cb: () => void | Promise<void>) => void };
     onMessage?: {
       addListener: (
-        cb: (message: any) => any
+        cb: (
+          message: unknown,
+          sender?: unknown,
+          sendResponse?: (response: unknown) => void
+        ) => unknown
       ) => void;
     };
   };

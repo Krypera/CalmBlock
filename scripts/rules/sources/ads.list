@@ -1,36 +1,89 @@
-||adform.net^ | script,xmlhttprequest,sub_frame
-||adnxs.com^ | script,xmlhttprequest,sub_frame
-||adroll.com^ | script,xmlhttprequest,image
-||adsafeprotected.com^ | script,xmlhttprequest,image
-||adservice.google.*^ | script,image,xmlhttprequest
-||adservice.google.com^ | script,image,xmlhttprequest
-||adsrvr.org^ | script,xmlhttprequest,image,sub_frame
-||advertising.com^ | script,xmlhttprequest,sub_frame,image
-||amazon-adsystem.com^ | script,xmlhttprequest,image
-||appnexus.com^ | script,xmlhttprequest,sub_frame
-||atdmt.com^ | script,xmlhttprequest,image,ping
-||casalemedia.com^ | script,xmlhttprequest,sub_frame,image
-||contextweb.com^ | script,xmlhttprequest,sub_frame
-||criteo.net^ | script,xmlhttprequest,image,sub_frame
-||crwdcntrl.net^ | script,xmlhttprequest,image
-||doubleclick.net^ | script,image,xmlhttprequest,sub_frame
-||exelator.com^ | script,xmlhttprequest,image
-||googlesyndication.com^ | script,xmlhttprequest,sub_frame
-||gumgum.com^ | script,xmlhttprequest,sub_frame,image
-||lijit.com^ | script,xmlhttprequest,sub_frame
-||media.net^ | script,xmlhttprequest,sub_frame,image
-||moatads.com^ | script,xmlhttprequest,image
-||openx.net^ | script,xmlhttprequest,sub_frame
-||outbrain.com^ | script,xmlhttprequest,sub_frame,image
-||pubmatic.com^ | script,xmlhttprequest,sub_frame
-||quantserve.com^ | script,xmlhttprequest,image,ping
-||revcontent.com^ | script,xmlhttprequest,sub_frame,image
-||rfihub.com^ | script,xmlhttprequest,image,ping
-||rubiconproject.com^ | script,xmlhttprequest,sub_frame
-||sharethrough.com^ | script,xmlhttprequest,sub_frame,image
-||simpli.fi^ | script,xmlhttprequest,image,ping
-||smartadserver.com^ | script,xmlhttprequest,sub_frame
-||taboola.com^ | script,xmlhttprequest,sub_frame,image
-||teads.tv^ | script,xmlhttprequest,sub_frame,image
-||yieldmo.com^ | script,xmlhttprequest,sub_frame
-||zedo.com^ | script,xmlhttprequest,sub_frame,image
+||33across.com^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||ad.gt^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adcash.com^ | script,xmlhttprequest,sub_frame,image | provenance=easylist-reference; reason=display-ad-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adform.net^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=ad-delivery-endpoint; tags=ads,network
+||adition.com^ | script,xmlhttprequest,sub_frame | provenance=easylist-reference; reason=ad-serving-platform; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adkernel.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=programmatic-ad-platform; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,programmatic
+||adlooxtracking.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||admanmedia.com^ | script,xmlhttprequest,sub_frame | provenance=easylist-reference; reason=programmatic-ad-exchange; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,programmatic
+||adnuntius.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adnxs.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adriver.ru^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adroll.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adsafeprotected.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adscale.de^ | script,xmlhttprequest,sub_frame | provenance=easylist-reference; reason=regional-ad-exchange; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adsco.re^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adservice.google.*^ | script,image,xmlhttprequest | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adservice.google.com^ | script,image,xmlhttprequest | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adslotmedia.net^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adsrvr.org^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adtarget.me^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adtechus.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adthrive.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adtrue.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adunity.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||advertising.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||adzerk.net^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=ad-inventory-orchestration; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,inventory
+||amazon-adsystem.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||appnexus.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||atdmt.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||bannerflow.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||beachfront.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||bidr.io^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=header-bidding-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,bidding
+||bidswitch.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=programmatic-bid-routing; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,bidding
+||casalemedia.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||connatix.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||contextweb.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||criteo.net^ | script,xmlhttprequest,image,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||crwdcntrl.net^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||dianomi.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||districtm.io^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||doubleclick.net^ | script,image,xmlhttprequest,sub_frame | provenance=manual-curation; reason=high-volume-ad-delivery; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,high-impact
+||e-planning.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||exelator.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||ezoic.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||flashtalking.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||freestar.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||googlesyndication.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=publisher-ad-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,publisher
+||gumgum.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||gumgumads.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||hilltopads.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||improvedigital.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||indexexchange.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=header-bidding-exchange; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,bidding
+||infolinks.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||kadam.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||kargo.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||lijit.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||lockerdome.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||media.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||mgid.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=native-ad-widget-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,native
+||moatads.com^ | script,xmlhttprequest,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||nitropay.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||onetag.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||openx.net^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||outbrain.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=native-ad-widget-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,native
+||primis.tech^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||pubmatic.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||quantserve.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||revcontent.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||rfihub.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||rubiconproject.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||seedtag.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||sharethrough.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||simpli.fi^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||smadex.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||smartadserver.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||sovrn.com^ | script,xmlhttprequest,sub_frame,image | provenance=easylist-reference; reason=publisher-ad-marketplace; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,publisher
+||taboola.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=content-recommendation-ads; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,recommendation
+||targetspot.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||teads.tv^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||triplelift.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=native-video-ad-platform; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,native
+||vi.ai^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||videoamp.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=ad-measurement-and-delivery; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,measurement
+||w55c.net^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||yieldlab.net^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||yieldmo.com^ | script,xmlhttprequest,sub_frame | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||yldbt.com^ | script,xmlhttprequest,image,ping | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||zedo.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=curated-ad-delivery-endpoint; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,network
+||zemanta.com^ | script,xmlhttprequest,sub_frame,image | provenance=manual-curation; reason=native-ad-distribution; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,native
+||zergnet.com^ | script,xmlhttprequest,sub_frame,image | provenance=easylist-reference; reason=content-discovery-ad-network; fixture=tests/content/fixtures/cosmetic-rich.html; tags=ads,recommendation

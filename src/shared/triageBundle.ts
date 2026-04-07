@@ -1,11 +1,14 @@
+import type { BrowserTarget } from "./browserAdapter";
 import type { GroupSettings } from "./types";
 
-export const TRIAGE_BUNDLE_SCHEMA = "calmblock.triage.v1";
+export const TRIAGE_BUNDLE_SCHEMA = "calmblock.triage.v2";
 
 export interface TriageBundle {
   schema: typeof TRIAGE_BUNDLE_SCHEMA;
   generatedAt: string;
-  browserTarget: string;
+  browserTarget: BrowserTarget;
+  browserVersion: string | null;
+  compatibilityMode: "enabled" | "disabled" | "unknown";
   extensionVersion: string | null;
   activeHost: string | null;
   globalEnabled: boolean;
@@ -17,7 +20,9 @@ export interface TriageBundle {
 
 export function buildTriageBundle(input: {
   generatedAt: string;
-  browserTarget: string;
+  browserTarget: BrowserTarget;
+  browserVersion: string | null;
+  compatibilityMode?: "enabled" | "disabled" | "unknown";
   extensionVersion: string | null;
   activeHost: string | null;
   globalEnabled: boolean;
@@ -30,6 +35,8 @@ export function buildTriageBundle(input: {
     schema: TRIAGE_BUNDLE_SCHEMA,
     generatedAt: input.generatedAt,
     browserTarget: input.browserTarget,
+    browserVersion: input.browserVersion,
+    compatibilityMode: input.compatibilityMode ?? "unknown",
     extensionVersion: input.extensionVersion,
     activeHost: input.activeHost,
     globalEnabled: input.globalEnabled,

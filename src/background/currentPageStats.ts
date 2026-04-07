@@ -1,6 +1,6 @@
 import { defaultCategoryCounters } from "../shared/popupState";
 import { PermissionManager } from "../shared/permissionManager";
-import type { ProtectionGroup } from "../shared/types";
+import type { LiveStatsStatus, ProtectionGroup } from "../shared/types";
 import { webext } from "../shared/webext";
 
 const RULESET_TO_CATEGORY: Record<string, ProtectionGroup> = {
@@ -15,19 +15,27 @@ const permissionManager = new PermissionManager();
 export async function getCurrentPageStats(tabId: number): Promise<{
   total: number | null;
   liveStatsAvailable: boolean;
+  status: LiveStatsStatus;
   byCategory: Record<ProtectionGroup, number>;
 }> {
   const byCategory = defaultCategoryCounters();
 
   try {
-    const feedbackPermission = await permissionManager.hasFeedbackPermission();
-    if (feedbackPermission === false) {
-      return { total: null, liveStatsAvailable: false, byCategory };
+    const capability = await permissionManager.getFeedbackCapability();
+    if (!capability.matchedRuleTelemetry) {
+      return unavailableStats(byCategory, "capability-unavailable");
+    }
+
+    if (capability.permissionGranted === false) {
+      return unavailableStats(
+        byCategory,
+        capability.canRequestPermission ? "permission-required" : "capability-unavailable"
+      );
     }
 
     const getMatchedRules = webext?.declarativeNetRequest?.getMatchedRules;
     if (!getMatchedRules) {
-      return { total: null, liveStatsAvailable: false, byCategory };
+      return unavailableStats(byCategory, "capability-unavailable");
     }
 
     const result = await getMatchedRules({ tabId });
@@ -40,8 +48,20 @@ export async function getCurrentPageStats(tabId: number): Promise<{
       }
     }
     const total = Object.values(byCategory).reduce((sum, value) => sum + value, 0);
-    return { total, liveStatsAvailable: true, byCategory };
+    return { total, liveStatsAvailable: true, status: "live", byCategory };
   } catch {
-    return { total: null, liveStatsAvailable: false, byCategory };
+    return unavailableStats(byCategory, "session-unavailable");
   }
+}
+
+function unavailableStats(
+  byCategory: Record<ProtectionGroup, number>,
+  status: Exclude<LiveStatsStatus, "live">
+) {
+  return {
+    total: null,
+    liveStatsAvailable: false,
+    status,
+    byCategory
+  };
 }

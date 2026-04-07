@@ -24,6 +24,7 @@ export class PopupStateService {
       siteDisabled,
       blockedCount: stats.total,
       liveStatsAvailable: stats.liveStatsAvailable,
+      liveStatsStatus: stats.status,
       blockedByCategory: stats.byCategory
     });
   }

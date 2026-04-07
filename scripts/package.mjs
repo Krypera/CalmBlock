@@ -72,6 +72,7 @@ async function validatePackagingSource(sourceDir, target) {
   const rulesMetadataRaw = await readFile(resolve(sourceDir, "rules/metadata.json"), "utf8");
   const rulesMetadata = JSON.parse(rulesMetadataRaw);
   validateRulesMetadata(rulesMetadata, target);
+  await validateReleaseProgramDocs(target);
 
   const forbiddenPathPattern = /(^|\/)(src|tests|scripts|node_modules|\.git)(\/|$)/;
   const forbiddenExtPattern = /\.(ts|tsx)$/i;
@@ -125,12 +126,32 @@ function validateRulesMetadata(metadata, target) {
   if (typeof metadata.generatedAt !== "string" || !metadata.generatedAt.includes("T")) {
     throw new Error(`${target}: rules metadata.generatedAt missing or invalid`);
   }
+  if (!metadata.program || typeof metadata.program.owner !== "string" || !metadata.program.owner) {
+    throw new Error(`${target}: rules metadata program.owner missing or invalid`);
+  }
+  if (
+    !metadata.summary ||
+    !Number.isInteger(metadata.summary.groupCount) ||
+    !Number.isInteger(metadata.summary.totalRules) ||
+    !Number.isInteger(metadata.summary.annotatedRules)
+  ) {
+    throw new Error(`${target}: rules metadata summary missing or invalid`);
+  }
   const requiredGroups = ["ads", "trackers", "annoyances", "strict"];
   for (const group of requiredGroups) {
     if (!metadata.groups?.[group]) {
       throw new Error(`${target}: rules metadata missing group '${group}'`);
     }
     const info = metadata.groups[group];
+    if (typeof info.category !== "string" || !info.category) {
+      throw new Error(`${target}: rules metadata category invalid for '${group}'`);
+    }
+    if (typeof info.reviewedAt !== "string" || !info.reviewedAt) {
+      throw new Error(`${target}: rules metadata reviewedAt invalid for '${group}'`);
+    }
+    if (!Array.isArray(info.fixtures) || !Array.isArray(info.provenance) || info.provenance.length < 1) {
+      throw new Error(`${target}: rules metadata provenance/fixtures invalid for '${group}'`);
+    }
     if (!Number.isInteger(info.ruleCount) || info.ruleCount < 1) {
       throw new Error(`${target}: rules metadata ruleCount invalid for '${group}'`);
     }
@@ -141,12 +162,69 @@ function validateRulesMetadata(metadata, target) {
       throw new Error(`${target}: rules metadata sourceDigest invalid for '${group}'`);
     }
     if (
+      !info.annotationCoverage ||
+      !Number.isInteger(info.annotationCoverage.provenance) ||
+      !Number.isInteger(info.annotationCoverage.reason) ||
+      !Number.isInteger(info.annotationCoverage.fixture) ||
+      !Number.isInteger(info.annotationCoverage.tags)
+    ) {
+      throw new Error(`${target}: rules metadata annotationCoverage invalid for '${group}'`);
+    }
+    if (
       !info.changes ||
       !Number.isInteger(info.changes.added) ||
       !Number.isInteger(info.changes.removed) ||
       !Number.isInteger(info.changes.delta)
     ) {
       throw new Error(`${target}: rules metadata changes invalid for '${group}'`);
+    }
+  }
+}
+
+async function validateReleaseProgramDocs(target) {
+  const requiredDocs = [
+    resolve("RELEASE_READINESS.md"),
+    resolve("docs/release-browser-program.md"),
+    resolve("docs/release-browser-matrix.md")
+  ];
+  for (const docPath of requiredDocs) {
+    await ensureExists(docPath);
+  }
+
+  const releaseReadiness = await readFile(resolve("RELEASE_READINESS.md"), "utf8");
+  const browserProgram = await readFile(resolve("docs/release-browser-program.md"), "utf8");
+  const releaseMatrix = await readFile(resolve("docs/release-browser-matrix.md"), "utf8");
+
+  const readinessSignals = [
+    "## Browser support gates",
+    "## v0.2 execution gates",
+    "Chromium family is certified"
+  ];
+  const programSignals = [
+    "## Canonical Artifact Lanes",
+    "## v0.2 E2E Expansion",
+    "Gated / under validation"
+  ];
+  const matrixSignals = [
+    "| Chrome | Chromium |",
+    "| Firefox | Firefox family |",
+    "| Orion | Orion lane |",
+    "| Safari | Safari lane |"
+  ];
+
+  for (const signal of readinessSignals) {
+    if (!releaseReadiness.includes(signal)) {
+      throw new Error(`${target}: RELEASE_READINESS.md missing signal '${signal}'`);
+    }
+  }
+  for (const signal of programSignals) {
+    if (!browserProgram.includes(signal)) {
+      throw new Error(`${target}: release-browser-program.md missing signal '${signal}'`);
+    }
+  }
+  for (const signal of matrixSignals) {
+    if (!releaseMatrix.includes(signal)) {
+      throw new Error(`${target}: release-browser-matrix.md missing signal '${signal}'`);
     }
   }
 }

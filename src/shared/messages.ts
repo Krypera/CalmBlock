@@ -1,5 +1,11 @@
 import type { PopupState } from "./types";
 
+export interface ApplySummary {
+  immediate: string[];
+  afterReload: string[];
+  warning?: string;
+}
+
 export type MessageRequest =
   | { type: "GET_POPUP_STATE"; tabId: number; url: string }
   | { type: "TOGGLE_GLOBAL"; enabled: boolean }
@@ -15,5 +21,6 @@ export type MessageResponse =
       disabled?: boolean;
       effectiveEnabled?: boolean;
       applyMode?: "instant" | "reload-recommended";
+      applySummary?: ApplySummary;
     }
   | { ok: false; error: string };

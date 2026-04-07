@@ -32,17 +32,46 @@ async function setupWorkspace(payload: {
   const manifest = {
     version: 1,
     updated: "2026-04-07",
+    program: {
+      owner: "test-suite",
+      releaseCadence: "release-bound",
+      provenancePolicy: "all groups track provenance",
+      ruleAuthoring: "filter | types | key=value; key=value",
+      annotationFields: ["provenance", "reason", "fixture", "tags"]
+    },
     groups: [
       {
         id: "ads",
+        category: "ads",
         idBase: bases.ads,
         description: "test ads",
+        reviewedAt: "2026-04-07",
+        fixtures: ["tests/content/fixtures/cosmetic-rich.html"],
+        provenance: [
+          {
+            id: "manual-curation",
+            label: "Manual curation",
+            kind: "maintainer-review",
+            reviewedAt: "2026-04-07"
+          }
+        ],
         sourceFile: join(sourceDir, "ads.list")
       },
       {
         id: "trackers",
+        category: "trackers",
         idBase: bases.trackers,
         description: "test trackers",
+        reviewedAt: "2026-04-07",
+        fixtures: ["tests/unit/currentPageStats.test.ts"],
+        provenance: [
+          {
+            id: "manual-curation",
+            label: "Manual curation",
+            kind: "maintainer-review",
+            reviewedAt: "2026-04-07"
+          }
+        ],
         sourceFile: join(sourceDir, "trackers.list")
       }
     ]
@@ -107,6 +136,19 @@ describe("rules builder validation", () => {
     await expect(
       generateRulesets({ manifestPath: workspace.manifestPath, outDir: workspace.outDir })
     ).rejects.toThrow("Invalid rule format");
+    await rm(workspace.root, { recursive: true, force: true });
+  });
+
+  it("rejects unsupported rule annotations", async () => {
+    const generateRulesets = await getGenerateRulesets();
+    const workspace = await setupWorkspace({
+      ads: "||example.com^ | script | unsupported=value",
+      trackers: "||example.org^ | script,xmlhttprequest"
+    });
+
+    await expect(
+      generateRulesets({ manifestPath: workspace.manifestPath, outDir: workspace.outDir })
+    ).rejects.toThrow("Invalid rule annotation key");
     await rm(workspace.root, { recursive: true, force: true });
   });
 });
