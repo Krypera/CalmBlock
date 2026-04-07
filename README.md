@@ -116,10 +116,33 @@ CalmBlock is a meaningful MVP baseline, not a maximalist parity clone.
 
 Known limits:
 
-- DNR constraints vs full ABP/uBO syntax
-- Conservative anti-adblock handling
-- Strict mode can break some sites
-- No remote list update pipeline by design
+- DNR constraints vs full ABP/uBO syntax and scriptlet behavior
+- Conservative anti-adblock handling (best effort, not a bypass product)
+- Strict mode can break some sites or login/payment surfaces
+- No remote list update pipeline by design (rules update with releases)
+- Live per-tab block counters depend on optional browser feedback capability
+
+## Permission Rationale
+
+CalmBlock requests only permissions needed for local blocking and clear UX:
+
+- `declarativeNetRequest`: enforce packaged local network rules
+- `storage`: save settings and allowlist locally
+- `tabs` + `activeTab`: determine current host and keep popup/site toggle fast
+- `<all_urls>` host access: apply blocking/cosmetic behavior on visited sites
+- `declarativeNetRequestFeedback` (optional): enables live block counters in popup
+
+No permission is used for telemetry, remote logging, account sync, or hidden data collection.
+
+## What Is Not Blocked
+
+CalmBlock intentionally does not target these classes in this phase:
+
+- paywall bypass logic
+- universal anti-adblock circumvention
+- first-party product UI that is not a clear annoyance/tracking signal
+- authenticated app break-fix heuristics without reproducible reports
+- remote "hotfix script" behavior outside normal release updates
 
 ## Privacy Model
 

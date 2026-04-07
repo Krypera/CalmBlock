@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Build Artifact Smoke Test
+        run: npm run ci:smoke
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:

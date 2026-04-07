@@ -1,6 +1,6 @@
 import { createWriteStream } from "node:fs";
-import { mkdir, rm, stat } from "node:fs/promises";
-import { resolve } from "node:path";
+import { mkdir, readdir, rm, stat } from "node:fs/promises";
+import { resolve, relative } from "node:path";
 import { pathToFileURL } from "node:url";
 import archiver from "archiver";
 
@@ -15,6 +15,7 @@ const version = packageJson.default.version;
 for (const target of targets) {
   const sourceDir = resolve("dist", target);
   await ensureExists(sourceDir);
+  await validatePackagingSource(sourceDir, target);
 
   const outputDir = resolve("dist", "packages");
   await mkdir(outputDir, { recursive: true });
@@ -31,6 +32,58 @@ async function ensureExists(path) {
   } catch {
     throw new Error(`Build output not found: ${path}. Run build first.`);
   }
+}
+
+async function validatePackagingSource(sourceDir, target) {
+  const required = [
+    "manifest.json",
+    "background.js",
+    "content.js",
+    "popup.html",
+    "popup.js",
+    "options.html",
+    "options.js",
+    "debug.html",
+    "debug.js",
+    "rules/ads.json",
+    "rules/trackers.json",
+    "rules/annoyances.json",
+    "rules/strict.json",
+    "rules/metadata.json"
+  ];
+
+  for (const file of required) {
+    await ensureExists(resolve(sourceDir, file));
+  }
+
+  const forbiddenPathPattern = /(^|\/)(src|tests|scripts|node_modules|\.git)(\/|$)/;
+  const forbiddenExtPattern = /\.(ts|tsx)$/i;
+  const allFiles = await walkFiles(sourceDir);
+  for (const file of allFiles) {
+    const rel = relative(sourceDir, file).replace(/\\/g, "/");
+    if (forbiddenPathPattern.test(rel)) {
+      throw new Error(`${target}: forbidden path in package source: ${rel}`);
+    }
+    if (forbiddenExtPattern.test(rel)) {
+      throw new Error(`${target}: forbidden TypeScript source in package: ${rel}`);
+    }
+  }
+}
+
+async function walkFiles(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const full = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await walkFiles(full)));
+      continue;
+    }
+    if (entry.isFile()) {
+      files.push(full);
+    }
+  }
+  return files;
 }
 
 async function zipDirectory(sourceDir, outputFile) {

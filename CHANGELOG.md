@@ -47,6 +47,9 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - Rulesets are now generated via reproducible pipeline from source lists (`scripts/rules/sources/*.list`).
 - Site-breakage reporting now has dedicated template + debug triage bundle flow.
 - Docs page is now real project documentation (not a placeholder notice).
+- CI now runs build artifact smoke checks (manifest/rules/entrypoints) before uploading artifacts.
+- Packaging now validates source sanity before zip creation to prevent accidental wrong-file bundles.
+- Trust documentation expanded with permission rationale, explicit limits, and "what is not blocked."
 
 ### Fixed
 

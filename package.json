@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit --pretty false",
     "rules:build": "node scripts/build-rules.mjs",
+    "ci:smoke": "node scripts/smoke-dist.mjs all",
     "build": "node scripts/build.mjs all",
     "build:chrome": "node scripts/build.mjs chrome",
     "build:firefox": "node scripts/build.mjs firefox",
