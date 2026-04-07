@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "CalmBlock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ads, trackers, and browsing annoyances blocked quietly.",
   "permissions": [
     "storage",
