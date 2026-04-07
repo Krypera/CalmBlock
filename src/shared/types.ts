@@ -23,7 +23,6 @@ export interface PopupState {
   blockedCount: number | null;
   liveStatsAvailable: boolean;
   blockedByCategory: Record<ProtectionGroup, number>;
-  reloadRequired: boolean;
 }
 
 export interface SettingsExport {

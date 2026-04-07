@@ -11,6 +11,7 @@ const siteStore = new SiteSettingsStore();
 const rulesetManager = new RulesetManager();
 const popupStateService = new PopupStateService(settingsStore, siteStore);
 let startupInitPromise: Promise<void> | null = null;
+let localMutationDepth = 0;
 
 async function getEffectiveSiteState(host: string): Promise<{
   globalEnabled: boolean;
@@ -54,7 +55,7 @@ async function broadcastProtectionStateToTab(tabId: number, url?: string): Promi
 }
 
 async function broadcastProtectionStateToAllTabs(): Promise<void> {
-  const tabs = (await webext?.tabs?.query?.()) ?? [];
+  const tabs = (await webext?.tabs?.query?.({})) ?? [];
   await Promise.all(
     tabs.map(async (tab) => {
       if (!tab.id || !tab.url) {
@@ -76,6 +77,20 @@ async function syncBlockingState() {
     await rulesetManager.syncGroupRules(settings.groups);
   }
   await rulesetManager.syncAllowlistRules(allowlist);
+}
+
+async function applyBlockingAndBroadcast(): Promise<void> {
+  await syncBlockingState();
+  await broadcastProtectionStateToAllTabs();
+}
+
+async function runAsLocalMutation(task: () => Promise<void>): Promise<void> {
+  localMutationDepth += 1;
+  try {
+    await task();
+  } finally {
+    localMutationDepth = Math.max(0, localMutationDepth - 1);
+  }
 }
 
 async function migrateLegacyStorageKeys(): Promise<void> {
@@ -148,14 +163,16 @@ webext?.storage?.onChanged?.addListener(async (changes: Record<string, unknown>,
   if (areaName !== "local") {
     return;
   }
+  if (localMutationDepth > 0) {
+    return;
+  }
   if (
     changes[STORAGE_KEYS.settings] ||
     changes[STORAGE_KEYS.allowlist] ||
     changes[LEGACY_STORAGE_KEYS.settings] ||
     changes[LEGACY_STORAGE_KEYS.allowlist]
   ) {
-    await syncBlockingState();
-    await broadcastProtectionStateToAllTabs();
+    await applyBlockingAndBroadcast();
   }
 });
 
@@ -168,17 +185,19 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
     }
 
     if (message.type === "TOGGLE_GLOBAL") {
-      await settingsStore.update({ enabled: message.enabled });
-      await syncBlockingState();
-      await broadcastProtectionStateToAllTabs();
-      return { ok: true, applyMode: "instant", reloadRequired: false };
+      await runAsLocalMutation(async () => {
+        await settingsStore.update({ enabled: message.enabled });
+        await applyBlockingAndBroadcast();
+      });
+      return { ok: true, applyMode: "instant" };
     }
 
     if (message.type === "TOGGLE_SITE") {
-      await siteStore.setHostEnabled(message.host, message.enabled);
-      await syncBlockingState();
-      await broadcastProtectionStateToAllTabs();
-      return { ok: true, applyMode: "reload-recommended", reloadRequired: true };
+      await runAsLocalMutation(async () => {
+        await siteStore.setHostEnabled(message.host, message.enabled);
+        await applyBlockingAndBroadcast();
+      });
+      return { ok: true, applyMode: "reload-recommended" };
     }
 
     if (message.type === "IS_SITE_DISABLED") {

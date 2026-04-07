@@ -32,7 +32,6 @@ export function derivePopupState(input: {
   blockedCount: number | null;
   liveStatsAvailable?: boolean;
   blockedByCategory?: Record<ProtectionGroup, number>;
-  reloadRequired?: boolean;
 }): PopupState {
   const siteDisabled = input.siteDisabled;
   const siteEnabled = !siteDisabled;
@@ -47,7 +46,6 @@ export function derivePopupState(input: {
     protectedSummary: buildProtectionSummary(input.global),
     blockedCount: input.blockedCount,
     liveStatsAvailable: input.liveStatsAvailable ?? input.blockedCount !== null,
-    blockedByCategory: input.blockedByCategory ?? defaultCategoryCounters(),
-    reloadRequired: input.reloadRequired ?? false
+    blockedByCategory: input.blockedByCategory ?? defaultCategoryCounters()
   };
 }

@@ -14,7 +14,6 @@ export type MessageResponse =
       state?: PopupState;
       disabled?: boolean;
       effectiveEnabled?: boolean;
-      reloadRequired?: boolean;
       applyMode?: "instant" | "reload-recommended";
     }
   | { ok: false; error: string };

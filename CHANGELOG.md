@@ -50,6 +50,9 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - CI now runs build artifact smoke checks (manifest/rules/entrypoints) before uploading artifacts.
 - Packaging now validates source sanity before zip creation to prevent accidental wrong-file bundles.
 - Trust documentation expanded with permission rationale, explicit limits, and "what is not blocked."
+- Background toggle flow now suppresses duplicate storage/message sync passes and keeps all-tab propagation consistent.
+- Reload hint model is now explicitly transient (response-driven), not part of persisted popup state.
+- Added integration regression coverage for global/site propagation across multiple tabs.
 
 ### Fixed
 

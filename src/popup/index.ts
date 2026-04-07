@@ -97,9 +97,6 @@ function renderState(state: PopupState) {
           : "Live counts for the current tab.";
   }
   renderCategories(state);
-  if (!state.reloadRequired) {
-    hideReloadHint();
-  }
 }
 
 function showReloadHint(text: string): void {
@@ -160,7 +157,9 @@ siteToggle?.addEventListener("click", async () => {
   await loadPopupState();
   if (response?.ok && response.applyMode === "reload-recommended") {
     showReloadHint("Reload this tab to fully apply this site-level change.");
+    return;
   }
+  hideReloadHint();
 });
 
 void loadPopupState();
