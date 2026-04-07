@@ -4,12 +4,26 @@ import { BrowserAdapter } from "../shared/browserAdapter";
 import { webext } from "../shared/webext";
 
 const output = document.querySelector<HTMLElement>("#debug-output");
+const lockCard = document.querySelector<HTMLElement>("#debug-lock");
+const debugPanel = document.querySelector<HTMLElement>("#debug-panel");
 const settingsStore = new GlobalSettingsStore();
 const siteStore = new SiteSettingsStore();
 
 async function render() {
-  const [settings, allowlist, dynamicRules, enabledRulesets] = await Promise.all([
-    settingsStore.get(),
+  const settings = await settingsStore.get();
+  if (!settings.advancedMode) {
+    lockCard?.classList.remove("hidden");
+    debugPanel?.classList.add("hidden");
+    if (output) {
+      output.textContent = "";
+    }
+    return;
+  }
+
+  lockCard?.classList.add("hidden");
+  debugPanel?.classList.remove("hidden");
+
+  const [allowlist, dynamicRules, enabledRulesets] = await Promise.all([
     siteStore.getAllowlist(),
     webext?.declarativeNetRequest?.getDynamicRules?.() ?? Promise.resolve([]),
     webext?.declarativeNetRequest?.getEnabledRulesets?.() ?? Promise.resolve([])

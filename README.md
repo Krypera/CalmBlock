@@ -29,6 +29,12 @@ A lightweight overview of the popup and settings surfaces:
 - Cross-browser target: Chrome, Edge, Firefox
 - Local-first behavior and conservative defaults
 
+## Browser Notes
+
+- Chrome and Edge: full MV3 path with packaged DNR rulesets and optional live counter permission.
+- Firefox: same shared codebase and core protections, with some DNR feedback details varying by version.
+- If live counter permission is unavailable, blocking still works and popup shows a clear fallback state.
+
 ## Install
 
 ### Option A: Quick package files (recommended)

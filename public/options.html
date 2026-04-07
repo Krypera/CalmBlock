@@ -32,6 +32,7 @@
         <article class="opt-card">
           <h2>Advanced</h2>
           <label class="opt-check"><input type="checkbox" id="advanced-mode" /> <span>Enable advanced mode</span></label>
+          <p class="muted">Import/export and debug diagnostics are available only in advanced mode.</p>
           <div class="row opt-actions">
             <button id="export-settings" class="opt-button" type="button">Export settings</button>
             <button id="import-settings" class="opt-button" type="button">Import settings</button>
@@ -58,6 +59,14 @@
             <li>No remote logging</li>
             <li>No accounts or cloud sync</li>
             <li>No remote code execution</li>
+          </ul>
+        </article>
+        <article class="opt-card">
+          <h2>Browser behavior</h2>
+          <ul class="opt-list">
+            <li>Chrome and Edge: full MV3 flow with static DNR rulesets and optional live counter permission.</li>
+            <li>Firefox: same shared codebase, but some DNR feedback details can vary by version.</li>
+            <li>If live counters are unavailable, blocking still works and popup shows a clear fallback message.</li>
           </ul>
         </article>
       </section>

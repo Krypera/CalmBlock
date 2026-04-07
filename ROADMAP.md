@@ -8,7 +8,7 @@ This roadmap is intentionally practical. CalmBlock favors trust, stability, and 
 - Add more nuisance-pattern regression fixtures for cosmetic/annoyance behavior.
 - Improve popup explanations for limited protection contexts.
 - Add stronger import/export validation edge-case tests.
-- Document browser compatibility differences more explicitly.
+- Keep browser behavior notes in README/options in sync as Firefox DNR feedback support evolves.
 
 ## Mid Term
 
@@ -16,6 +16,7 @@ This roadmap is intentionally practical. CalmBlock favors trust, stability, and 
 - Add an optional advanced element-hide helper with strict guardrails.
 - Add contributor docs for triaging site-breakage reports.
 - Add automated release checks for typecheck/test/build plus artifact sanity.
+- Add browser-specific regression tests for permission and counter behavior differences.
 
 ## Long Term
 
@@ -29,4 +30,3 @@ This roadmap is intentionally practical. CalmBlock favors trust, stability, and 
 - Telemetry or analytics dashboards
 - Remote-code update mechanisms
 - "Block everything" marketing claims
-

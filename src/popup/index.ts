@@ -97,9 +97,21 @@ function renderState(state: PopupState) {
           : "Live counts for the current tab.";
   }
   renderCategories(state);
-  if (reloadHint) {
-    reloadHint.classList.toggle("hidden", !state.reloadRequired);
+  if (!state.reloadRequired) {
+    hideReloadHint();
   }
+}
+
+function showReloadHint(text: string): void {
+  if (!reloadHint) {
+    return;
+  }
+  reloadHint.textContent = text;
+  reloadHint.classList.remove("hidden");
+}
+
+function hideReloadHint(): void {
+  reloadHint?.classList.add("hidden");
 }
 
 async function loadPopupState() {
@@ -124,8 +136,14 @@ globalToggle?.addEventListener("click", async () => {
     return;
   }
   const next = !lastState.globalEnabled;
-  await webext?.runtime?.sendMessage?.({ type: "TOGGLE_GLOBAL", enabled: next });
+  const response = (await webext?.runtime?.sendMessage?.({
+    type: "TOGGLE_GLOBAL",
+    enabled: next
+  })) as MessageResponse | undefined;
   await loadPopupState();
+  if (response?.ok && response.applyMode === "instant") {
+    hideReloadHint();
+  }
 });
 
 siteToggle?.addEventListener("click", async () => {
@@ -133,15 +151,15 @@ siteToggle?.addEventListener("click", async () => {
     return;
   }
   const next = !lastState.siteDisabled;
-  await webext?.runtime?.sendMessage?.({
+  const response = (await webext?.runtime?.sendMessage?.({
     type: "TOGGLE_SITE",
     host: lastState.host,
     enabled: next,
     tabId
-  });
+  })) as MessageResponse | undefined;
   await loadPopupState();
-  if (reloadHint) {
-    reloadHint.classList.remove("hidden");
+  if (response?.ok && response.applyMode === "reload-recommended") {
+    showReloadHint("Reload this tab to fully apply this site-level change.");
   }
 });
 

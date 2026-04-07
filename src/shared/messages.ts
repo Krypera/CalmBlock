@@ -9,5 +9,12 @@ export type MessageRequest =
   | { type: "PROTECTION_STATE_CHANGED"; effectiveEnabled: boolean };
 
 export type MessageResponse =
-  | { ok: true; state?: PopupState; disabled?: boolean; effectiveEnabled?: boolean }
+  | {
+      ok: true;
+      state?: PopupState;
+      disabled?: boolean;
+      effectiveEnabled?: boolean;
+      reloadRequired?: boolean;
+      applyMode?: "instant" | "reload-recommended";
+    }
   | { ok: false; error: string };

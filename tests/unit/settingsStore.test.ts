@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { GlobalSettingsStore } from "../../src/shared/settingsStore";
+import { GlobalSettingsStore, parseSettingsExport } from "../../src/shared/settingsStore";
 import { DEFAULT_SETTINGS } from "../../src/shared/constants";
 import type { GlobalSettings } from "../../src/shared/types";
 
@@ -47,5 +47,50 @@ describe("GlobalSettingsStore", () => {
         allowlist: ["example.com"]
       })
     ).toBe(false);
+  });
+
+  it("rejects unsupported versions and malformed allowlist entries", () => {
+    const store = createStore();
+    expect(
+      store.validateImportedSettings({
+        version: 2,
+        settings: DEFAULT_SETTINGS,
+        allowlist: ["example.com"]
+      })
+    ).toBe(false);
+
+    expect(
+      store.validateImportedSettings({
+        version: 1,
+        settings: DEFAULT_SETTINGS,
+        allowlist: ["example.com", 42]
+      })
+    ).toBe(false);
+  });
+});
+
+describe("parseSettingsExport", () => {
+  it("returns null for malformed JSON", () => {
+    expect(parseSettingsExport("{bad json")).toBeNull();
+  });
+
+  it("returns null for version mismatch", () => {
+    const raw = JSON.stringify({
+      version: 2,
+      settings: DEFAULT_SETTINGS,
+      allowlist: ["example.com"]
+    });
+    expect(parseSettingsExport(raw)).toBeNull();
+  });
+
+  it("parses valid settings export", () => {
+    const raw = JSON.stringify({
+      version: 1,
+      settings: DEFAULT_SETTINGS,
+      allowlist: ["example.com"]
+    });
+    const parsed = parseSettingsExport(raw);
+    expect(parsed?.version).toBe(1);
+    expect(parsed?.allowlist).toEqual(["example.com"]);
   });
 });

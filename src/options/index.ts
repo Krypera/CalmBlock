@@ -1,5 +1,5 @@
 import { DEFAULT_SETTINGS, PROTECTION_GROUPS } from "../shared/constants";
-import { GlobalSettingsStore } from "../shared/settingsStore";
+import { GlobalSettingsStore, parseSettingsExport } from "../shared/settingsStore";
 import { sanitizeHostInput, SiteSettingsStore } from "../shared/siteSettingsStore";
 import type { GlobalSettings, SettingsExport } from "../shared/types";
 
@@ -21,6 +21,16 @@ function setStatus(text: string) {
   if (saveStatus) {
     saveStatus.textContent = text;
   }
+}
+
+function setAdvancedControlsEnabled(enabled: boolean): void {
+  if (exportBtn) {
+    exportBtn.disabled = !enabled;
+  }
+  if (importBtn) {
+    importBtn.disabled = !enabled;
+  }
+  debugLink?.classList.toggle("hidden", !enabled);
 }
 
 function parseAllowlistInput(value: string): { hosts: string[]; invalidCount: number } {
@@ -74,12 +84,12 @@ async function load() {
   }
   if (advancedModeEl) {
     advancedModeEl.checked = settings.advancedMode;
-    debugLink?.classList.toggle("hidden", !settings.advancedMode);
+    setAdvancedControlsEnabled(settings.advancedMode);
     if (!advancedModeListenerBound) {
       advancedModeListenerBound = true;
       advancedModeEl.addEventListener("change", async () => {
         await settingsStore.update({ advancedMode: advancedModeEl.checked });
-        debugLink?.classList.toggle("hidden", !advancedModeEl.checked);
+        setAdvancedControlsEnabled(advancedModeEl.checked);
         setStatus("Saved advanced mode setting.");
       });
     }
@@ -101,6 +111,10 @@ saveAllowlistBtn?.addEventListener("click", async () => {
 });
 
 exportBtn?.addEventListener("click", async () => {
+  if (exportBtn.disabled) {
+    setStatus("Enable advanced mode to export settings.");
+    return;
+  }
   const [settings, allowlist] = await Promise.all([settingsStore.get(), siteStore.getAllowlist()]);
   const blob = new Blob([serializeSettings(settings, allowlist)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -112,6 +126,10 @@ exportBtn?.addEventListener("click", async () => {
 });
 
 importBtn?.addEventListener("click", () => {
+  if (importBtn?.disabled) {
+    setStatus("Enable advanced mode to import settings.");
+    return;
+  }
   importFile?.click();
 });
 
@@ -122,12 +140,13 @@ importFile?.addEventListener("change", async () => {
   }
 
   const raw = await file.text();
+  const parsed = parseSettingsExport(raw);
+  if (!parsed) {
+    setStatus("Import failed: invalid or unsupported file.");
+    importFile.value = "";
+    return;
+  }
   try {
-    const parsed = JSON.parse(raw) as unknown;
-    if (!settingsStore.validateImportedSettings(parsed)) {
-      setStatus("Import failed: invalid format.");
-      return;
-    }
     await settingsStore.set({
       ...DEFAULT_SETTINGS,
       ...parsed.settings,
@@ -137,7 +156,7 @@ importFile?.addEventListener("change", async () => {
     await load();
     setStatus("Settings imported.");
   } catch {
-    setStatus("Import failed: invalid JSON.");
+    setStatus("Import failed: could not persist settings.");
   } finally {
     importFile.value = "";
   }

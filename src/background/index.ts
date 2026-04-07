@@ -28,12 +28,25 @@ async function getEffectiveSiteState(host: string): Promise<{
   };
 }
 
+async function applyBadgeForTab(tabId: number, host: string): Promise<void> {
+  const state = await getEffectiveSiteState(host);
+  await webext?.action?.setBadgeText?.({
+    tabId,
+    text: state.effectiveEnabled ? "" : "off"
+  });
+  await webext?.action?.setBadgeBackgroundColor?.({
+    tabId,
+    color: state.effectiveEnabled ? "#6db1ff" : "#8fa6bf"
+  });
+}
+
 async function broadcastProtectionStateToTab(tabId: number, url?: string): Promise<void> {
   const host = safeHostFromUrl(url ?? "");
   if (!host) {
     return;
   }
   const state = await getEffectiveSiteState(host);
+  await applyBadgeForTab(tabId, host);
   await webext?.tabs?.sendMessage?.(tabId, {
     type: "PROTECTION_STATE_CHANGED",
     effectiveEnabled: state.effectiveEnabled
@@ -158,14 +171,14 @@ webext?.runtime?.onMessage?.addListener(async (message: MessageRequest): Promise
       await settingsStore.update({ enabled: message.enabled });
       await syncBlockingState();
       await broadcastProtectionStateToAllTabs();
-      return { ok: true };
+      return { ok: true, applyMode: "instant", reloadRequired: false };
     }
 
     if (message.type === "TOGGLE_SITE") {
       await siteStore.setHostEnabled(message.host, message.enabled);
       await syncBlockingState();
       await broadcastProtectionStateToAllTabs();
-      return { ok: true };
+      return { ok: true, applyMode: "reload-recommended", reloadRequired: true };
     }
 
     if (message.type === "IS_SITE_DISABLED") {
@@ -197,13 +210,6 @@ webext?.tabs?.onUpdated?.addListener(
     if (!host) {
       return;
     }
-    const siteDisabled = await siteStore.isAllowlisted(host);
-    const badgeText = siteDisabled ? "off" : "";
-    await webext?.action?.setBadgeText?.({ tabId: tab.id, text: badgeText });
-    await webext?.action?.setBadgeBackgroundColor?.({
-      tabId: tab.id,
-      color: siteDisabled ? "#8fa6bf" : "#6db1ff"
-    });
     await broadcastProtectionStateToTab(tab.id, tab.url);
   }
 );

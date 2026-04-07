@@ -10,10 +10,14 @@
     <main class="opt-shell">
       <header class="opt-hero">
         <h1>CalmBlock Debug</h1>
-        <p>Local-only diagnostic view.</p>
+        <p>Local-only diagnostic view for advanced mode.</p>
       </header>
-      <section class="opt-card">
-        <pre id="debug-output"></pre>
+      <section id="debug-lock" class="opt-card hidden">
+        <h2>Advanced mode required</h2>
+        <p class="muted">Enable advanced mode in settings to view diagnostic details on this page.</p>
+      </section>
+      <section id="debug-panel" class="opt-card">
+        <pre id="debug-output">Loading diagnostics...</pre>
       </section>
     </main>
     <script type="module" src="debug.js"></script>

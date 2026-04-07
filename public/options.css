@@ -144,6 +144,13 @@ input:focus-visible {
   transform: translateY(-1px);
 }
 
+.opt-button:disabled {
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.58;
+  box-shadow: none;
+}
+
 .opt-button-primary {
   background: linear-gradient(180deg, var(--accent) 0%, var(--accent-strong) 100%);
   color: #10273b;

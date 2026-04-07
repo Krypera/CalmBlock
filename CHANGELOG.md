@@ -41,11 +41,15 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - Repository support flow shifted from GitHub Sponsors to a quieter crypto-only support page.
 - `SUPPORT.md` rewritten to keep support optional, pressure-free, and crypto-only.
 - Popup and settings surfaces softened with more rounded controls, calmer spacing, and overflow-safe layouts.
+- Advanced mode now gates debug/import/export behavior (not just link visibility) and debug page self-protects when advanced mode is off.
+- Popup reload hint behavior is now explicit: global toggle applies instantly, site-level toggle is reload-recommended.
+- Badge state now follows effective protection state (global + site) for more consistent feedback.
 
 ### Fixed
 
 - Type-check command availability via `npm run typecheck`.
 - Current-page block totals now use current-tab DNR access and count only matched blocking rulesets.
+- Import/export and allowlist edge handling hardened with added parser and larger regression coverage.
 
 ### Notes
 

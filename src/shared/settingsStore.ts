@@ -74,3 +74,13 @@ export class GlobalSettingsStore {
     };
   }
 }
+
+export function parseSettingsExport(raw: string): SettingsExport | null {
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    const validator = new GlobalSettingsStore();
+    return validator.validateImportedSettings(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
