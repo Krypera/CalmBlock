@@ -71,6 +71,9 @@ describe("content background re-sync", () => {
     await flush();
     expect(cosmeticApply).toHaveBeenCalledTimes(1);
     expect(annoyanceStart).toHaveBeenCalledTimes(1);
+    expect(annoyanceStart.mock.invocationCallOrder[0]).toBeLessThan(
+      cosmeticApply.mock.invocationCallOrder[0]
+    );
   });
 
   it("uses deferred re-sync after repeated failures", async () => {
@@ -100,5 +103,8 @@ describe("content background re-sync", () => {
     await flush();
     expect(cosmeticApply).toHaveBeenCalledTimes(1);
     expect(annoyanceStart).toHaveBeenCalledTimes(1);
+    expect(annoyanceStart.mock.invocationCallOrder[0]).toBeLessThan(
+      cosmeticApply.mock.invocationCallOrder[0]
+    );
   });
 });

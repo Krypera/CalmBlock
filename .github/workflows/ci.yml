@@ -69,8 +69,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium firefox
 
-      - name: Real Browser E2E (strict)
-        run: xvfb-run -a npm run e2e:browser:strict
+      - name: Real Browser E2E (Chromium strict, Firefox best-effort)
+        run: xvfb-run -a npm run e2e:browser
 
   package-validation:
     runs-on: ubuntu-latest

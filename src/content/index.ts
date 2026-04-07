@@ -19,8 +19,8 @@ function getHost(): string {
 
 function applyEffectiveState(enabled: boolean): void {
   if (enabled && !enginesActive) {
-    cosmeticEngine.apply();
     annoyanceEngine.start();
+    cosmeticEngine.apply();
     enginesActive = true;
     return;
   }
