@@ -41,5 +41,5 @@ Describe current behavior briefly.
 
 - Screenshot(s)
 - Network request examples
+- `triageBundle` from debug page (advanced mode)
 - Notes
-

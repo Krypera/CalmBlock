@@ -44,6 +44,9 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 - Advanced mode now gates debug/import/export behavior (not just link visibility) and debug page self-protects when advanced mode is off.
 - Popup reload hint behavior is now explicit: global toggle applies instantly, site-level toggle is reload-recommended.
 - Badge state now follows effective protection state (global + site) for more consistent feedback.
+- Rulesets are now generated via reproducible pipeline from source lists (`scripts/rules/sources/*.list`).
+- Site-breakage reporting now has dedicated template + debug triage bundle flow.
+- Docs page is now real project documentation (not a placeholder notice).
 
 ### Fixed
 

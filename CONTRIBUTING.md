@@ -52,6 +52,22 @@ At minimum, add or update tests when changing:
 
 Avoid flaky tests that depend on live third-party pages.
 
+## Site-breakage triage flow
+
+When reporting "this site broke", use this repeatable flow:
+
+1. Reproduce with CalmBlock enabled and note exact URL/host.
+2. Toggle CalmBlock off for that site and reload.
+3. If the breakage disappears, open `options -> debug` with advanced mode enabled.
+4. Copy the JSON `triageBundle` from the debug output.
+5. Open the "Site breakage report" issue template and include:
+   - repro steps
+   - expected vs actual behavior
+   - `triageBundle`
+   - screenshot/video if possible
+
+This keeps breakage reports actionable and avoids guesswork.
+
 ## Documentation expectations
 
 If behavior or scope changes, update:

@@ -41,3 +41,14 @@ What happened instead?
 - Console errors:
 - Additional notes:
 
+## Debug Triage Bundle (recommended for breakage reports)
+
+If this bug affects a specific site, include `triageBundle` from CalmBlock debug page:
+
+1. Enable advanced mode in settings
+2. Open debug page
+3. Copy `triageBundle` JSON
+
+```json
+{}
+```

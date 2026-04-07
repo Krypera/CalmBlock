@@ -102,8 +102,13 @@ Additional commands:
 - `src/popup`: fast controls for global/site behavior
 - `src/options`: groups, allowlist, import/export, advanced toggle
 - `src/shared`: stores, adapters, contracts, DNR helpers
-- `public/rules`: packaged DNR rules (`ads`, `trackers`, `annoyances`, `strict`)
+- `scripts/rules`: ruleset source lists + reproducible generation pipeline
+- `public/rules`: generated packaged DNR rules (`ads`, `trackers`, `annoyances`, `strict`)
 - `tests`: unit + content + integration-style tests
+
+Rules pipeline details:
+
+- [rules/README.md](./scripts/rules/README.md)
 
 ## Scope And Limitations
 
@@ -137,6 +142,7 @@ If you want to support sustainability, the support path is intentionally quiet a
 ## Contributing
 
 - [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [Site breakage issue template](./.github/ISSUE_TEMPLATE/site_breakage.md)
 - [ROADMAP.md](./ROADMAP.md)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [RELEASE_READINESS.md](./RELEASE_READINESS.md)

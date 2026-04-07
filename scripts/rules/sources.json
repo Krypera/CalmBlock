@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "updated": "2026-04-07",
+  "groups": [
+    {
+      "id": "ads",
+      "idBase": 1,
+      "description": "Ad network and ad delivery hosts curated for CalmBlock MVP.",
+      "sourceFile": "scripts/rules/sources/ads.list"
+    },
+    {
+      "id": "trackers",
+      "idBase": 1001,
+      "description": "Common analytics and tracking domains with cross-site behavior.",
+      "sourceFile": "scripts/rules/sources/trackers.list"
+    },
+    {
+      "id": "annoyances",
+      "idBase": 2001,
+      "description": "Known popup, push prompt, and consent management nuisance endpoints.",
+      "sourceFile": "scripts/rules/sources/annoyances.list"
+    },
+    {
+      "id": "strict",
+      "idBase": 3001,
+      "description": "Higher-friction strict privacy endpoints that may affect site compatibility.",
+      "sourceFile": "scripts/rules/sources/strict.list"
+    }
+  ]
+}

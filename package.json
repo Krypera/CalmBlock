@@ -12,6 +12,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit --pretty false",
+    "rules:build": "node scripts/build-rules.mjs",
     "build": "node scripts/build.mjs all",
     "build:chrome": "node scripts/build.mjs chrome",
     "build:firefox": "node scripts/build.mjs firefox",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/firefox-webext-browser": "^120.0.4",
+    "@types/node": "^22.19.17",
     "archiver": "^7.0.1",
     "esbuild": "^0.25.4",
     "jsdom": "^26.1.0",

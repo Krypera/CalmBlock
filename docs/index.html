@@ -3,62 +3,97 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CalmBlock</title>
+    <title>CalmBlock Docs</title>
     <style>
       :root {
-        --bg: #f3f8ff;
+        --bg: #f4f8fe;
         --surface: #ffffff;
-        --text: #1f2b38;
-        --muted: #5f7386;
-        --accent: #6aaef8;
+        --text: #1d2f43;
+        --muted: #5f758c;
+        --accent: #78b4ff;
       }
       body {
         margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+        font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+        background:
+          radial-gradient(circle at top right, rgba(214, 233, 255, 0.72), transparent 32%),
+          linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
         color: var(--text);
       }
       main {
-        max-width: 760px;
-        margin: 40px auto;
-        padding: 0 18px;
+        max-width: 880px;
+        margin: 34px auto;
+        padding: 0 18px 24px;
       }
       .card {
         background: var(--surface);
-        border-radius: 16px;
+        border-radius: 22px;
+        border: 1px solid rgba(153, 184, 219, 0.42);
         padding: 24px;
-        box-shadow: 0 10px 26px rgba(88, 120, 155, 0.14);
+        box-shadow: 0 20px 44px rgba(119, 150, 189, 0.14);
+        margin-bottom: 16px;
       }
-      h1 { margin: 0 0 8px; }
-      p { color: var(--muted); line-height: 1.55; }
+      h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -0.02em; }
+      h2 { margin: 0 0 8px; font-size: 1.15rem; }
+      p, li { color: var(--muted); line-height: 1.55; }
       a {
         color: #245e95;
         text-decoration: none;
         font-weight: 600;
       }
-      .pill {
+      ul {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+      .link-grid {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .chip {
         display: inline-block;
-        margin-top: 10px;
-        background: #e9f4ff;
-        color: #2c608f;
-        padding: 8px 12px;
+        background: #eaf3ff;
+        color: #2f5f89;
         border-radius: 999px;
-        font-size: 14px;
+        font-size: 13px;
+        padding: 6px 10px;
       }
     </style>
   </head>
   <body>
     <main>
       <section class="card">
-        <h1>CalmBlock</h1>
+        <h1>CalmBlock Documentation</h1>
         <p>Privacy-first content blocking with calm defaults. No telemetry, no analytics, no remote code.</p>
-        <p class="pill">Docs placeholder for future GitHub Pages</p>
-        <p>
-          Source of truth lives in
-          <a href="https://github.com/Krypera/CalmBlock">the repository README</a>.
-        </p>
+        <span class="chip">Manifest V3 / DNR-first / Open source</span>
+      </section>
+
+      <section class="card">
+        <h2>Start Here</h2>
+        <div class="link-grid">
+          <a href="https://github.com/Krypera/CalmBlock#install">Install and build</a>
+          <a href="https://github.com/Krypera/CalmBlock#development">Development commands</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/CONTRIBUTING.md">Contributing guide</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/ROADMAP.md">Roadmap</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/RELEASE_READINESS.md">Release readiness</a>
+          <a href="https://github.com/Krypera/CalmBlock/blob/main/SUPPORT.md">Support model</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Browser Notes</h2>
+        <ul>
+          <li>Chrome and Edge: full MV3 ruleset flow with optional live counter permission.</li>
+          <li>Firefox: same core protections and shared codebase, with DNR feedback capability varying by version.</li>
+          <li>When live counters are unavailable, blocking still works and UI shows fallback state clearly.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Site Breakage Reports</h2>
+        <p>Use advanced mode + debug page and include the `triageBundle` JSON in issue reports for reproducible analysis.</p>
+        <a href="https://github.com/Krypera/CalmBlock/issues/new/choose">Open issue templates</a>
       </section>
     </main>
   </body>
 </html>
-

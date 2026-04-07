@@ -9,7 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["firefox-webext-browser", "vitest/globals"]
+    "types": ["firefox-webext-browser", "vitest/globals", "node"]
   },
   "include": ["src", "tests", "scripts"]
 }

@@ -1,6 +1,5 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: Project Support
     url: https://github.com/Krypera/CalmBlock/blob/main/SUPPORT.md
     about: CalmBlock support model and sustainability notes.
-

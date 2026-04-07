@@ -23,18 +23,49 @@ async function render() {
   lockCard?.classList.add("hidden");
   debugPanel?.classList.remove("hidden");
 
-  const [allowlist, dynamicRules, enabledRulesets] = await Promise.all([
+  const [allowlist, dynamicRules, enabledRulesets, tabs] = await Promise.all([
     siteStore.getAllowlist(),
     webext?.declarativeNetRequest?.getDynamicRules?.() ?? Promise.resolve([]),
-    webext?.declarativeNetRequest?.getEnabledRulesets?.() ?? Promise.resolve([])
+    webext?.declarativeNetRequest?.getEnabledRulesets?.() ?? Promise.resolve([]),
+    webext?.tabs?.query?.({ active: true, currentWindow: true }) ?? Promise.resolve([])
   ]);
+  const activeTab = tabs[0];
+  const activeUrl = activeTab?.url ?? null;
+  const activeHost = (() => {
+    if (!activeUrl) {
+      return null;
+    }
+    try {
+      return new URL(activeUrl).hostname;
+    } catch {
+      return null;
+    }
+  })();
 
   const payload = {
+    generatedAt: new Date().toISOString(),
     target: BrowserAdapter.detectTarget(),
-    settings,
+    activeTab: {
+      url: activeUrl,
+      host: activeHost
+    },
+    settings: {
+      enabled: settings.enabled,
+      advancedMode: settings.advancedMode,
+      groups: settings.groups
+    },
     allowlist,
     dynamicRulesCount: dynamicRules.length,
-    enabledRulesets
+    enabledRulesets,
+    triageBundle: {
+      target: BrowserAdapter.detectTarget(),
+      activeHost,
+      globalEnabled: settings.enabled,
+      groups: settings.groups,
+      allowlist,
+      enabledRulesets,
+      dynamicRulesCount: dynamicRules.length
+    }
   };
 
   if (output) {

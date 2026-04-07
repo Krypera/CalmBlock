@@ -1,6 +1,7 @@
 import { build, context } from "esbuild";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { generateRulesets } from "./build-rules.mjs";
 
 const mode = process.argv[2] ?? "all";
 const watch = process.argv.includes("--watch");
@@ -9,6 +10,8 @@ const targets = mode === "all" ? ["chrome", "firefox"] : [mode];
 const baseManifest = JSON.parse(
   await readFile(resolve("scripts/manifest.base.json"), "utf8")
 );
+
+await generateRulesets();
 
 const entryPoints = {
   background: "src/background/index.ts",
