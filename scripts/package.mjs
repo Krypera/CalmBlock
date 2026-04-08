@@ -1,5 +1,5 @@
 import { createWriteStream } from "node:fs";
-import { mkdir, readFile, readdir, rm, stat } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, stat } from "node:fs/promises";
 import { resolve, relative } from "node:path";
 import { pathToFileURL } from "node:url";
 import archiver from "archiver";
@@ -22,17 +22,25 @@ for (const target of targets) {
   await mkdir(outputDir, { recursive: true });
 
   const outputZip = resolve(outputDir, `calmblock-${target}-v${version}.zip`);
+  const latestAliasZip = resolve(outputDir, `calmblock-${target}-latest.zip`);
   if (validateOnly) {
     await ensureExists(outputZip);
     await validateZipFile(outputZip, target);
+    await ensureExists(latestAliasZip);
+    await validateZipFile(latestAliasZip, `${target} latest-alias`);
     console.log(`Validated: ${outputZip}`);
+    console.log(`Validated: ${latestAliasZip}`);
     continue;
   }
 
   await rm(outputZip, { force: true });
+  await rm(latestAliasZip, { force: true });
   await zipDirectory(sourceDir, outputZip);
   await validateZipFile(outputZip, target);
+  await copyFile(outputZip, latestAliasZip);
+  await validateZipFile(latestAliasZip, `${target} latest-alias`);
   console.log(`Created: ${outputZip}`);
+  console.log(`Created: ${latestAliasZip}`);
 }
 
 async function ensureExists(path) {

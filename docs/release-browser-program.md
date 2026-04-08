@@ -42,6 +42,7 @@ Related documents:
 Rules for artifact lanes:
 
 - CalmBlock ships only two extension artifacts today: `chrome` and `firefox`.
+- Each tagged release should also publish stable direct-download aliases: `calmblock-chrome-latest.zip` and `calmblock-firefox-latest.zip`.
 - No browser-specific build target is created for Brave, Vivaldi, Opera, Arc, Yandex, LibreWolf, Waterfox, Floorp, or Zen.
 - Safari does not inherit support from the current `chrome` or `firefox` artifacts.
 - Orion validation starts with the `chrome` artifact, but `firefox` comparison remains part of promotion work when behavior is unclear.
@@ -269,8 +270,9 @@ Guidance:
 For each release candidate:
 
 1. Build the canonical `chrome` and `firefox` artifacts.
-2. Run Chromium and Firefox-family smoke checklists.
-3. Review Orion gate status and update pass history.
-4. Review Safari lane status and blockers.
-5. Update [release-browser-matrix.md](./release-browser-matrix.md).
-6. Confirm `RELEASE_READINESS.md`, `RELEASE_TEMPLATE.md`, and issue templates still match this program.
+2. Publish `calmblock-chrome-latest.zip` and `calmblock-firefox-latest.zip` alongside the versioned GitHub release assets.
+3. Run Chromium and Firefox-family smoke checklists.
+4. Review Orion gate status and update pass history.
+5. Review Safari lane status and blockers.
+6. Update [release-browser-matrix.md](./release-browser-matrix.md).
+7. Confirm `RELEASE_READINESS.md`, `RELEASE_TEMPLATE.md`, and issue templates still match this program.

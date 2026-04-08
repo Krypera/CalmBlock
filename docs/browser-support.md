@@ -22,6 +22,8 @@ Per-release certification records live in:
 
 - Chromium path: `calmblock-chrome-v<version>.zip`
 - Firefox path: `calmblock-firefox-v<version>.zip`
+- Stable Chromium direct-download alias: `calmblock-chrome-latest.zip`
+- Stable Firefox direct-download alias: `calmblock-firefox-latest.zip`
 
 No browser-specific build targets are created beyond `chrome` and `firefox`.
 

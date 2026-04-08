@@ -51,6 +51,7 @@ Browser notes:
 - Current maturity: support contract is defined, but `v0.1.1` still uses a pre-certification matrix template.
 - The single official package for all seven Chromium browsers is `calmblock-chrome-v<version>.zip`.
 - The single official package for the full Firefox family is `calmblock-firefox-v<version>.zip`, with Firefox as the reference target.
+- Direct GitHub release downloads use stable aliases so README links do not change every version: `calmblock-chrome-latest.zip` and `calmblock-firefox-latest.zip`.
 - Orion is a gated promotion lane: start with `chrome`, compare with `firefox` when behavior is unclear, and require two consecutive passing releases before Official status.
 - Safari is a separate workstream and needs its own Apple packaging, distribution, and review lane before it can become Official.
 - Operational source of truth: [docs/release-browser-program.md](./docs/release-browser-program.md)
@@ -62,6 +63,25 @@ Browser notes:
 - Safari workstream plan: [docs/safari-support.md](./docs/safari-support.md)
 - Safari smoke-test checklist: [docs/safari-smoke-checklist.md](./docs/safari-smoke-checklist.md)
 - UI i18n rollout plan: [docs/ui-i18n-plan.md](./docs/ui-i18n-plan.md)
+
+## Direct Downloads
+
+These links always point to the latest tagged GitHub release asset, not the current `main` branch.
+
+| Browser | Download |
+| --- | --- |
+| Chrome | [Download for Chrome](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Edge | [Download for Edge](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Brave | [Download for Brave](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Vivaldi | [Download for Vivaldi](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Opera | [Download for Opera](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Arc | [Download for Arc](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Yandex | [Download for Yandex](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-chrome-latest.zip) |
+| Firefox | [Download for Firefox](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-firefox-latest.zip) |
+| LibreWolf | [Download for LibreWolf](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-firefox-latest.zip) |
+| Waterfox | [Download for Waterfox](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-firefox-latest.zip) |
+| Floorp | [Download for Floorp](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-firefox-latest.zip) |
+| Zen | [Download for Zen](https://github.com/Krypera/CalmBlock/releases/latest/download/calmblock-firefox-latest.zip) |
 
 ## Install
 
@@ -77,12 +97,15 @@ npm run package:all
 Generated files:
 
 - `dist/packages/calmblock-chrome-v<version>.zip`
+- `dist/packages/calmblock-chrome-latest.zip`
 - `dist/packages/calmblock-firefox-v<version>.zip`
+- `dist/packages/calmblock-firefox-latest.zip`
 
 Then:
 
 - Official Chromium browsers (`Chrome`, `Edge`, `Brave`, `Vivaldi`, `Opera`, `Arc`, `Yandex`): unzip `calmblock-chrome-...zip`, then use `Load unpacked` on the extracted folder.
 - Official Firefox-family browsers (`Firefox`, `LibreWolf`, `Waterfox`, `Floorp`, `Zen`): unzip `calmblock-firefox-...zip`, then load `manifest.json` from `about:debugging#/runtime/this-firefox`.
+- If you are publishing a GitHub release, upload both the versioned zip files and the `*-latest.zip` aliases so the direct-download links above keep working.
 
 Safari note:
 

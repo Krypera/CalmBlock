@@ -25,6 +25,9 @@ Official release-blocking families:
 
 - [ ] Chromium family certified with `calmblock-chrome-v<version>.zip`
 - [ ] Firefox family certified with `calmblock-firefox-v<version>.zip`
+- [ ] Stable direct-download aliases published:
+  - [ ] `calmblock-chrome-latest.zip`
+  - [ ] `calmblock-firefox-latest.zip`
 
 Chromium family browsers:
 

@@ -10,6 +10,8 @@ The format loosely follows Keep a Changelog and semantic versioning intent.
 
 ### Added
 
+- Package output now includes stable direct-download aliases: `calmblock-chrome-latest.zip` and `calmblock-firefox-latest.zip`.
+- README now exposes browser-specific direct download links backed by stable GitHub release asset names.
 - CI now includes a separate `package-validation` job that builds zip packages and validates packaged outputs.
 - Rules pipeline now records richer metadata (`generatedAt`, `idRange`, `sourceDigest`, `changes`) for release tracking.
 - New regression tests for rules-builder validation and expanded content fixtures for cosmetic/annoyance behavior.

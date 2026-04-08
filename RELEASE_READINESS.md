@@ -49,6 +49,9 @@ Scope here is not browser-store submission. Scope is trust, maintainability, and
 - [ ] Per-release browser worksheet is updated in `docs/release-browser-matrix.md`
 - [ ] Chromium family is certified with one canonical artifact: `calmblock-chrome-v<version>.zip`
 - [ ] Firefox family is certified with one canonical artifact: `calmblock-firefox-v<version>.zip`
+- [ ] Stable direct-download aliases are published for the latest GitHub release:
+  - [ ] `calmblock-chrome-latest.zip`
+  - [ ] `calmblock-firefox-latest.zip`
 - [ ] Chromium smoke checklist completed for Chrome, Edge, Brave, Vivaldi, Opera, Arc, and Yandex
 - [ ] Firefox-family smoke checklist completed for Firefox, LibreWolf, Waterfox, Floorp, and Zen
 - [ ] Known differences and built-in blocker notes were reviewed against `docs/release-browser-program.md`

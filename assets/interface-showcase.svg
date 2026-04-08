@@ -1,96 +1,145 @@
-<svg width="1280" height="860" viewBox="0 0 1280 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1600" height="1040" viewBox="0 0 1600 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="860" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F7FBFF"/>
+    <linearGradient id="bg" x1="84" y1="36" x2="1512" y2="1012" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBFDFF"/>
       <stop offset="1" stop-color="#EDF5FF"/>
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="surface" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#FFFFFF"/>
       <stop offset="1" stop-color="#F8FBFF"/>
     </linearGradient>
-    <filter id="softShadow" x="0" y="0" width="1280" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#8FAFD0" flood-opacity="0.18"/>
+    <linearGradient id="surface-soft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCFEFF"/>
+      <stop offset="1" stop-color="#EEF5FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8FC4FF"/>
+      <stop offset="1" stop-color="#5F9FF2"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1600" height="1040" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#88A7CB" flood-opacity="0.16"/>
+    </filter>
+    <filter id="shadow-soft" x="0" y="0" width="1600" height="1040" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#91AFD1" flood-opacity="0.1"/>
     </filter>
   </defs>
 
-  <rect width="1280" height="860" fill="url(#bg)"/>
-  <circle cx="1120" cy="110" r="120" fill="#DFEEFF"/>
-  <circle cx="146" cy="726" r="170" fill="#DCEBFF"/>
-  <circle cx="964" cy="742" r="104" fill="#EAF4FF"/>
+  <rect width="1600" height="1040" fill="url(#bg)"/>
+  <circle cx="1422" cy="104" r="152" fill="#DDEBFF"/>
+  <circle cx="142" cy="886" r="182" fill="#DCEBFF"/>
+  <circle cx="1260" cy="900" r="104" fill="#E9F3FF"/>
 
-  <g filter="url(#softShadow)">
-    <rect x="88" y="118" width="388" height="624" rx="34" fill="url(#panel)"/>
+  <text x="96" y="96" fill="#163149" font-size="44" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700" letter-spacing="-1.2">README Interface Overview</text>
+  <text x="96" y="132" fill="#5A728B" font-size="20" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Current popup and settings surfaces, updated to match the live UI structure and copy.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="92" y="182" width="430" height="760" rx="36" fill="url(#surface)" stroke="rgba(153,184,219,0.42)"/>
   </g>
-  <text x="126" y="176" fill="#17324A" font-size="20" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Popup</text>
-  <text x="126" y="204" fill="#5A728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Fast controls for the current site</text>
+  <text x="126" y="238" fill="#17324A" font-size="22" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Popup</text>
+  <text x="126" y="268" fill="#5A728B" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Fast controls for the current site.</text>
 
-  <rect x="118" y="236" width="328" height="204" rx="24" fill="#FFFFFF"/>
-  <rect x="118" y="236" width="328" height="204" rx="24" stroke="#D9E8F8"/>
-  <text x="144" y="282" fill="#1C2B39" font-size="24" font-family="Segoe UI, Arial, sans-serif" font-weight="700">CalmBlock</text>
-  <text x="144" y="312" fill="#5E7389" font-size="13" font-family="Segoe UI, Arial, sans-serif">Strong privacy defaults, minimal fuss.</text>
+  <text x="126" y="326" fill="#1D2F43" font-size="33" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">CalmBlock</text>
+  <text x="126" y="354" fill="#5C738B" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Strong privacy defaults, minimal fuss.</text>
+  <rect x="126" y="372" width="164" height="34" rx="17" fill="#EEF5FF" stroke="rgba(153,184,219,0.34)"/>
+  <text x="208" y="394" text-anchor="middle" fill="#395B79" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Active host: example.com</text>
 
-  <text x="144" y="366" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Global protection</text>
-  <rect x="332" y="344" width="84" height="36" rx="18" fill="#76B4FF"/>
-  <circle cx="390" cy="362" r="14" fill="#FFFFFF"/>
+  <rect x="114" y="432" width="386" height="242" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  <rect x="130" y="450" width="354" height="84" rx="22" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <text x="154" y="483" fill="#1D2F43" font-size="16" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Global protection</text>
+  <text x="154" y="505" fill="#5C738B" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Core rules and calm cleanup</text>
+  <rect x="350" y="464" width="58" height="28" rx="14" fill="#DEECFF"/>
+  <text x="379" y="483" text-anchor="middle" fill="#29567D" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">On</text>
+  <rect x="420" y="460" width="52" height="32" rx="16" fill="url(#accent)"/>
+  <circle cx="449" cy="476" r="12" fill="#FFFFFF"/>
 
-  <text x="144" y="420" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">This site</text>
-  <rect x="332" y="398" width="84" height="36" rx="18" fill="#76B4FF"/>
-  <circle cx="390" cy="416" r="14" fill="#FFFFFF"/>
+  <rect x="130" y="548" width="354" height="84" rx="22" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <text x="154" y="581" fill="#1D2F43" font-size="16" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">This site</text>
+  <text x="154" y="603" fill="#5C738B" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Fast pause for the current host</text>
+  <rect x="324" y="562" width="84" height="28" rx="14" fill="#DEECFF"/>
+  <text x="366" y="581" text-anchor="middle" fill="#29567D" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Protected</text>
+  <rect x="420" y="558" width="52" height="32" rx="16" fill="url(#accent)"/>
+  <circle cx="449" cy="574" r="12" fill="#FFFFFF"/>
 
-  <text x="144" y="470" fill="#4F6982" font-size="14" font-family="Segoe UI, Arial, sans-serif">This site is currently protected.</text>
+  <text x="126" y="704" fill="#5C738B" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">This site is currently protected.</text>
 
-  <rect x="118" y="464" width="328" height="146" rx="24" fill="#FFFFFF"/>
-  <rect x="118" y="464" width="328" height="146" rx="24" stroke="#D9E8F8"/>
-  <text x="144" y="514" fill="#1E2D3B" font-size="16" font-family="Segoe UI, Arial, sans-serif">Blocked on this page</text>
-  <text x="394" y="516" text-anchor="end" fill="#19344C" font-size="34" font-family="Segoe UI, Arial, sans-serif" font-weight="700">23</text>
+  <rect x="114" y="726" width="386" height="146" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  <text x="140" y="766" fill="#1D2F43" font-size="16" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Blocked on this page</text>
+  <text x="140" y="790" fill="#5C738B" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Live counts for the current tab.</text>
+  <rect x="402" y="748" width="70" height="62" rx="20" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <text x="437" y="790" text-anchor="middle" fill="#16324A" font-size="32" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">23</text>
+  <rect x="140" y="820" width="74" height="30" rx="15" fill="#EEF5FF"/>
+  <text x="177" y="840" text-anchor="middle" fill="#2E5E88" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Ads</text>
+  <rect x="224" y="820" width="100" height="30" rx="15" fill="#EEF5FF"/>
+  <text x="274" y="840" text-anchor="middle" fill="#2E5E88" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Trackers</text>
+  <rect x="334" y="820" width="118" height="30" rx="15" fill="#EEF5FF"/>
+  <text x="393" y="840" text-anchor="middle" fill="#2E5E88" font-size="12" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Annoyances</text>
+  <text x="126" y="912" fill="#1D2F43" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">No telemetry. No accounts. No remote code.</text>
+  <text x="126" y="936" fill="#2E628E" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Open settings</text>
 
-  <rect x="144" y="542" width="70" height="36" rx="18" fill="#EEF5FF"/>
-  <text x="179" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Ads</text>
-  <rect x="226" y="542" width="92" height="36" rx="18" fill="#EEF5FF"/>
-  <text x="272" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Trackers</text>
-  <rect x="330" y="542" width="122" height="36" rx="18" fill="#EEF5FF"/>
-  <text x="391" y="565" text-anchor="middle" fill="#2E5E88" font-size="14" font-family="Segoe UI, Arial, sans-serif">Annoyances</text>
-
-  <text x="126" y="666" fill="#4B6984" font-size="13" font-family="Segoe UI, Arial, sans-serif">No telemetry. No analytics. No remote code.</text>
-  <text x="126" y="694" fill="#2F5D87" font-size="13" font-family="Segoe UI, Arial, sans-serif">Open settings</text>
-
-  <g filter="url(#softShadow)">
-    <rect x="524" y="146" width="668" height="564" rx="34" fill="url(#panel)"/>
+  <g filter="url(#shadow)">
+    <rect x="574" y="164" width="930" height="796" rx="38" fill="url(#surface)" stroke="rgba(153,184,219,0.42)"/>
   </g>
-  <text x="566" y="208" fill="#17324A" font-size="20" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Settings</text>
-  <text x="566" y="236" fill="#5A728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Simple defaults, clear controls.</text>
+  <text x="614" y="226" fill="#17324A" font-size="22" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Settings</text>
+  <text x="614" y="256" fill="#5A728B" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Ads, trackers, and browsing annoyances blocked quietly.</text>
 
-  <rect x="556" y="268" width="286" height="188" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
-  <text x="584" y="314" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Protection groups</text>
-  <text x="584" y="340" fill="#5B728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">Strong defaults, easy to understand.</text>
+  <g filter="url(#shadow-soft)">
+    <rect x="610" y="290" width="332" height="234" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  </g>
+  <text x="638" y="334" fill="#1D2F43" font-size="19" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Protection groups</text>
+  <text x="638" y="360" fill="#5F758C" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Simple defaults, clear controls.</text>
+  <rect x="638" y="384" width="276" height="38" rx="18" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <circle cx="660" cy="403" r="9" fill="#78B4FF"/>
+  <text x="682" y="408" fill="#1D2F43" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Ads</text>
+  <rect x="638" y="430" width="276" height="38" rx="18" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <circle cx="660" cy="449" r="9" fill="#78B4FF"/>
+  <text x="682" y="454" fill="#1D2F43" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Trackers</text>
+  <rect x="638" y="476" width="276" height="38" rx="18" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <circle cx="660" cy="495" r="9" fill="#78B4FF"/>
+  <text x="682" y="500" fill="#1D2F43" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Annoyances</text>
+  <rect x="786" y="384" width="128" height="38" rx="18" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <circle cx="808" cy="403" r="9" fill="#DCE8F6"/>
+  <text x="830" y="408" fill="#1D2F43" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Strict Privacy</text>
 
-  <circle cx="602" cy="374" r="9" fill="#6FB2FF"/>
-  <text x="626" y="380" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Ads</text>
-  <circle cx="602" cy="406" r="9" fill="#6FB2FF"/>
-  <text x="626" y="412" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Trackers</text>
-  <circle cx="602" cy="438" r="9" fill="#6FB2FF"/>
-  <text x="626" y="444" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Annoyances</text>
-  <circle cx="738" cy="374" r="9" fill="#D8E6F5"/>
-  <text x="762" y="380" fill="#1E2D3B" font-size="15" font-family="Segoe UI, Arial, sans-serif">Strict Privacy</text>
+  <g filter="url(#shadow-soft)">
+    <rect x="972" y="290" width="492" height="332" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  </g>
+  <text x="1000" y="334" fill="#1D2F43" font-size="19" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Allowlist</text>
+  <text x="1000" y="360" fill="#5F758C" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">One host per line. Example: example.com</text>
+  <rect x="1000" y="384" width="212" height="42" rx="14" fill="url(#surface-soft)" stroke="rgba(153,184,219,0.34)"/>
+  <text x="1016" y="411" fill="#5F758C" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Search saved hosts...</text>
+  <rect x="1224" y="384" width="212" height="42" rx="14" fill="url(#surface-soft)" stroke="rgba(153,184,219,0.34)"/>
+  <text x="1240" y="411" fill="#1D2F43" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Sort: newest first</text>
+  <rect x="1000" y="442" width="436" height="12" rx="6" fill="rgba(169,193,220,0.35)"/>
+  <rect x="1000" y="442" width="308" height="12" rx="6" fill="url(#accent)"/>
+  <rect x="1000" y="474" width="436" height="104" rx="24" fill="url(#surface-soft)" stroke="rgba(153,184,219,0.3)"/>
+  <text x="1022" y="507" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">docs.example</text>
+  <text x="1022" y="534" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">support.example</text>
+  <text x="1022" y="561" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">billing.example</text>
+  <text x="1000" y="604" fill="#5F758C" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">3 saved hosts. Browser-enforced coverage currently applies to 3/3.</text>
 
-  <rect x="874" y="268" width="286" height="188" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
-  <text x="902" y="314" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Allowlist</text>
-  <text x="902" y="340" fill="#5B728B" font-size="13" font-family="Segoe UI, Arial, sans-serif">One host per line. Example: example.com</text>
-  <rect x="902" y="362" width="230" height="64" rx="16" fill="#F5F9FF" stroke="#DCE8F6"/>
-  <text x="922" y="390" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">docs.example</text>
-  <text x="922" y="412" fill="#2F5F89" font-size="14" font-family="Consolas, Menlo, monospace">support.example</text>
-  <rect x="902" y="438" width="126" height="34" rx="17" fill="#76B4FF"/>
-  <text x="965" y="460" text-anchor="middle" fill="#16314A" font-size="14" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Save allowlist</text>
+  <g filter="url(#shadow-soft)">
+    <rect x="610" y="556" width="332" height="220" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  </g>
+  <text x="638" y="600" fill="#1D2F43" font-size="19" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Advanced</text>
+  <rect x="638" y="626" width="276" height="42" rx="18" fill="url(#surface-soft)" stroke="rgba(170,197,229,0.28)"/>
+  <circle cx="660" cy="647" r="9" fill="#78B4FF"/>
+  <text x="682" y="652" fill="#1D2F43" font-size="15" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Enable advanced mode</text>
+  <text x="638" y="694" fill="#5F758C" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Import/export and debug diagnostics are available only in advanced mode.</text>
+  <rect x="638" y="720" width="128" height="42" rx="21" fill="url(#surface-soft)" stroke="rgba(107,161,223,0.18)"/>
+  <text x="702" y="747" text-anchor="middle" fill="#16314A" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Export settings</text>
+  <rect x="778" y="720" width="128" height="42" rx="21" fill="url(#surface-soft)" stroke="rgba(107,161,223,0.18)"/>
+  <text x="842" y="747" text-anchor="middle" fill="#16314A" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Import settings</text>
 
-  <rect x="556" y="486" width="286" height="178" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
-  <text x="584" y="532" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Privacy guarantees</text>
-  <text x="584" y="566" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No telemetry</text>
-  <text x="584" y="594" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No analytics</text>
-  <text x="584" y="622" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">No accounts or cloud sync</text>
+  <g filter="url(#shadow-soft)">
+    <rect x="972" y="652" width="492" height="124" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  </g>
+  <text x="1000" y="696" fill="#1D2F43" font-size="19" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Permissions</text>
+  <text x="1000" y="724" fill="#1D2F43" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">declarativeNetRequest for local rules, storage for settings, tabs for fast site controls.</text>
+  <text x="1000" y="748" fill="#5F758C" font-size="13" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">Live counters stay optional and fall back clearly when feedback is unavailable.</text>
 
-  <rect x="874" y="486" width="286" height="178" rx="24" fill="#FFFFFF" stroke="#D9E8F8"/>
-  <text x="902" y="532" fill="#1E2D3B" font-size="18" font-family="Segoe UI, Arial, sans-serif" font-weight="700">Permissions</text>
-  <text x="902" y="566" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">declarativeNetRequest for local blocking</text>
-  <text x="902" y="594" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">storage for local settings and allowlist</text>
-  <text x="902" y="622" fill="#1E2D3B" font-size="14" font-family="Segoe UI, Arial, sans-serif">tabs for the current-site toggle</text>
+  <g filter="url(#shadow-soft)">
+    <rect x="610" y="808" width="854" height="114" rx="28" fill="#FFFFFF" stroke="rgba(153,184,219,0.36)"/>
+  </g>
+  <text x="638" y="850" fill="#1D2F43" font-size="19" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif" font-weight="700">Privacy guarantees</text>
+  <text x="638" y="878" fill="#1D2F43" font-size="14" font-family="Aptos, 'Segoe UI Variable Text', 'Segoe UI', sans-serif">No telemetry. No analytics. No remote logging. No accounts or cloud sync. No remote code execution.</text>
 </svg>
